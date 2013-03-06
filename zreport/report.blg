@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: report.aux
+The style file: plain.bst
+Database file #1: biblio.bib
+Warning--I didn't find a database entry for "MEEP_TUTORIAL"
+You've used 2 entries,
+            2118 wiz_defined-function locations,
+            510 strings with 4515 characters,
+and the built_in function-call counts, 720 in all, are:
+= -- 60
+> -- 56
+< -- 0
++ -- 22
+- -- 20
+* -- 52
+:= -- 136
+add.period$ -- 7
+call.type$ -- 2
+change.case$ -- 14
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 24
+empty$ -- 45
+format.name$ -- 20
+if$ -- 141
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 4
+newline$ -- 13
+num.names$ -- 4
+pop$ -- 22
+preamble$ -- 1
+purify$ -- 14
+quote$ -- 0
+skip$ -- 13
+stack$ -- 0
+substring$ -- 10
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 4
+width$ -- 3
+write$ -- 23
+(There was 1 warning)
