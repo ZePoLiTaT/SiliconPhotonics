@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.28)  5 MAR 2013 08:15
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.28)  7 MAR 2013 07:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -404,29 +404,26 @@ File: uni-0.def 2012/04/20 UCS: Unicode data U+0000..U+00FF
 <figs/rr_model.jpg, id=8, 420.82219pt x 502.87875pt>
 File: figs/rr_model.jpg Graphic file (type jpg)
  <use figs/rr_model.jpg>
-Package pdftex.def Info: figs/rr_model.jpg used on input line 12.
+Package pdftex.def Info: figs/rr_model.jpg used on input line 18.
 (pdftex.def)             Requested size: 172.5pt x 206.13557pt.
 
 <figs/rr_n1.jpg, id=9, 431.36156pt x 507.39563pt>
 File: figs/rr_n1.jpg Graphic file (type jpg)
  <use figs/rr_n1.jpg>
-Package pdftex.def Info: figs/rr_n1.jpg used on input line 34.
+Package pdftex.def Info: figs/rr_n1.jpg used on input line 43.
 (pdftex.def)             Requested size: 172.5pt x 202.90045pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[1 <./figs/rr_model.jpg>] <figs/rr_n2.jpg, id=20, 423.08063pt x 502.12593pt>
+[1 <./figs/rr_model.jpg>] [2 <./figs/rr_n1.jpg>]
+<figs/rr_n2.jpg, id=25, 423.08063pt x 502.12593pt>
 File: figs/rr_n2.jpg Graphic file (type jpg)
-
-<use figs/rr_n2.jpg>
-Package pdftex.def Info: figs/rr_n2.jpg used on input line 63.
+ <use figs/rr_n2.jpg>
+Package pdftex.def Info: figs/rr_n2.jpg used on input line 97.
 (pdftex.def)             Requested size: 172.5pt x 204.7237pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2 <./figs/rr_n1.jpg>]) (./c1_meep.tex
+[3 <./figs/rr_n2.jpg>]) (./c1_meep.tex [4]
 (/usr/local/share/texmf/tex/latex/scheme-listings-master/lstlang0.sty)
 Overfull \hbox (31.00003pt too wide) in paragraph at lines 15--15
 [][][][][][][] 
@@ -436,36 +433,36 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 15.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-(./sources/c1_meep_s1.ctl [3 <./figs/rr_n2.jpg>])
+(./sources/c1_meep_s1.ctl)
 Overfull \hbox (71.0547pt too wide) in paragraph at lines 30--44
  [][] 
  []
 
 
-Package natbib Warning: Citation `MEEP_TUTORIAL' on page 4 undefined on input l
+Package natbib Warning: Citation `MEEP_TUTORIAL' on page 5 undefined on input l
 ine 50.
 
-
+[5]
 Overfull \hbox (31.00003pt too wide) in paragraph at lines 55--55
 [][][][][][][] 
  []
 
-[4] (./sources/c1_meep_s2.ctl)
+(./sources/c1_meep_s2.ctl)
 
-LaTeX Warning: Reference `sc:s1_lumerical' on page 5 undefined on input line 59
+LaTeX Warning: Reference `sc:s1_lumerical' on page 6 undefined on input line 59
 .
 
-<figs/notch_v2.jpg, id=35, 765.6103pt x 565.36218pt>
+<figs/notch_v2.jpg, id=42, 765.6103pt x 565.36218pt>
 File: figs/notch_v2.jpg Graphic file (type jpg)
  <use figs/notch_v2.jpg>
 Package pdftex.def Info: figs/notch_v2.jpg used on input line 73.
-(pdftex.def)             Requested size: 310.4979pt x 229.28961pt.
+(pdftex.def)             Requested size: 345.0pt x 254.76431pt.
 )
-(./report.bbl [5] [6 <./figs/notch_v2.jpg>])
+(./report.bbl [6] [7 <./figs/notch_v2.jpg>])
 
 Package natbib Warning: There were undefined citations.
 
-[7
+[8
 
 ] (./report.aux)
 
@@ -473,32 +470,36 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 7327 strings out of 495059
- 105938 string characters out of 3182030
- 197794 words of memory out of 3000000
- 10386 multiletter control sequences out of 15000+200000
- 10799 words of font info for 39 fonts, out of 3000000 for 9000
+ 7349 strings out of 495059
+ 106320 string characters out of 3182030
+ 199092 words of memory out of 3000000
+ 10407 multiletter control sequences out of 15000+200000
+ 11134 words of font info for 40 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 45i,10n,52p,396b,1958s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/courier/ucrr8a.pfb>
-Output written on report.pdf (8 pages, 399016 bytes).
+ 45i,10n,52p,396b,1427s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/zepolitat/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a
+.pfb>
+Output written on report.pdf (9 pages, 428990 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 116 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
