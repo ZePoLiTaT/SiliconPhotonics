@@ -1,16 +1,44 @@
 \input{headers/header}
+\makeindex
 
 \begin{document}
-    \input{pagetitle}
-    
+\input{pagetitle}
+
+%\frontmatter
+    \cleardoublepage
+    %\phantomsection
+
+    \input{dedication.tex}
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    \lstlistoflistings    
+
+%\mainmatter 
+    \chapter{Definición de la Investigación}
+    \input{c00_research_structure}    
+ 
     \chapter{Silicon Photonics}
-    %\input{c1_Maxwell}
+    \label{ch:intro}
+    
+    \input{c0_introduction}
+    \input{c0_maxwell}
     %\input{c1_devices}
     %\input{fdtd}
+    
+    \chapter{Caracterización de Anillos Resonadores}
+    \label{ch:rr}
+
+    \input{c1_introduction}
     \input{c1_notch_theory}
-    \input{c1_meep}
+    \input{c1_simulation}
 
     \chapter{Redes de Interconexión}
+
+\appendix
+    \chapter{Scripts}
+    \label{ch:rr_scripts}
+    \input{an_scripts.tex}
 
     \bibliographystyle{plain}
     \bibliography{biblio}

@@ -1,17 +1,26 @@
 \documentclass{report}
-%----------------------------------------------------------------------------------------
-\usepackage{listings} % Required for inserting code snippets
+
+ % Required for inserting code snippets
+\usepackage{listings}
 \usepackage{textcomp}
-%\usepackage[spanish]{babel}   % English language/hyphenation
+%\usepackage[spanish]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{natbib}
 
-\usepackage[usenames,dvipsnames]{color} % Required for specifying custom colors and referring to colors by name
+\usepackage[usenames,dvipsnames]{color} 
 %\usepackage{pkgs/codesnippet}
 \usepackage{pkgs/elegantsinppet}
+
+%usepackage{eso-pic}
+%\AddToShipoutPicture{
+%    \includegraphics[width=0.3\textwidth,natwidth=413,natheight=406]{figs/logo.png}}
 
 \definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
 \definecolor{highlight}{RGB}{255,251,204} % Code highlight color
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+\newenvironment{dedication}
+    {\vspace{6ex}\begin{quotation}\begin{center}\begin{em}}
+    {\par\end{em}\end{center}\end{quotation}}

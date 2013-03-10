@@ -1,6 +1,23 @@
 % The first argument is the script location/filename and the second is a caption for the listing
-\section{Código MEEP}
-\label{sc:c1_meep}
+\subsection{Meep}
+\label{ss:c1_meep}
+
+Meep es un software desarrollado en el Massachusetts Institute of Technology - MIT
+que implementa el método FDTD. 
+Su nombre es un acrónimo que proviene de las iniciales de 
+“MIT Electromagnetic Equation Propagation” y cuenta con las siguientes características:
+
+\begin{itemize}
+\item Simulación 1D, 2D, 3D
+\item Soporte MPI
+\item Fronteras Absorción  PML 
+\item Scripts  en Scheme (*.ctl)
+\item Scripts en C++
+\item Análisis de flujos, frec, energía ...
+\item Licencia GNU/GPL
+\end{itemize} 
+
+\subsubsection{Filtro Notch}
 
 El código está dividido en X secciones en cada una de las cuales se define: 
 \begin{enumerate}
@@ -11,7 +28,7 @@ El código está dividido en X secciones en cada una de las cuales se define:
 \item Tiempos y salidas de la simulación.
 \end{enumerate} 
 
-\subsection{Parámetros}
+\subsubsection{Parámetros}
 \insertelegantcode{"sources/c1_meep_s1.ctl"}{Parámetros Filtro Notch.} 
 En esta sección de código (Ver Listing \ref{"sources/c1_meep_s1.ctl"}) 
 se especifican los parámetros necesarios para la ejecución de los programas. 
@@ -46,7 +63,7 @@ $freq_width$ &	Ancho del pulso de la fuente (en frecuencia) &	$\frac{1}{wavecen-
 \end{table}
 
 
-\subsection{Materiales y Geometría}
+\subsubsection{Materiales y Geometría}
 Como se aconseja en \cite{MEEP_TUTORIAL} el tamaño del látice a simular se calcula 
 de forma dinámica a partir de los parámetros del radio, ancho de la guía de onda, 
 espacio de holgura y el borde PML (Ver Listing \ref{"sources/c1_meep_s2.ctl"}). 
@@ -74,4 +91,4 @@ Finalmente, se indicó una resolución de
 \label{fig:notch_geometry}
 \end{figure}
 
-\subsection{Fuente de Onda Electromagnética} 
+\subsubsection{Fuente de Onda Electromagnética} 

@@ -1,0 +1,144 @@
+\section{Resumen}
+Las tendencias actuales de los procesadores muestran que en un periodo corto de tiempo, 
+alcanzaremos los cientos de núcleos en un solo chip. 
+A medida que la cantidad de estos núcleos aumenta, los requerimientos de ancho de banda 
+de las redes de interconexión que permiten la comunicación interna entre estos y 
+hacia la memoria, se incrementa. A medida que se incrementa el ancho de banda en 
+sistemas de interconexión electrónicos, la latencia y la disipación de poder, 
+se ven impactadas considerablemente, por lo que dicha solución se vuelve no viable.
+
+La fusión del campo de la fotónica con la nanotecnología denominado 
+nanofotónica, ha permitido el desarrollo de dispositivos
+basados en silicio de altas prestaciones y bajo consumo, ya que pueden 
+ser producidos usando las técnicas ya existentes de manufacturación de semiconductores, 
+y gracias a que el silicio actualmente es utilizado como el componente base 
+en la mayoría de circuitos, es posible crear dispositivos híbridos en los cuales 
+se integran componentes tanto electrónicos como ópticos en un solo microchip. 
+Tomando en cuenta estos últimos avances, las redes de interconexión ópticas 
+en un chip o NoCs nano ópticas sobre silicio, ya ha sido conceptualizada, 
+permitiendo superar las actuales limitaciones de su equivalente electrónico 
+en los chips de multiprocesamiento o CMP.
+
+En este proyecto se pretende explorar y evaluar diferentes diseños de 
+arquitecturas que permitan analizar el impacto de las NoCs ópticas en 
+las futuras generaciones de CMPs, ya que son de vital importancia para 
+lograr el aumento en el rendimiento manteniendo al mismo tiempo la eficiencia 
+en elconsumo de potencia.
+
+Al finalizar, se tendrán los análsis comparativos en términos de ancho de banda, 
+potencia y latencia de algunas de las redes de interconexión más conocidas 
+sobre diferentes conjuntos de pruebas. La aplicación de este conocimiento 
+científico orientado al área de arquitectura de computadores y a la nanotecnología, 
+permitirá la creación de nuevos diseños que aporten a la solución de los
+problemas de rendimiento vs potencia, apuntando a mejorar la competitividad 
+nacional mediante la generación de producción intelectual en dicho aspecto.
+
+\section{Planteamiento del Problema}
+Las redes de interconexión electrónicas, tienen un impacto directo en 
+la limitación de potencia, ancho de banda y latencia de los
+chips multiprocesadores (CMPs) actuales. 
+Estas limitaciones sumadas a la inhabilidad de escalar eficientemente a cientos de
+núcleos, la presenta como una solución poco viable a largo plazo.
+
+
+\section{Justificación}
+Para lograr escalar eficientemente los sistemas de multiprocesamiento, las tecnologías 
+actuales deben superar grandes dificultades, tanto en la complejidad adicional 
+que representa la programación en paralelo, las limitaciones de ancho de banda y en la
+minimización de la cantidad de potencia que es desperdiciada en el sistema de comunicación. 
+En esta última en especial, se evidencia el límite al que están llegando las 
+tecnologías electrónicas actuales, al consumir casi la mitad \ref{} de la potencia dinámica
+de todo el sistema, haciendo de vital importancia la exploración de otras alternativas.
+
+El empleo de la tecnología de punta que usa la nanofotónica sobre silicio, 
+se presenta como una solución prometedora a este
+problema, ya que no solo permite el flujo de grandes cantidades de 
+datos en una misma línea de transmisión, sino que tiene una facilidad de 
+integración con la microelectrónica actual manteniendo al mismo tiempo los 
+bajos costes de fabricación, gracias a que se pueden reutilizar las técnicas 
+de manufactura de semiconductores tradicionales. Es por esto que el tema es foco de
+investigación no solo de grandes compañías microelectrónicas (Intel, IBM, HP, etc) 
+sino también de la comunidad académica (Columbia, Purdue, MIT entre otras), 
+quienes han logrado demostrar experimentalmente las piezas fundamentales que 
+permitirían su materialización en un futuro no muy lejano.
+
+Para lograr este objetivo, se debe permitir primero a los arquitectos de computadores, 
+a través de la simulación, explorar de forma ágil nuevos diseños de arquitecturas 
+de interconexión y evaluar el rendimiento holístico a través de mediciones 
+precisas en los aspectos de capacidad de procesamiento, consumo de potencia y escalabilidad.
+
+Por otro lado, y aunque de forma relativamente reciente, también se ha destacado 
+la importancia del fortalecimiento y aplicación de este tipo de tecnologías convergentes 
+en el contexto nacional. En 2004, la nanotecnología fue reconocida por Colciencias como
+una de las 8 áreas estratégicas del conocimiento para impulsar el desarrollo 
+competitivo del país. En el documento "Visión Colombia II Centenario: 2019" 
+se confirma la continuidad del apoyo institucional y financiero 
+a las iniciativas relacionadas con dichas áreas. 
+Finalmente, es mencionada también dentro del 
+"Plan Nacional de Desarrollo Científico, Tecnológico y de Innovación 2007-2019" 
+de Colciencias y el Departamento Nacional de Planeación, 
+como un área perteneciente a la "Nueva Ciencia" y "Tercera Revolución Industrial" 
+en donde se debe disminuir la brecha tecnológica con respecto a otros países.
+
+\section{Revisión Bibliográfica}
+\subsection*{Antecedentes}
+
+\section{Objetivos}
+\subsection{Objetivo General}
+Simular y evaluar redes de interconexión nanofotónicas híbridas 
+sobre silicio para chips multiprocesadores.
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+\item Caracterizar los componentes básicos de las redes nanofotónicas sobre silicio.
+\item Explorar las topologías de interconexión más usadas en los CMPs electrónicos actuales.
+\item Mapear las topologías de interconexión del dominio electrónico al dominio nanofotónico híbrido sobre silicio.
+\item Simular cada una de las topologías en los dominios electrónico y nanofotónico híbrido sobre silicio.
+\item Evaluar y comparar las redes en términos de ancho de banda, latencia y potencia.
+\end{itemize} 
+
+\section{Hipótesis}
+¿Son las redes de interconexión nanofotónicas híbridas para las
+topologías Mesh y Torus más eficientes en términos de consumo de potencia,
+ancho de banda y latencia que sus pares electrónicos?
+
+\section{Metodología}
+Este proyecto se plantea como una investigación aplicada donde se busca 
+encontrar soluciones del estado del arte en el área de arquitectura de 
+computadores para la problemática del consumo de recursos de las redes de 
+interconexión electrónicas actuales en los chips multiprocesadores. 
+
+Resulta entonces conveniente la utilización de una metodología estructural, 
+dividiendo la investigación en cuatro fases que dan solución a la 
+problemática propuesta:
+
+\begin{itemize}
+\item Fase 0: Base Teórica
+En esta etapa se hace un estudio de los fundamentos teóricos tanto físicos
+como matemáticos que rigen el comportamiento de los dispositivos que soportan
+los componentes que forman una red de interconexión nanofotónica sobre silicio. 
+
+\item Fase 1: Caracterización de los componentes pasivos y activos de las redes nanofotónicas. 
+Es necesario analizar el comportamiento, las técnicas de manufactura y 
+los requisitos de funcionamiento de los siguientes componentes nanofotónicos sobre 
+silicio: guías de onda recta, guías de onda dobladas, cruces de guía de onda 
+y resonadores en anillo, así como las simulaciones corespondientes de cada elemento 
+para diferentes longitudes de onda y potencia de entrada.
+
+En esta etapa, se hará uso del software CAD para el diseño y simulación que se ejecutará 
+sobre un servidor especializado para este propósito. 
+
+\item Fase 2: Análisis de Topologías de Interconexión
+Análisis y la exploración de las topologías de interconexión electrónicas 
+actuales que se desean evaluar en el alcance de este proyecto: Mesh y Torus 
+en el dominio de los CMPs.
+Una vez obtenida la información de las topologías en el dominio electrónico, 
+se debe proceder a hacer el análisis del correspondiente mapeo de dichas topologías 
+al dominio nanofotónico teniendo en cuenta las restricciones o 
+ventajas de los componentes nanofotónicos pasivos y activos estudiados en la etapa
+anterior. 
+
+\item Fase 3: Simulación 
+
+\end{itemize} 
+
