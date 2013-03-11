@@ -19,7 +19,7 @@ Su nombre es un acrónimo que proviene de las iniciales de
 
 \subsubsection{Filtro Notch}
 
-El código está dividido en X secciones en cada una de las cuales se define: 
+El código está dividido en 5 secciones en cada una de las cuales se define: 
 \begin{enumerate}
 \item Parámetros de la simulación.
 \item Materiales y geometría a simular.
@@ -64,14 +64,20 @@ $freq_width$ &	Ancho del pulso de la fuente (en frecuencia) &	$\frac{1}{wavecen-
 
 
 \subsubsection{Materiales y Geometría}
-Como se aconseja en \cite{MEEP_TUTORIAL} el tamaño del látice a simular se calcula 
+
+En esta sección se emplearon algunos de los parámetros definidos en
+la tabla \ref{tb:meep_params} para construir la geometría del filtro como se ve en
+la figura \ref{fig:notch_geometry}.
+
+Como se aconseja en \cite{MassachusettsInstituteofTechnology} 
+el tamaño del látice a simular se calcula 
 de forma dinámica a partir de los parámetros del radio, ancho de la guía de onda, 
 espacio de holgura y el borde PML (Ver Listing \ref{"sources/c1_meep_s2.ctl"}). 
 %TODO Referencia Tutorial MEEP%
 
 \insertelegantcode{"sources/c1_meep_s2.ctl"}{Geometría y Materiales Filtro Notch.} 
 Silicon Photonics utiliza, como su nombre lo indica, silicio como medio para la propagación de ondas electromagnéticas en el espectro C-Band . 
-Por lo tanto, para la longitud de onda de 1500 nm, el índice de refracción del silicio corresponde a 3.4765 (\cite{bass2009handbook}). 
+Por lo tanto, para la longitud de onda de 1500 nm, el índice de refracción del silicio corresponde a 3.4765 \cite{bass2009handbook}. 
 Adicionalmente, al ser una simulación en 2D, el material que rodea la guía recta y circular es el aire cuyo índice de refracción es 1. 
 La base de dioxido de silicio SiO2 sobre la cual está montada la guía, sólo se tomó en cuenta para la simulación 3D (sección \ref{ss:lumerical}).
 
@@ -80,11 +86,11 @@ La base de dioxido de silicio SiO2 sobre la cual está montada la guía, sólo s
 
 La guía de onda se especifica como un rectángulo de Si, mientras que la estructura del anillo se construye a partir de la superposición de un cilindro externo de silicio y un cilindro interno de aire. 
 Las dos estructuras están separadas en su punto más cercano por una distancia 
-de 100nm como se muestra en la Figura \ref{fig:notch_geometry}.
+definida por el parámetro $gap = 100nm$.
 
 Finalmente, se indicó una resolución de 
 
-\begin{figure}
+\begin{figure}[h!]
 \caption{Geometría Filtro Notch.}
 \centering
 \includegraphics[width=1.0\textwidth,natwidth=892,natheight=663]{figs/notch_v2.jpg}
@@ -92,3 +98,13 @@ Finalmente, se indicó una resolución de
 \end{figure}
 
 \subsubsection{Fuente de Onda Electromagnética} 
+
+\subsubsection{Resultados}
+
+\begin{figure}[h!]
+\caption{Transmitancia Filtro Notch}
+\centering
+\includegraphics[width=1.0\textwidth,natwidth=1200,natheight=900]{figs/gausrc_flux_mod-graph_res80.png}
+\label{fig:meep_res_n}
+\end{figure}
+

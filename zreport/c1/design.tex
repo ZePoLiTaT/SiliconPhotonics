@@ -54,8 +54,8 @@ Despejando $L$ partir de (\ref{eq:fsr}) y sustituyendo los parámetros
 \begin{align*}
 L=\frac{\lambda_0^2}{n_g FSR} 
 &=\frac{1550e-9}{4.8 \times 25.6e-9}
- =19.5e-6  \\ %\label{eq:lum_l} \\
-R &= \frac{L}{2 \pi} = 3.1 %\label{eq:lum_r}
+ =19.5 \mu m  \\ %\label{eq:lum_l} \\
+R &= \frac{L}{2 \pi} = 3.1 \mu m  %\label{eq:lum_r}
 \end{align*}
 
 \subsubsection{Coeficiente de transmisión y acoplamiento} 
@@ -76,11 +76,19 @@ Y remplazando la configuración dada en la tabla \ref{tb:lum_params}:
 \label{eq:lum_t}
 \end{equation*}
 
-El valor de $\kappa$ se obtiene despejando (\ref{eq:eq:energy_conserv}):
+El valor de $\kappa$ se obtiene despejando (\ref{eq:energy_conserv}):
 
 \begin{equation}
 |\kappa|=\sqrt{1 - |t|^2} \approx 0.301
 \label{eq:lum_k}
 \end{equation} 
 
+\subsubsection{Transmitancia}
 
+De (\ref{eq:energy_conserv}) y (\ref{eq:T_d}) y teniendo en cuenta 
+las consideraciones de la tabla \ref{tb:lum_params} se tiene:
+
+\begin{equation}
+T_d=\frac{|\kappa^4|}{|1 - t^2 e^{j \beta L}|^2}
+\label{eq:lum_Td}
+\end{equation} 
