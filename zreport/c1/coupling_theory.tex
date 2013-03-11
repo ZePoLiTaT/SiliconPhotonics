@@ -3,24 +3,49 @@
 
 \subsection{Modelo Teórico de Anillo Resonador}
 
-En la figura \ref{fig:rr_model} se muestra el esquema del caso genérico de un anillo resonador con 2 regiones de acoplamiento representadas por las líneas punteadas. 
+En la figura \ref{fig:rr_model} se muestra el esquema del caso genérico de 
+un anillo resonador con 2 regiones de acoplamiento representadas 
+por las líneas punteadas. 
 Por simplicidad, el modelo asume que no hay pérdidas por 
 acoplamiento (\ref{eq:energy_conserv}) y se ignoran los efectos de reflexión 
 dentro de la guía (sólo se asumen ondas en el sentido de la propagación). 
+El modelamiento teórico es muy similar al resonador Fabry-Perot descrito en
+\cite{verdeyen1989laser}.
 
-Cada región tiene asociados 
-coeficientes de acoplamiento $(\kappa_1,\kappa_1^{'}\kappa_2\kappa_2^{'})$ y
-coeficientes de transmisión $(t_1, t_1^{'}, t_2, t_2^{'})$ que posteriormente
-serán relacionados entre si (sección \ref{ss:params_relation}).
+Cada región del anillo tiene asociados unos parámetros principales que definen su 
+comportamiento. Estos son:
+\begin{itemize}
+\item Coeficientes de acoplamiento $(\kappa_1,\kappa_1^{'}\kappa_2\kappa_2^{'})$,
+\item Coeficientes de transmisión $(t_1, t_1^{'}, t_2, t_2^{'})$ (en la sección 
+\ref{ss:params_relation} se verá la relación que existe entre los 8 coeficientes). 
+\item Constante de propagación $\beta$ del modo circulante. 
+\begin{equation}
+\beta=\frac{2 \pi}{\lambda} n_{eff}
+\label{eq:beta}
+\end{equation} 
+Valor complejo donde $\Re\{\beta$\} es la constante de fase 
+y $\Im\{\beta$\} representa las pérdidas por propagación
+dentro del anillo.
+\item Radio $r$ y perímetro $(L=2 \pi r)$ del anillo.
+\end{itemize} 
 
 
 \begin{figure}[h!]
 \caption{Modelo de un Anillo Resonador}
 \centering
-\includegraphics[width=0.5\textwidth,natwidth=559,natheight=668]{figs/rr_model.jpg}
+\includegraphics[width=0.7\textwidth,natwidth=396,natheight=495]{figs/rr_model.PNG}
 \label{fig:rr_model}
 \end{figure} 
 
+Para que el dispositivo entre en resonancia, el desfase de la onda después de un viaje
+completo al rededor del anillo debe ser un múltiplo entero de $2 \pi$
+
+\begin{equation}
+\beta L = 2 \pi M
+\label{eq:resonant_condition}
+\end{equation} 
+ 
+Donde $M$ es llamado el número de modo (Figura \ref{fig:resonant_modes}). 
 
 La potencia de la onda que se ve en el $puerto_t$ está dada por la porción de la onda incidente
 que atravieza la guía más las $N\to\infty$ contribuciones que se dan por la otra parte de la
@@ -30,27 +55,26 @@ acoplada antes de volver a salir a la guía superior.
 
 
 \begin{equation}
-E_t = E_i t_1 + Contrib_{N=1L} + Contrib_{N=2L} + ... + Contrib_{N=\infty L}
+E_t = E_i t_1 + Contrib_{M=1L} + Contrib_{M=2L} + ... + Contrib_{M=\infty L}
 \label{eq:coupling_gral}
 \end{equation} 
 
 \begin{itemize}
-\item Contribución después de una vuelta: $Contrib_{N=1L}$
+\item Contribución después de una vuelta: $Contrib_{M=1L}$
 \end{itemize} 
 
 
 \begin{figure}[h!]
 \caption{Contribución Onda 1 Vuelta}
 \centering
-\includegraphics[width=0.5\textwidth,natwidth=573,natheight=674]{figs/rr_n1.jpg}
+\includegraphics[width=0.7\textwidth,natwidth=397,natheight=490]{figs/rr_n1.PNG}
 \label{fig:rr_n1}
 \end{figure} 
 
 El fasor escalar $\alpha e^{-j \beta L}$ contiene la información sobre la amplitud de
 la atenuación debido a efectos de dispersión y a la curvatura de la onda 
 ($\alpha=1$ si no hay pérdida)
-y la fase de la onda que ha recorrido una distancia L, 
-donde L representa el perímetro ($2 \pi r$) del anillo con radio $r$. 
+y la fase de la onda que ha recorrido una distancia L. 
 Por lo tanto, al dar una vuelta ($1L$), la propagación de la onda queda expresada como 
 $\alpha e^{-j \beta L}$.
 
@@ -69,12 +93,12 @@ Teniendo en cuenta cada una de estas atenuaciones más el fasor que expresa la p
 de la onda, se llega a (\ref{eq:coupling_round_1}).
 
 \begin{equation}
-Contrib_{N=1L} = E_i \alpha e^{-j \beta L} \kappa_1 t_2^{'} \kappa_1^{'}
+Contrib_{M=1L} = E_i \alpha e^{-j \beta L} \kappa_1 t_2^{'} \kappa_1^{'}
 \label{eq:coupling_round_1}
 \end{equation} 
 
 \begin{itemize}
-\item Contribución después de dos vueltas: $Contrib_{N=2L}$
+\item Contribución después de dos vueltas: $Contrib_{M=2L}$
 \end{itemize} 
 
 Se analizará la parte de la onda que no se reintegró a la guía recta tras la primera vuelta
@@ -98,12 +122,12 @@ su generalización posterior.
 \begin{figure}[h!]
 \caption{Contribución Onda 2 Vueltas}
 \centering
-\includegraphics[width=0.5\textwidth,natwidth=562,natheight=667]{figs/rr_n2.jpg}
+\includegraphics[width=0.7\textwidth,natwidth=397,natheight=493]{figs/rr_n2.PNG}
 \label{fig:rr_n2}
 \end{figure} 
 
 \begin{equation}
-Contrib_{N=2L} = E_i \alpha e^{-j \beta L} \kappa_1 t_2^{'} \kappa_1^{'} (\alpha e^{-j \beta L} t_1^{'} t_2^{'})
+Contrib_{M=2L} = E_i \alpha e^{-j \beta L} \kappa_1 t_2^{'} \kappa_1^{'} (\alpha e^{-j \beta L} t_1^{'} t_2^{'})
 \label{eq:coupling_round_2}
 \end{equation} 
 
@@ -314,21 +338,37 @@ Existen diferentes parámetros que son relevantes a la hora de describir el rend
 de un anillo resonador. A continuación se realizará la formulación matemática de 
 cada uno acompañado de una breve descripción.
 
+Los parámetros para el notch filter se obtienen sustituyendo $t_2$ por 1, como se explicó en
+la sección \ref{ss:notch}.
+
 \subsubsection{Free Spectral Range (FSR)}
 El FSR o rango libre de espectro, es la separación que existe entre dos longitudes
-de onda que resuenan dentro del anillo (modos) y su valor está dado por (\ref{eq:fsr}).
+de onda que resuenan dentro del anillo. De (\ref{eq:resonant_condition}) y
+(\ref{eq:beta}) se tiene que:
 
-\begin{equation}
-FSR=\frac{\lambda^2}{n_g L} = \frac{\lambda^2}{n_g 2\pi} 
-\label{eq:fsr}
-\end{equation} 
+\begin{align}
+M&=\frac{n_{eff_{(\lambda_m)}} L}{\lambda_m} \label{eq:mode_l} \\
+M+1&=\frac{n_{eff_{(\lambda_{m+1})}} L}{\lambda_{m+1}} \label{eq:mode_l+1}
+\end{align} 
 
-Donde L es el perímetro del anillo $(L=2\pi R)$ y $n_g$ es el índice de grupo que contiene información sobre la dispersión del material.
+La constante de propagación no es constante debido a la dispersión dentro de la guía por lo que 
+se usa en índice de grupo (\ref{eq:ng}) en vez de el índice efectivo \cite{paloczi2005polymer}.
 
 \begin{equation}
 n_g=n_{eff} - \lambda \frac{\partial n_{eff}}{\partial \lambda}
 \label{eq:ng}
 \end{equation} 
+
+El FSR, dado por $\Delta \lambda=\lambda_{m+1}-\lambda_m$ se halla restando
+(\ref{eq:mode_l+1}) y (\ref{eq:mode_l}). También se 
+asume que $n_{eff_{(\lambda_m)}} \approx n_{eff_{(\lambda_{m+1})}} \approx M $ 
+y que $\lambda_m \lambda_{m+1} \approx \lambda^2 $, por lo tanto:
+
+\begin{equation}
+FSR=\Delta \lambda \approx \frac{\lambda^2}{n_g L}  
+\label{eq:fsr}
+\end{equation} 
+
 
 De (\ref{eq:fsr}) se puede observar que el FSR es inversamente proporcional a el 
 radio del resonador. Para un anillo con un radio grande el distanciamiento
@@ -340,28 +380,19 @@ Por el otro lado, un anillo pequeño tendrá un mayor espaciamiento
 entre los modos lo que significa que es más selectivo \cite{chan2011physical} y por
 eso son muy usados como filtros y moduladores.
 
-\subsubsection{FWHM}
+\subsubsection{Full Width Half Maximum}
 
-La anchura a media altura ó Full Width Half Maximum representa el ancho de la resonancia
-medido en nanómetros cuando ésta decae 3dB o mitad de la potencia \cite{boeck2010series}.
+La anchura a media altura representa el ancho de la resonancia
+medido en nanómetros $(\Delta \lambda_{FWHM})$ cuando ésta 
+decae 3dB o mitad de la potencia y su expresión
+para una cavidad Fabry-Perot \cite{paloczi2005polymer}\cite{verdeyen1989laser} es:
 
 \begin{equation}
-FWHM=2\delta \lambda=\frac{\kappa^2 \lambda^2}{L n_{eff} \pi}
+\Delta \lambda_{FWHM}=2\delta \lambda
+    =\frac{\lambda_0^2}{L n_{eff} \pi} 
+     \left( \frac{1-\alpha^2|t_1|^2|t_2|^2}{\alpha |t_1||t_2|}  \right)
 \label{eq:fwhm}
 \end{equation} 
-
-\subsubsection{Finesse (F)}
-
-La finura F permite medir la estrechez de las resonancias \cite{blasco2011desarrollo},
-donde entre más estrecha, el anillo es más selectivo.
-
-\begin{equation}
-F=\frac{FSR}{FWHM}=\frac{\Delta \lambda}{2 \delta \lambda} = \pi \frac{t}{1-t^2}
-\label{eq:finesse}
-\end{equation} 
-
-En (\ref{eq:finesse}) se aprecia que entre menos pérdidas existan en el anillo, 
-la finura del anillo es más elevada.
 
 \subsubsection{Quality Factor (Q)}
 
@@ -369,6 +400,24 @@ El factor de calidad es una relación entre la longitud de onda que resuena en e
 anillo y el ancho de la resonancia en la mitad de la potencia.
 
 \begin{equation}
-Q = \frac{\lambda_0}{2 \delta \lambda} = \pi \frac{n_{eff} L}{\lambda_0 \kappa^2}
+Q = \frac{\lambda_0}{\Delta \lambda_{FWHM}} 
+  = \pi \frac{n_{eff} L}{\lambda_0} \frac{\alpha|t_1||t_2|}{1-\alpha^2|t_1|^2|t_2|^2}
 \label{eq:q}
+\end{equation}
+
+\subsubsection{Finesse (F)}
+
+La finura F permite medir la estrechez de las resonancias \cite{blasco2011desarrollo},
+donde entre más estrecha, el anillo es más selectivo.
+
+\begin{equation}
+F=\frac{FSR}{\Delta \lambda_{FWHM}}
+ =\frac{\Delta \lambda}{2 \delta \lambda} 
+ = \pi \frac{\alpha|t_1||t_2|}{1-\alpha|t_1|^2|t_2|^2}
+\label{eq:finesse}
 \end{equation} 
+
+En (\ref{eq:finesse}) se aprecia que entre menos pérdidas existan en el anillo, 
+la finura del anillo es más elevada.
+
+ 
