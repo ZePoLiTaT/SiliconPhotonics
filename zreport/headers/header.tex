@@ -5,15 +5,19 @@
 \usepackage{textcomp}
 %\usepackage[spanish]{babel}
 \usepackage[utf8x]{inputenc}
-\usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{natbib}
 \usepackage{floatrow}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \usepackage[usenames,dvipsnames]{color} 
 %\usepackage{pkgs/codesnippet}
 \usepackage{pkgs/elegantsinppet}
 
+%%%%%%%%%%%%% WATERMARKS  %%%%%%%%%%%%%%%%%
 %usepackage{eso-pic}
 %\AddToShipoutPicture{
 %    \includegraphics[width=0.3\textwidth,natwidth=413,natheight=406]{figs/logo.png}}
@@ -22,6 +26,20 @@
 \definecolor{highlight}{RGB}{255,251,204} % Code highlight color
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 
+%%%%%%%%%% DEDICATION SECTION %%%%%%%%%%%%
 \newenvironment{dedication}
     {\vspace{6ex}\begin{quotation}\begin{center}\begin{em}}
     {\par\end{em}\end{center}\end{quotation}}
+
+%%%%%%%%%%%%% PARAGRAPHS %%%%%%%%%%%%%%%%%
+%No ident in new paragraph
+\usepackage[parfill]{parskip}
+%% Add a space of 1.5 lines between paragraphs
+%\parskip=1.5\baselineskip
+
+%%%%%%%%%%%%% DEFAULT FONT %%%%%%%%%%%%%%%
+%Sans-serif font by default
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{mathptmx}
+
+\usepackage{float}

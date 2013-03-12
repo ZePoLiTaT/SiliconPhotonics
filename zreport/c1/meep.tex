@@ -28,9 +28,13 @@ El código está dividido en 5 secciones en cada una de las cuales se define:
 \item Tiempos y salidas de la simulación.
 \end{enumerate} 
 
+A continuación, se explicará el objetivo y el contenido de cada subsección 
+sólo del script para el filtro Notch. Para ver el script completo 2D y 3D
+de los 2 filtros, ver el apéndice \ref{ap:meep}.
+
 \subsubsection{Parámetros}
 \zcodectl{"sources/c1_meep_s1.ctl"}{Parámetros Filtro Notch.} 
-En esta sección de código (Ver Listing \ref{"sources/c1_meep_s1.ctl"}) 
+En esta sección de código (Script \ref{"sources/c1_meep_s1.ctl"}) 
 se especifican los parámetros necesarios para la ejecución de los programas. 
 Se usaron 2 tipos diferentes de instrucciones: $define$ y $define-param$. 
 La primera instrucción, de la forma $(define <variable> <expresion>)$, es nativa de Scheme y permite 
@@ -40,9 +44,10 @@ Por el contrario, $define-param$, está definida en una librería de extensión 
 asociación de la variable a la expresión sea modificada desde la línea de comandos desde la que se invoca el 
 programa permitiendo tener un control flexible para las simulaciones. 
 
-Los parámetros usados en la simulación del filtro son:(Ver Tabla \ref{tb:meep_params})
+Los parámetros usados en la simulación del filtro están especificados en 
+la Tabla \ref{tb:meep_params}.
 
-\begin{table}
+\begin{table}[H]
 \centering
 \begin{tabular}{| l | l | c | }
 \hline
@@ -69,10 +74,17 @@ En esta sección se emplearon algunos de los parámetros definidos en
 la tabla \ref{tb:meep_params} para construir la geometría del filtro como se ve en
 la figura \ref{fig:notch_geometry}.
 
-Como se aconseja en \cite{MassachusettsInstituteofTechnology} 
+\begin{figure}[H]
+\caption{Geometría Filtro Notch.}
+\centering
+\includegraphics[width=1.0\textwidth,natwidth=892,natheight=663]{figs/notch_v2.jpg}
+\label{fig:notch_geometry}
+\end{figure}
+
+Como se aconseja en \cite{MIT_tuto} 
 el tamaño del látice a simular se calcula 
 de forma dinámica a partir de los parámetros del radio, ancho de la guía de onda, 
-espacio de holgura y el borde PML (Ver Listing \ref{"sources/c1_meep_s2.ctl"}). 
+espacio de holgura y el borde PML (Script \ref{"sources/c1_meep_s2.ctl"}). 
 %TODO Referencia Tutorial MEEP%
 
 \zcodectl{"sources/c1_meep_s2.ctl"}{Geometría y Materiales Filtro Notch.} 
@@ -90,14 +102,19 @@ definida por el parámetro $gap = 100nm$.
 
 Finalmente, se indicó una resolución de 
 
-\begin{figure}[h!]
-\caption{Geometría Filtro Notch.}
-\centering
-\includegraphics[width=1.0\textwidth,natwidth=892,natheight=663]{figs/notch_v2.jpg}
-\label{fig:notch_geometry}
-\end{figure}
 
 \subsubsection{Fuente de Onda Electromagnética} 
+Como se mencionó anteriormente, una de las aplicaciones de FDTD es el cálculo 
+de la transmisión o la dispersión del espectro de estructuras tales como cavidades 
+resonantes en respuesta a un estímulo de entrada. Una forma de obtener estos 
+datos es calcular el flujo transmitido para cada frecuencia $\omega$ de forma 
+separada. Una forma más rápida es calcular la respuesta a un conjunto 
+amplio de espectros usando un sólo cálculo de la transformada de Fourier usando un 
+pulso gaussiano de banda ancha \cite{MIT_intro}. 
+
+En este trabajo se simularon estas 2 formas (cada una en un script diferente)
+tanto para el filtro Notch, como para el filtro AddDrop.
+
 
 \subsubsection{Resultados}
 

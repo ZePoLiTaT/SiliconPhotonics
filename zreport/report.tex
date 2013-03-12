@@ -2,19 +2,18 @@
 \makeindex
 
 \begin{document}
-\input{frontmat/pagetitle}
 
-%\frontmatter
-    \cleardoublepage
-    %\phantomsection
-
+    %%%%%%%%\frontmatter%%%%%%%%%%
+    \input{frontmat/renew_spanish}
+    \input{frontmat/pagetitle}
     \input{frontmat/dedication.tex}
+
     \tableofcontents
     \listoffigures
     \listoftables
     \lstlistoflistings    
 
-%\mainmatter 
+    %%%%%%%%%\mainmatter%%%%%%%%%%
     \chapter{Definición de la Investigación}
     \input{c00/research_structure}    
  
@@ -35,7 +34,8 @@
 
     \chapter{Redes de Interconexión}
 
-\appendix
+    %%%%%%%%\backmatter%%%%%%%%%%%
+    \appendix
     \chapter{Scripts}
     \label{ch:rr_scripts}
 
