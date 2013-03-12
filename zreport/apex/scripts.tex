@@ -1,0 +1,17 @@
+\section{Meep}
+\label{ap:meep}
+
+\subsection{Filtro Notch}
+\zcodectl{"sources/meep.ctl"}{Filtro Notch (Fuente Gaussiana) en Meep.} 
+
+\subsection{Filtro AddDrop}
+\zcodectl{"sources/gausrc_flux_adddrop.ctl"}{Filtro AddDrop (Fuente Gaussiana) en Meep.} 
+\zcodeoct{"sources/graph_adddrop.m"}{Generar gráficas de Transmitancia"}
+\zcodesh{"sources/gausrc_flux_adddrop-mpi.sh"}{Shell script de invocación con OpenMPI}
+
+
+\section{Lumerical}
+\label{ap:lumerical}
+
+\zcodeoct{"sources/ring_resonator_fdtd.lsf"}{Obtener datos de la simulación 3d FDTD}
+\zcodeoct{"sources/ring_resonator.lsf"}{Generar gráficas de Transmitancia teórica MODE FDTD}

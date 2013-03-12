@@ -60,7 +60,7 @@ R &= \frac{L}{2 \pi} = 3.1 \mu m  %\label{eq:lum_r}
 
 \subsubsection{Coeficiente de transmisión y acoplamiento} 
 
-Al despejar $|t_1|$ de (\ref{eq:q}) se tiene:
+Al despejar $|t|$ de (\ref{eq:q}) se tiene:
 
 \begin{equation}
 |t|=\sqrt{ \left( \frac{n_g L \pi}{2 Q \lambda} \right) ^2 + 1} - 
@@ -88,7 +88,7 @@ El valor de $\kappa$ se obtiene despejando (\ref{eq:energy_conserv}):
 De (\ref{eq:energy_conserv}) y (\ref{eq:T_d}) y teniendo en cuenta 
 las consideraciones de la tabla \ref{tb:lum_params} se tiene:
 
-\begin{equation}
-T_d=\frac{|\kappa^4|}{|1 - t^2 e^{j \beta L}|^2}
-\label{eq:lum_Td}
-\end{equation} 
+\begin{align}
+T_d&=\frac{|\kappa^4|}{|1 - t^2 e^{j \beta L}|^2} \label{eq:lum_Td} \\
+T_t&=\frac{|t -t e^{-j \beta L}|^2}{|1 - t^2 e^{j \beta L}|^2} \label{eq:lum_Tt} 
+\end{align} 

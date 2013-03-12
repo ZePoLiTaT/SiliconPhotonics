@@ -29,7 +29,7 @@ El código está dividido en 5 secciones en cada una de las cuales se define:
 \end{enumerate} 
 
 \subsubsection{Parámetros}
-\insertelegantcode{"sources/c1_meep_s1.ctl"}{Parámetros Filtro Notch.} 
+\zcodectl{"sources/c1_meep_s1.ctl"}{Parámetros Filtro Notch.} 
 En esta sección de código (Ver Listing \ref{"sources/c1_meep_s1.ctl"}) 
 se especifican los parámetros necesarios para la ejecución de los programas. 
 Se usaron 2 tipos diferentes de instrucciones: $define$ y $define-param$. 
@@ -75,7 +75,7 @@ de forma dinámica a partir de los parámetros del radio, ancho de la guía de o
 espacio de holgura y el borde PML (Ver Listing \ref{"sources/c1_meep_s2.ctl"}). 
 %TODO Referencia Tutorial MEEP%
 
-\insertelegantcode{"sources/c1_meep_s2.ctl"}{Geometría y Materiales Filtro Notch.} 
+\zcodectl{"sources/c1_meep_s2.ctl"}{Geometría y Materiales Filtro Notch.} 
 Silicon Photonics utiliza, como su nombre lo indica, silicio como medio para la propagación de ondas electromagnéticas en el espectro C-Band . 
 Por lo tanto, para la longitud de onda de 1500 nm, el índice de refracción del silicio corresponde a 3.4765 \cite{bass2009handbook}. 
 Adicionalmente, al ser una simulación en 2D, el material que rodea la guía recta y circular es el aire cuyo índice de refracción es 1. 

@@ -1,0 +1,81 @@
+#########################################################
+# file: ring_resonator.lsf
+#
+# Description: Send transmission trough ring resonator to 
+#	Visualizer. Transmission data comes from 3 
+#	different sources: an .ldf with 3D FDTD data, 
+#	a MODE Solutions propagator simulation and an
+# 	analytical formula
+#  
+#
+# Copyright 2012, Lumerical Solutions, Inc.
+########################################################
+
+# FDTD results
+loaddata("fdtd_results.ldf");
+
+########################################################
+# Results from Propagator
+# ring resonator design parameters
+lambda0 = 1.55e-6;	# center wavelength
+FSR = 3200e9*lambda0^2/c;	# free spectral range in m
+Q = 2000;	# Q
+
+# get data from propagator simulation;
+T = getresult("drop",'T');
+Tdrop_propagator = -T.T;
+
+#get data from through simulation
+Tt = getresult("through",'T');
+Tt_propagator = Tt.T;
+
+lambda = c/T.f;
+########################################################
+
+########################################################
+# Calculation of theory
+tau_11 = sqrt((lambda*pi/FSR/Q/2)^2+1)-(lambda*pi/FSR/Q/2);
+tau_12 = sqrt(1-abs(tau_11)^2);
+
+# offset the phase for a particular peak wavelength
+peak_lambda = 1550e-9;
+phase_offset = -2i*pi*peak_lambda/FSR;
+
+Tdrop_theory = abs(tau_12)^4/abs(1-tau_11^2*exp(1i*2*pi*lambda/FSR+phase_offset))^2;
+Tt_theory = abs(tau_11-tau_11*exp(1i*2*pi*lambda/FSR+phase_offset))^2/abs(1-tau_11^2*exp(1i*2*pi*lambda/FSR+phase_offset))^2;
+########################################################
+
+########################################################
+# Apply to 10xlog10
+Tdrop_theory = 10*log(Tdrop_theory);
+Tdrop_propagator = 10*log(Tdrop_propagator);
+Tdrop_3DFDTD = 10*log(Tdrop_3DFDTD);
+
+Tt_theory = 10*log(Tt_theory);
+Tt_propagator = 10*log(Tt_propagator);
+Tt_3DFDTD = 10*log(Tt_3DFDTD);
+########################################################
+
+# create dataset
+T_result = matrixdataset("T_result");
+T_result.addparameter("lambda",lambda);
+T_result.addattribute("Tdrop_theory",Tdrop_theory);
+T_result.addattribute("Tdrop_propagator",Tdrop_propagator);
+T_result.addattribute("Tdrop_3DFDTD",Tdrop_3DFDTD);
+
+visualize(T_result);
+
+T_result_t = matrixdataset("T_result_t");
+T_result_t.addparameter("lambda",lambda);
+T_result_t.addattribute("Tthrough_theory",Tt_theory);
+T_result_t.addattribute("Tthrough_propagator",Tt_propagator);
+T_result_t.addattribute("Tthrough_3DFDTD",Tt_3DFDTD);
+
+visualize(T_result_t);
+
+T_result_fdtd = matrixdataset("T_result_3dFDTD");
+T_result_fdtd.addparameter("lambda",lambda);
+T_result_fdtd.addattribute("Tdrop_3DFDTD",Tdrop_3DFDTD);
+T_result_fdtd.addattribute("Tthrough_3DFDTD",Tt_3DFDTD);
+
+visualize(T_result_fdtd);
