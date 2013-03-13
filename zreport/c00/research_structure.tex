@@ -47,8 +47,9 @@ actuales deben superar grandes dificultades, tanto en la complejidad adicional
 que representa la programación en paralelo, las limitaciones de ancho de banda y en la
 minimización de la cantidad de potencia que es desperdiciada en el sistema de comunicación. 
 En esta última en especial, se evidencia el límite al que están llegando las 
-tecnologías electrónicas actuales, al consumir casi la mitad \ref{} de la potencia dinámica
-de todo el sistema, haciendo de vital importancia la exploración de otras alternativas.
+tecnologías electrónicas actuales, al consumir casi la mitad \cite{Magen2004} de la 
+potencia dinámica de todo el sistema, haciendo de vital importancia la 
+exploración de otras alternativas.
 
 El empleo de la tecnología de punta que usa la nanofotónica sobre silicio, 
 se presenta como una solución prometedora a este
@@ -82,6 +83,58 @@ en donde se debe disminuir la brecha tecnológica con respecto a otros países.
 
 \section{Revisión Bibliográfica}
 \subsection*{Antecedentes}
+La naturaleza creativa inherente al ser humano, le ha impulsado a través de los tiempos
+hacia la búsqueda y análisis de información. El desarrollo de las tecnologías orientadas
+no solo a la manipulación de dichos datos, sino a la facilidad en el intercambio de los
+mismos, se han convertido en parte indispensable de la sociedad actual, la cual exige
+cada vez, mayores capacidades y mejores tiempos de respuesta en los mismos.
+Para satisfacer estos requisitos, y como consecuencia directa, la industria de los
+microprocesadores ha realizado constantes avances desde los años 70, en donde era
+más que suficiente una unidad de procesamiento (single-core). A partir de allí, se ha
+llegado a los sistemas actuales, en donde varios núcleos de una misma unidad (multi-
+core) realizan el trabajo. La tendencia de dicha industria, en un futuro a mediano-largo
+plazo, es el incremento de estos núcleos al orden de cientos o miles, en donde su
+cantidad tiene una proyección de crecimiento en un factor de 2x cada 18 meses \cite{Magen2004},
+dando surgimiento a una nueva ley similar a la ley de Moore para los transistores.
+
+in embargo, y para preservar las ventajas esperadas al tener cada vez más núcleos de
+procesamiento, se deben no solo mantener los bajos costos de fabricación, sino superar
+tres grandes dificultades \cite{Asanovic2007} relacionadas con: el aumento en la 
+complejidad por la programación en paralelo, el limitado ancho de banda hacia los dispositivos de
+entrada/salida y la disipación de poder de la red de interconexión entre núcleos, siendo
+esta la responsable del consumo de alrededor del $50\%$ \cite{Bergman2007} del 
+poder total del chip.
+
+Los grandes avances sobre la nueva tecnología de nanofotónica sobre silicio, han
+demostrado los componentes necesarios \cite{Chan2011} para la creación de redes que permitan
+conectar componentes tanto dentro como fuera del chip, no solo aprovechando las
+altas velocidades de transmisión y bajo consumo de potencia, sino también
+conservando el uso de las técnicas ya existentes de manufacturación de
+semiconductores. Esto facilita la integración con la tecnología actual, manteniendo
+viable los costes de fabricación a nivel masivo, comparado con los sistemas ópticos
+convencionales.
+
+No obstante, el uso de nanofotónica sobre silicio aplicado a las redes de interconexión
+debe seguir nuevas metodologías y herramientas que permitan un diseño preciso y
+acertado en un tiempo apropiado \cite{Chan2010b}. Dentro de las herramientas disponibles, se
+destacan las siguientes:
+
+El proyecto PhoenixSim \cite{Chan2010} 
+(Photonic and Electronic Network Integration and eXecution
+Simulator) de la Universidad de Columbia, ha capturado las características físicas los
+componentes fotónicos y electrónicos usados en este tipo de redes, sobre un software
+de simulación que soporta la interacción de decenas de núcleos. Esto permite no solo la
+simulación y comparación de redes de interconexión en ambos dominios, sino también
+la creación de sistemas híbridos que aprovechen las ventajas que ofrece cada uno.
+
+Las plataformas de prototipado BEE3 \cite{davis2009bee3}, 
+desarrolladas en la Universidad de Stanford,
+permiten la completa emulación de CMPs usando las redes de interconexión eléctrica
+convencionales. En este sistema, Watts \cite{TODO} propone la implementación de módulos de
+lógica que presenten un comportamiento equivalente a los dispositivos de nanofotónica
+sobre silicio, permitiendo así alcanzar tiempos de simulación que permitan una
+evaluación dinámica de múltiples arquitecturas NoCs.
+
 
 \section{Objetivos}
 \subsection{Objetivo General}
@@ -92,15 +145,14 @@ sobre silicio para chips multiprocesadores.
 \begin{itemize}
 \item Caracterizar los componentes básicos de las redes nanofotónicas sobre silicio.
 \item Explorar las topologías de interconexión más usadas en los CMPs electrónicos actuales.
-\item Mapear las topologías de interconexión del dominio electrónico al dominio nanofotónico híbrido sobre silicio.
 \item Simular cada una de las topologías en los dominios electrónico y nanofotónico híbrido sobre silicio.
-\item Evaluar y comparar las redes en términos de ancho de banda, latencia y potencia.
+\item Evaluar y comparar las redes en términos de latencia y potencia.
 \end{itemize} 
 
 \section{Hipótesis}
 ¿Son las redes de interconexión nanofotónicas híbridas para las
-topologías Mesh y Torus más eficientes en términos de consumo de potencia,
-ancho de banda y latencia que sus pares electrónicos?
+topologías Mesh y Torus más eficientes en términos de consumo de potencia
+ y latencia que sus pares electrónicos?
 
 \section{Metodología}
 Este proyecto se plantea como una investigación aplicada donde se busca 
@@ -109,36 +161,40 @@ computadores para la problemática del consumo de recursos de las redes de
 interconexión electrónicas actuales en los chips multiprocesadores. 
 
 Resulta entonces conveniente la utilización de una metodología estructural, 
-dividiendo la investigación en cuatro fases que dan solución a la 
+dividiendo la investigación en tres fases que dan solución a la 
 problemática propuesta:
 
 \begin{itemize}
-\item Fase 0: Base Teórica
+\item Fase 1: Base Teórica
 En esta etapa se hace un estudio de los fundamentos teóricos tanto físicos
 como matemáticos que rigen el comportamiento de los dispositivos que soportan
 los componentes que forman una red de interconexión nanofotónica sobre silicio. 
 
-\item Fase 1: Caracterización de los componentes pasivos y activos de las redes nanofotónicas. 
-Es necesario analizar el comportamiento, las técnicas de manufactura y 
-los requisitos de funcionamiento de los siguientes componentes nanofotónicos sobre 
-silicio: guías de onda recta, guías de onda dobladas, cruces de guía de onda 
-y resonadores en anillo, así como las simulaciones corespondientes de cada elemento 
-para diferentes longitudes de onda y potencia de entrada.
+\item Fase 2: Caracterización de los componentes pasivos y activos de las redes nanofotónicas. 
+Es necesario analizar el funcionamiento de los siguientes componentes 
+nanofotónicos sobre silicio: guías de onda recta, guías de onda dobladas, cruces de guía de onda 
+y anillos resonadores.
 
-En esta etapa, se hará uso del software CAD para el diseño y simulación que se ejecutará 
-sobre un servidor especializado para este propósito. 
+Finalmente, se ejecutarán las simulaciones corespondientes a 
+2 de los elementos activos más relevantes que
+emplean anillos resonadores: filtro Notch y filtro AddDrop.
 
-\item Fase 2: Análisis de Topologías de Interconexión
-Análisis y la exploración de las topologías de interconexión electrónicas 
+En esta etapa, se usarán 2 softwares de simulación que correrán 
+sobre dos servidores especializados para este propósito. 
+
+\item Fase 3: Análisis de Topologías de Interconexión
+Se analizarán las topologías de interconexión electrónicas 
 actuales que se desean evaluar en el alcance de este proyecto: Mesh y Torus 
 en el dominio de los CMPs.
-Una vez obtenida la información de las topologías en el dominio electrónico, 
-se debe proceder a hacer el análisis del correspondiente mapeo de dichas topologías 
-al dominio nanofotónico teniendo en cuenta las restricciones o 
-ventajas de los componentes nanofotónicos pasivos y activos estudiados en la etapa
-anterior. 
 
-\item Fase 3: Simulación 
+Una vez obtenida la información de las topologías en el dominio electrónico, 
+se procederá a simular estas topologías híbridas y se evaluará su rendimiento
+midiendo los resultados en términos de potencia y latencia.
 
 \end{itemize} 
 
+\section{Resultados}
+
+Debido a la estructura metodológica sobre la que se desarrolló esta investigación,
+los resultados se presentarán en los 3 capítulos siguientes, correspondientes a 
+los resultados obtenidos en cada una de las fases.
