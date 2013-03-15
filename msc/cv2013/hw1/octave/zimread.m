@@ -1,4 +1,4 @@
-## usage: [im, imat, w, h] = zimread(fname)
+## usage: [im, imat, W, H] = zimread(fname)
 ##
 ## Loads an image named 'fname' and returns:
 ## * vector with 3 columns RGB
@@ -8,12 +8,22 @@
 ## Created: 
 ## Version: 0.0.1
 
-function [im, imat, w, h] = zimread(fname)
+function [im, imat, W, H] = zimread(fname)
 
-    imat = imread(strcat(fname));
+    imat = imread(fname);
   
-    h = size(imat)(1);
-    w = size(imat)(2);
-    im = [ vec(imat(:,:,1)), vec(imat(:,:,2)), vec(imat(:,:,3)) ];
+    imsize = size(imat);
 
+    H = imsize(1);
+    W = imsize(2);
+
+    %Validate number of color channels in the image
+    if(size(imsize)(2)==2)
+        DIMS=1;
+    else
+	DIMS=imsize(3);
+    end
+
+    im = reshape(imat,W*H,DIMS);
+    %im = [ vec(imat(:,:,1)), vec(imat(:,:,2)), vec(imat(:,:,3)) ];
 end

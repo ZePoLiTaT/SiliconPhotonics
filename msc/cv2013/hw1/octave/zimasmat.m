@@ -9,8 +9,10 @@
 
 function imat = zimasmat(imvec, w, h)
 
-    imat = ones(h,w,3);
-    for i = 1:3
+    DIMS = size(imvec)(2);
+
+    imat = ones(h,w,DIMS);
+    for i = 1:DIMS
         imat(:,:,i) = reshape(imvec(:,i),h,w);
     end 
     imat = uint8(imat); 

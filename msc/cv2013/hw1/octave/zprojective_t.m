@@ -14,6 +14,7 @@ clear; clc; close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Load transformed image >>projected<<
+%[ztransf, imgtransf, W, H] = zimread('../imgs/building.png');
 [ztransf, imgtransf, W, H] = zimread('../imgs/tiles.png');
 
 imshow(imgtransf);
@@ -24,8 +25,10 @@ hold on;
 scatter(x,y,5,'r');
 
 %TODO: Ask how to get these values o.O
-xp=[50;130;130;50];
-yp=[50;50;130;130];
+%xp=[50;130;130;50];
+%yp=[50;50;130;130];
+xp=[0;W;W;0];
+yp=[0;0;H;H];
 
 
 
@@ -36,22 +39,9 @@ Hinv = pinv(Hmat);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Generate matrix of points in transformed image:
-%   [x1 x2 .. xn]
-%   [y1 y2 .. yn]
-%   [ 1  1 ..  1]
-[xx,yy]=meshgrid([1:W],[1:H]);
-ptransf=[xx(:)';yy(:)';ones(size(xx(:)'))];
+% Finds the corresponding original no transformed points (x,y) 
 
-%Find equivalent points in original (no transformed) image by
-%using the inverse of the transformation matrix Hinv
-porig = Hinv * ptransf;
-
-%Normalize x1 and x2 by x3. Then make it integer because its an index
-porig = int32(porig ./ porig(3,:));
-
-%Find index in 1d vec of the 2d points of image:  i1d = (i2d.x-1)*W + i2d.y
-ix1dorig = (porig(1,:) - 1)*H + porig(2,:);
+ix1dorig = zfindX(Hinv,W,H);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Create new vector image from transformed indexes and transformed rgb channels
