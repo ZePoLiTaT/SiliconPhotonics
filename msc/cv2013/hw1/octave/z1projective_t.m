@@ -14,8 +14,12 @@ clear; clc; close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Load transformed image >>projected<<
+%[ztransf, imgtransf, W, H] = zimread('../imgs/building.png');
 [ztransf, imgtransf, W, H] = zimread('../imgs/tiles.png');
-%[ztransf, imgtransf, W, H] = zimread('../imgs/test_2.jpg');
+%[ztransf, imgtransf, W, H] = zimread('../imgs/test_1.jpg');
+
+%Create original image
+zorig = ones(size(ztransf));
 
 imshow(imgtransf);
 hold on;
@@ -24,11 +28,11 @@ hold on;
 [xp,yp] = ginput(4);
 scatter(xp,yp,5,'r');
 
-%TODO: Ask how to get these values o.O
 x=[50;130;130;50];
 y=[50;50;130;130];
 %x=[0;W;W;0];
 %y=[0;0;H;H];
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Find transformation matrix from 2 sets of 4 points in the
@@ -36,20 +40,22 @@ y=[50;50;130;130];
 Hmat = zfindH(x,y,xp,yp);
 Hinv = pinv(Hmat);
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-imgtransf2 = ones(H,W,3);
-for i=1:size(imgtransf2)(1)
-    for j=1:size(imgtransf2)(2)
-	tx = Hmat*[j i 1]';
-	tx = int32(tx./tx(3));
-	if(tx(1)>0 && tx(1)<= size(imgtransf2)(2) &&
-	   tx(2)>0 && tx(2)<= size(imgtransf2)(1))
-		%imgtransf2(tx(2),tx(1),:)=imgtransf(i,j,:);
-		imgtransf2(i,j,:)=imgtransf(tx(2),tx(1),:);
-	end
-    end
-end
+%Finds the corresponding original no transformed points (x,y) 
+ix1dorig = zfindX(Hmat,[W],[H]);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Find valid position of the index
+validpos = find(ix1dorig>0 & ix1dorig<=(W*H));
+
+%Assign RGB channel of the transformed image (x',y') into the equivalent original image (x,y)
+zorig(validpos,:) = ztransf(ix1dorig(validpos),:);
+
+%Transform vector to matrix image
+imgorig = zimasmat(zorig, W, H);
 
 figure(2);
-imshow(uint8(imgtransf2));
+imshow(imgorig);
+
 

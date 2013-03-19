@@ -1,6 +1,5 @@
 #######################################################
 ## HW1 Solution
-## Part 1: ...
 ## Part 2: ...
 
 ## Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
@@ -10,29 +9,30 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 graphics_toolkit fltk;
-%clear; clc; close all;
+clear; clc; close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Load transformed image >>projected<<
-%[ztransf, imgtransf, W, H] = zimread('../imgs/building.png');
-[ztransf, imgtransf, W, H] = zimread('../imgs/tiles.png');
-%[ztransf, imgtransf, W, H] = zimread('../imgs/test_1.jpg');
+[vPersp, iPersp, W, H] = zimread('../imgs/perspective.jpg');
+[vPlanar, iPlanar, WPlanar, HPlanar] = zimread('../imgs/logo_1.jpg');
 
-%Create original image
-zorig = ones(size(ztransf));
+%[vPersp, iPersp, W, H] = zimread('../imgs/room.jpg');
+%[vPlanar, iPlanar, WPlanar, HPlanar] = zimread('../imgs/coffe.jpg');
+%[vPlanar, iPlanar, WPlanar, HPlanar] = zimread('../imgs/domokun.jpg');
 
-imshow(imgtransf);
+imshow(iPlanar);
+
+figure(2);
+imshow(iPersp);
 hold on;
 
-%Read 4 pts from the corners
+%Read 4 points in the transformed image where the planar will be embeded
 [xp,yp] = ginput(4);
 scatter(xp,yp,5,'r');
 
-%TODO: Ask the teacher how to get these values o.O
-%xp=[50;130;130;50];
-%yp=[50;50;130;130];
-x=[0;W;W;0];
-y=[0;0;H;H];
+%The original corrdinates are the boundaries of the planar img
+x=[1;WPlanar;WPlanar;1];
+y=[1;1;HPlanar;HPlanar];
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,20 +44,20 @@ Hinv = pinv(Hmat);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Finds the corresponding original no transformed points (x,y) 
-ix1dorig = zfindX(Hinv,[W],[H]);
+ix1dorig = zfindX(Hmat,[WPlanar W],[HPlanar H]);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Find valid position of the index
-validpos = find(ix1dorig>0 & ix1dorig<(W*H));
+validpos = find(ix1dorig>0 & ix1dorig<=(W*H));
 
 %Assign RGB channel of the transformed image (x',y') into the equivalent original image (x,y)
-zorig(ix1dorig(validpos),:) = ztransf(validpos,:);
-
+vPersp(ix1dorig(validpos),:) = vPlanar(validpos,:);
+%vPersp(validpos,:) = vPlanar(ix1dorig(validpos),:)*0;
 
 %Transform vector to matrix image
-imgorig = zimasmat(zorig, W, H);
+iPerspMod = zimasmat(vPersp, W, H);
 
-figure(2);
-imshow(imgorig);
+figure(3);
+imshow(iPerspMod);
 
 

@@ -1,5 +1,5 @@
 #######################################################
-## usage: ix1Dorig = zfindX(Hinv, W, H)
+## usage: ix1Dorig = zfindX(Hp, W, H)
 ##
 ## Finds the corresponding original no transformed
 ## image points (x,y) from the transformed (x',y') ones
@@ -9,23 +9,24 @@
 ## Version: 0.0.1
 #######################################################
  
-function ix1Dorig = zfindX(Hinv, W, H)
+function ix1Dorig = zfindX(Hp, W, H)
 
     %Generate matrix of points in transformed image:
     %   [x1 x2 .. xn]
     %   [y1 y2 .. yn]
     %   [ 1  1 ..  1]
-    [xx,yy]=meshgrid([1:W],[1:H]);
+    [xx,yy]=meshgrid([1:W(1)],[1:H(1)]);
     ptransf=[xx(:)';yy(:)';ones(size(xx(:)'))];
 
     %Find equivalent points in original (no transformed) image by
-    %using the inverse of the transformation matrix Hinv
-    porig = Hinv * ptransf;
+    %using the inverse of the transformation matrix Hp
+    porig = Hp * ptransf;
 
     %Normalize x1 and x2 by x3. Then make it integer because its an index
-    porig = int32(porig ./ porig(3,:));
+    porig = porig ./ porig(3,:);
+    porig = int64(porig ./ porig(3,:));
 
-    %Find index in 1d vec of the 2d points of image:  i1d = (i2d.x-1)*W + i2d.y
-    ix1Dorig = (porig(1,:) - 1)*H + porig(2,:);
+    %Unwrap 2d position matrix into 1d vec [by columns]:  i1d = (i2d.x-1)*H + i2d.y
+    ix1Dorig = (porig(1,:) - 1)*H(end) + porig(2,:);
 
 end

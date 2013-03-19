@@ -1,4 +1,4 @@
-## usage: mat = zimasmat(vec, w, h)
+## usage: mat = zimasmat(vec, W, H)
 ##
 ## Transforms an image stored in a vector into a 
 ## matrix [h,w,3] that can be shown with imshow
@@ -7,13 +7,13 @@
 ## Created: 
 ## Version: 0.0.1 
 
-function imat = zimasmat(imvec, w, h)
+function imat = zimasmat(imvec, W, H)
 
     DIMS = size(imvec)(2);
 
-    imat = ones(h,w,DIMS);
+    imat = ones(H,W,DIMS);
     for i = 1:DIMS
-        imat(:,:,i) = reshape(imvec(:,i),h,w);
+        imat(:,:,i) = reshape(imvec(:,i),H,W);
     end 
     imat = uint8(imat); 
 end
