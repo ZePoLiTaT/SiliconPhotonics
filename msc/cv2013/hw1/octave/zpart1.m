@@ -33,10 +33,7 @@ Hinv = inv(Hmat);
 %Finds the corresponding original no transformed points (x,y) 
 [fSize, fBounds] = transformCorner(Hinv, [1,iW; 1,iH]);
 iPos = transformImg(Hmat, fBounds);
-
 fH = fSize(2); fW = fSize(1);
-cutBounds = [x(1:2) - fBounds([1,1]) y(2:3) - fBounds([2,2])];
-cutSize = [cutBounds(2)-cutBounds(1)  cutBounds(4)-cutBounds(3)];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %find valid position of the indexes refering to the original image
@@ -44,11 +41,6 @@ iX = find(iPos(:,1)>=1 & iPos(:,2)>=1 & iPos(:,1)<(iW-1) & iPos(:,2)<(iH-1));
 
 %find the the indexes (ix) of fPos from the unwrapped vector iPos
 fPos = [1:size(iPos,1)]';
-
-%iLims = iPos(:,1)>=1 & iPos(:,2)>=1 & iPos(:,1)<(iW-1) & iPos(:,2)<(iH-1);
-%cutLims = fPos>=cutBounds(1)*fH+cutBounds(3) & fPos<cutBounds(2)*fH+cutBounds(4);
-
-%iX = find(iLims & cutLims);
 
 %only store the valid iPos and fPos
 iPos = iPos(iX,:);
@@ -64,11 +56,8 @@ fVecImg(fPos,:) = bilinear(iVecImg, iPos, iH);
 %Transform vector to matrix image
 fImg = zimasmat(fVecImg, fW, fH);
 
-%fUpLeftIx = cutBounds(1)*fH+cutBounds(3);
-%fImg = zimasmat(fVecImg(fUpLeftIx:fUpLeftIx+(cutSize(1)*cutSize(2)-1),:), cutSize(1), cutSize(2));
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 figure(2);
 imshow(fImg);
 %imwrite(iImg, 'out1.jpg');
