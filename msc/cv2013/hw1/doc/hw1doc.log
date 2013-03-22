@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.28)  18 MAR 2013 16:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.2.28)  22 MAR 2013 06:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,35 +297,114 @@ LaTeX Info: Redefining \cite on input line 694.
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
-) (./hw1doc.aux)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count125
+\lst@gtempboxa=\box29
+\lst@token=\toks23
+\lst@length=\count126
+\lst@currlwidth=\dimen144
+\lst@column=\count127
+\lst@pos=\count128
+\lst@lostspace=\dimen145
+\lst@width=\dimen146
+\lst@newlines=\count129
+\lst@lineno=\count130
+\lst@maxwidth=\dimen147
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count131
+\lst@skipnumbers=\count132
+\lst@framebox=\box30
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/spanish.ldf
+Language: spanish.ldf 2011/10/06 v5.0k Spanish support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count133
+\U@D=\dimen148
+)
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Spanish'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@spanish = a dialect from \language0
+\es@datefmt=\count134
+\es@quottoks=\toks24
+\es@quotdepth=\count135
+Package babel Info: Making " an active character on input line 496.
+Package babel Info: Making . an active character on input line 599.
+Package babel Info: Making < an active character on input line 644.
+Package babel Info: Making > an active character on input line 644.
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks25
+\inpenc@posthook=\toks26
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucs.sty
+Package: ucs 2004/10/17 UCS: Unicode input support
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-global.def
+File: uni-global.def 2012/04/20 UCS: Unicode global data
+)
+\uc@secondtry=\count136
+\uc@combtoks=\toks27
+\uc@combtoksb=\toks28
+\uc@temptokena=\toks29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count137
+\float@exts=\toks30
+\float@box=\box31
+\@float@everytoks=\toks31
+\@floatcapt=\box32
+) (./hw1doc.aux
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
+)
 \openout1 = `hw1doc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen144
-\scratchbox=\box29
-\nofMPsegments=\count126
-\nofMParguments=\count127
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count128
-\MPscratchDim=\dimen145
-\MPnumerator=\count129
-\makeMPintoPDFobject=\count130
-\everyMPtoPDFconversion=\toks24
+\scratchcounter=\count138
+\scratchdimen=\dimen149
+\scratchbox=\box33
+\nofMPsegments=\count139
+\nofMParguments=\count140
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count141
+\MPscratchDim=\dimen150
+\MPnumerator=\count142
+\makeMPintoPDFobject=\count143
+\everyMPtoPDFconversion=\toks33
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -376,31 +455,98 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count144
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
 
-(./hw1doc.bbl) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
+File: uni-0.def 2012/04/20 UCS: Unicode data U+0000..U+00FF
+)
+Underfull \hbox (badness 2012) in paragraph at lines 26--32
+[]\OT1/ptm/b/it/9 Resumen\OT1/ptm/b/n/9 ---El pre-sente doc-u-men-to ex-pli-ca 
+los re-sul-ta-dos
+ []
 
+<imgs/p1iImg.png, id=1, 402.50375pt x 654.445pt>
+File: imgs/p1iImg.png Graphic file (type png)
+ <use imgs/p1iImg.png>
+Package pdftex.def Info: imgs/p1iImg.png used on input line 134.
+(pdftex.def)             Requested size: 170.71652pt x 277.57123pt.
+
+Overfull \hbox (20.40079pt too wide) detected at line 159
+[] \OT1/cmr/m/n/10 = [][] []
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-(./hw1doc.aux) ) 
+<imgs/p1fImg.png, id=18, 487.8225pt x 650.43pt>
+File: imgs/p1fImg.png Graphic file (type png)
+ <use imgs/p1fImg.png>
+Package pdftex.def Info: imgs/p1fImg.png used on input line 229.
+(pdftex.def)             Requested size: 170.71652pt x 227.62413pt.
+
+<imgs/domokun.jpg, id=19, 361.35pt x 544.1931pt>
+File: imgs/domokun.jpg Graphic file (type jpg)
+ <use imgs/domokun.jpg>
+Package pdftex.def Info: imgs/domokun.jpg used on input line 246.
+(pdftex.def)             Requested size: 85.35826pt x 128.54968pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2 <./imgs/p1iImg.png> <./imgs/p1fImg.png>]
+<imgs/p2iImg.png, id=23, 429.605pt x 337.26pt>
+File: imgs/p2iImg.png Graphic file (type png)
+ <use imgs/p2iImg.png>
+Package pdftex.def Info: imgs/p2iImg.png used on input line 253.
+(pdftex.def)             Requested size: 199.16928pt x 156.35597pt.
+
+<imgs/p2fImg.jpg, id=24, 1003.75pt x 798.985pt>
+File: imgs/p2fImg.jpg Graphic file (type jpg)
+ <use imgs/p2fImg.jpg>
+Package pdftex.def Info: imgs/p2fImg.jpg used on input line 266.
+(pdftex.def)             Requested size: 199.16928pt x 158.53844pt.
+
+Underfull \hbox (badness 1721) in paragraph at lines 278--283
+[]\OT1/ptm/m/n/10 Existen dos posi-bil-i-dades de re-mover la dis-tor-ci[]on
+ []
+
+(./hw1doc.bbl) [3 <./imgs/domokun.jpg> <./imgs/p2iImg.png> <./imgs/p2fImg.jpg>]
+(./hw1doc.aux
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
+) ) 
 Here is how much of TeX's memory you used:
- 5356 strings out of 495059
- 82980 string characters out of 3182030
- 147200 words of memory out of 3000000
- 8487 multiletter control sequences out of 15000+200000
- 36230 words of font info for 66 fonts, out of 3000000 for 9000
+ 8411 strings out of 495059
+ 122791 string characters out of 3182030
+ 212386 words of memory out of 3000000
+ 11486 multiletter control sequences out of 15000+200000
+ 37791 words of font info for 69 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,5n,42p,271b,176s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
-r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
-imes/utmri8a.pfb>
-Output written on hw1doc.pdf (1 page, 44439 bytes).
+ 44i,8n,42p,324b,996s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmri8a.pfb>
+Output written on hw1doc.pdf (3 pages, 1317423 bytes).
 PDF statistics:
- 25 PDF objects out of 1000 (max. 8388607)
- 17 compressed objects within 1 object stream
+ 68 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

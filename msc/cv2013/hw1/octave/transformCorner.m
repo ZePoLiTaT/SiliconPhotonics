@@ -10,17 +10,10 @@
  
 function [fSize, fBounds] = transformCorner(Hp, iSize)
 
-    pCorner = [ 1 iSize(1,1) iSize(1,1) 1 ;
-		1 1 iSize(1,2) iSize(1,2);
-		ones(1,4) ];
+    pCorner = [ iSize(1,1) iSize(1,2) iSize(1,2) iSize(1,1);
+		iSize(2,1) iSize(2,1) iSize(2,2) iSize(2,2)];
 
-    pTransCorner = Hp * pCorner;
-    pTransCorner = bsxfun(@rdivide, pTransCorner(1:2,:), pTransCorner(3,:));
-    pTransCorner = int64(pTransCorner)';
-
-    %Calculate the size of the new image
-    %tmp=num2cell([min(pTransCorner) max(pTransCorner)]);
-    %[minx miny maxx maxy]= tmp{:};
+    pTransCorner = int64( transformX(Hp, pCorner) );
 
     %fBounds = [minx miny maxx maxy]
     fBounds=[min(pTransCorner) max(pTransCorner)];

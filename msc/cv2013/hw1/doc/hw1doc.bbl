@@ -5,4 +5,10 @@ Richard Hartley and Andrew Zisserman.
 \newblock {\em Multiple view geometry in computer vision}, volume~2.
 \newblock Cambridge Univ Press, 2000.
 
+\bibitem{BilinearWiki}
+Wikipedia.
+\newblock Bilinear interpolation.
+\newblock \url{http://en.wikipedia.org/wiki/Bilinear_interpolation}.
+\newblock [Online; accessed Mar-2013].
+
 \end{thebibliography}

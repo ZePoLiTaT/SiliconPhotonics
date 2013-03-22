@@ -7,32 +7,25 @@
 % Version: 0.0.1 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-graphics_toolkit fltk;
 clear; clc; close all;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Load transformed image >>projected<<
-[vPersp, iPersp, W, H] = zimread('../imgs/perspective.jpg');
-[vPlanar, iPlanar, WPlanar, HPlanar] = zimread('../imgs/logo_1.jpg');
+[vPersp, iPersp, W, H] = zimread('../imgs/room.jpg');
+[vPlanar, iPlanar, WPlanar, HPlanar] = zimread('../imgs/domokun.jpg');
 
-%[vPersp, iPersp, W, H] = zimread('../imgs/room.jpg');
-%[vPlanar, iPlanar, WPlanar, HPlanar] = zimread('../imgs/coffe.jpg');
-%[vPlanar, iPlanar, WPlanar, HPlanar] = zimread('../imgs/domokun.jpg');
+
+%The original corrdinates are the boundaries of the planar img
+x =[1;WPlanar;WPlanar;1];
+y =[1;1;HPlanar;HPlanar];
+xp=[722  897  898  726];
+yp=[253  148  503  467];
 
 imshow(iPlanar);
-
 figure(2);
 imshow(iPersp);
 hold on;
-
-%Read 4 points in the transformed image where the planar will be embeded
-[xp,yp] = ginput(4);
 scatter(xp,yp,5,'r');
-
-%The original corrdinates are the boundaries of the planar img
-x=[1;WPlanar;WPlanar;1];
-y=[1;1;HPlanar;HPlanar];
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -59,4 +52,4 @@ iPerspMod = zimasmat(vPersp, W, H);
 figure(3);
 imshow(iPerspMod);
 
-
+imwrite(iPerspMod, 'p2fImg.jpg');
