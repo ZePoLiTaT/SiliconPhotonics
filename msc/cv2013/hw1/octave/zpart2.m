@@ -1,11 +1,11 @@
-#######################################################
-## HW1 Solution
-## Part 2: ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+% HW1 Solution
+% Part 2: ...
 
-## Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
-## Created: 
-## Version: 0.0.1 
-#######################################################
+% Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
+% Created: 
+% Version: 0.0.1 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 graphics_toolkit fltk;
@@ -52,7 +52,6 @@ validpos = find(ix1dorig>0 & ix1dorig<=(W*H));
 
 %Assign RGB channel of the transformed image (x',y') into the equivalent original image (x,y)
 vPersp(ix1dorig(validpos),:) = vPlanar(validpos,:);
-%vPersp(validpos,:) = vPlanar(ix1dorig(validpos),:)*0;
 
 %Transform vector to matrix image
 iPerspMod = zimasmat(vPersp, W, H);

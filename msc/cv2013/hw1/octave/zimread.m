@@ -1,12 +1,14 @@
-## usage: [im, imat, W, H] = zimread(fname)
-##
-## Loads an image named 'fname' and returns:
-## * vector with 3 columns RGB
-## * matrix image
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% usage: [im, imat, W, H] = zimread(fname)
+%
+% Loads an image named 'fname' and returns:
+% * vector with 3 columns RGB
+% * matrix image
 
-## Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
-## Created: 
-## Version: 0.0.1
+% Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
+% Created: 
+% Version: 0.0.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [im, imat, W, H] = zimread(fname)
 
@@ -18,7 +20,7 @@ function [im, imat, W, H] = zimread(fname)
     W = imsize(2);
 
     %Validate number of color channels in the image
-    if(size(imsize)(2)==2)
+    if(size(imsize,2)==2)
         DIMS=1;
     else
 	DIMS=imsize(3);

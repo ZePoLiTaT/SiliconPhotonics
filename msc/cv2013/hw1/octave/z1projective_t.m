@@ -1,12 +1,12 @@
-#######################################################
-## HW1 Solution
-## Part 1: ...
-## Part 2: ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+% HW1 Solution
+% Part 1: ...
+% Part 2: ...
 
-## Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
-## Created: 
-## Version: 0.0.1 
-#######################################################
+% Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
+% Created: 
+% Version: 0.0.1 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 graphics_toolkit fltk;
@@ -18,6 +18,7 @@ clear; clc; close all;
 [ztransf, imgtransf, W, H] = zimread('../imgs/tiles.png');
 %[ztransf, imgtransf, W, H] = zimread('../imgs/test_1.jpg');
 
+
 %Create original image
 zorig = ones(size(ztransf));
 
@@ -28,11 +29,18 @@ hold on;
 [xp,yp] = ginput(4);
 scatter(xp,yp,5,'r');
 
-x=[50;130;130;50];
-y=[50;50;130;130];
-%x=[0;W;W;0];
-%y=[0;0;H;H];
+%x=[50;130;130;50];
+%y=[50;50;130;130];
+x=[0;W;W;0];
+y=[0;0;H;H];
 
+%{
+[ztransf, imgtransf, W, H] = zimread('../imgs/uno.jpg');
+x=[19 605 605 19];
+y=[28 28 466 466];
+xp=[142 491 504 146];
+yp=[2 98 379 470];
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Find transformation matrix from 2 sets of 4 points in the

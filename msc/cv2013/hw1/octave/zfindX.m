@@ -1,13 +1,13 @@
-#######################################################
-## usage: ix1Dorig = zfindX(Hp, W, H)
-##
-## Finds the corresponding original no transformed
-## image points (x,y) from the transformed (x',y') ones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% usage: ix1Dorig = zfindX(Hp, W, H)
+%
+% Finds the corresponding original no transformed
+% image points (x,y) from the transformed (x',y') ones
 
-## Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
-## Created: 
-## Version: 0.0.1
-#######################################################
+% Author: Tatiana L. G. <tatiana@sirius.utp.edu.co>
+% Created: 
+% Version: 0.0.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 function ix1Dorig = zfindX(Hp, W, H)
 
