@@ -15,7 +15,7 @@ clear; clc; close all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Load transformed image >>projected<<
 %[ztransf, imgtransf, W, H] = zimread('../imgs/building.png');
-[ztransf, imgtransf, W, H] = zimread('../imgs/tiles.png');
+[ztransf, imgtransf, W, H] = zimread('../imgs/3.jpg');
 %[ztransf, imgtransf, W, H] = zimread('../imgs/test_1.jpg');
 
 

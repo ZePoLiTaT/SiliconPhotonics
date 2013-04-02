@@ -16,7 +16,7 @@ El modelamiento teórico es muy similar al resonador Fabry-Perot descrito en
 Cada región del anillo tiene asociados unos parámetros principales que definen su 
 comportamiento. Estos son:
 \begin{itemize}
-\item Coeficientes de acoplamiento $(\kappa_1,\kappa_1^{'}\kappa_2\kappa_2^{'})$,
+\item Coeficientes de acoplamiento $(\kappa_1,\kappa_1^{'},\kappa_2,\kappa_2^{'})$,
 \item Coeficientes de transmisión $(t_1, t_1^{'}, t_2, t_2^{'})$ (en la sección 
 \ref{ss:params_relation} se verá la relación que existe entre los 8 coeficientes). 
 \item Constante de propagación $\beta$ del modo circulante. 
@@ -79,7 +79,7 @@ y la fase de la onda que ha recorrido una distancia L.
 Por lo tanto, al dar una vuelta ($1L$), la propagación de la onda queda expresada como 
 $\alpha e^{-j \beta L}$.
 
-En su recorrido completo, la onda que da una vuelta completa (Figura \ref{fig:rr_n1}) 
+En su recorrido, la onda que da una vuelta completa (Figura \ref{fig:rr_n1}) 
 pasa por 3 regiones de interés. 
 En la primera región (acoplamiento 1) una porción (dada por el coeficiente de acoplamiento 
 $\kappa_1$) entra desde la guía recta hacia el anillo.
@@ -267,7 +267,7 @@ transmisión \cite{abujnah2012numerical}:
 
 \begin{align}
  T_d &= 
-    \frac{\alpha^2 (1-|t_1|^2) (1-|t_2|^2)}
+    \frac{\alpha^2 (1-|t_1|)^2 (1-|t_2|)^2}
     {1 + \alpha^2|t_1|^2 |t_2|^2 - 2\alpha |t_1||t_2|
 	\cos(\theta + \phi_{t_1} + \phi_{t_2}) }
 \label{eq:T_d}
@@ -379,7 +379,7 @@ para manejar una densidad de espectro alta y son principalmente usados como swit
 de bada ancha. 
 
 Por el otro lado, un anillo pequeño tendrá un mayor espaciamiento
-entre los modos lo que significa que es más selectivo \cite{chan2011physical} y por
+entre los modos lo que significa que es más selectivo \cite{Chan2011} y por
 eso son muy usados como filtros y moduladores.
 
 \subsubsection{Full Width Half Maximum}

@@ -19,11 +19,23 @@ en un chip o NoCs nano ópticas sobre silicio, ya ha sido conceptualizada,
 permitiendo superar las actuales limitaciones de su equivalente electrónico 
 en los chips de multiprocesamiento o CMP.
 
-En este proyecto se pretende explorar y evaluar diferentes diseños de 
-arquitecturas que permitan analizar el impacto de las NoCs ópticas en 
-las futuras generaciones de CMPs, ya que son de vital importancia para 
+%TODO Resumen de metodología 
+%TODO Resumen de resultados y conclusiones
+\begin{comment}
+En este proyecto se evalúa el comportamiento de los elementos básicos que conforman
+los dispositivos fotónicos. Esta caracterización a nivel físico, permite tener un
+mayor control sobre los parámetros con los que se simula su comportamiento a nivel
+de un sistema completo de
+en
+una capa de abstracción superior
+
+También se analizan diferentes diseños de 
+arquitecturas que permiten analizar el impacto de las NoCs ópticas en 
+las futuras generaciones de CMPs. 
+
+Este impacto es de vital importancia para 
 lograr el aumento en el rendimiento manteniendo al mismo tiempo la eficiencia 
-en elconsumo de potencia.
+en el consumo de potencia.
 
 Al finalizar, se tendrán los análsis comparativos en términos de ancho de banda, 
 potencia y latencia de algunas de las redes de interconexión más conocidas 
@@ -32,6 +44,7 @@ científico orientado al área de arquitectura de computadores y a la nanotecnol
 permitirá la creación de nuevos diseños que aporten a la solución de los
 problemas de rendimiento vs potencia, apuntando a mejorar la competitividad 
 nacional mediante la generación de producción intelectual en dicho aspecto.
+\end{comment}
 
 \section{Planteamiento del Problema}
 Las redes de interconexión electrónicas, tienen un impacto directo en 
@@ -63,10 +76,14 @@ sino también de la comunidad académica (Columbia, Purdue, MIT entre otras),
 quienes han logrado demostrar experimentalmente las piezas fundamentales que 
 permitirían su materialización en un futuro no muy lejano.
 
-Para lograr este objetivo, se debe permitir primero a los arquitectos de computadores, 
-a través de la simulación, explorar de forma ágil nuevos diseños de arquitecturas 
-de interconexión y evaluar el rendimiento holístico a través de mediciones 
-precisas en los aspectos de capacidad de procesamiento, consumo de potencia y escalabilidad.
+Debido a que los dispositivos ópticos son fundamentalmente diferentes de 
+las tecnologías de interconexión electrónicas convencionales, se requieren nuevas 
+metodologías y herramientas que permitan a 
+los arquitectos de computadores, evaluar el rendimiento holístico del sistema a 
+través de mediciones precisas en los aspectos de capacidad de procesamiento, 
+consumo de potencia y escalabididad.
+Todo esto, incorporando de forma acertada las diferencias físicas 
+en cuanto al comportamiento en la fotónica \cite{Chan2010}.
 
 Por otro lado, y aunque de forma relativamente reciente, también se ha destacado 
 la importancia del fortalecimiento y aplicación de este tipo de tecnologías convergentes 
@@ -97,7 +114,7 @@ plazo, es el incremento de estos núcleos al orden de cientos o miles, en donde 
 cantidad tiene una proyección de crecimiento en un factor de 2x cada 18 meses \cite{Magen2004},
 dando surgimiento a una nueva ley similar a la ley de Moore para los transistores.
 
-in embargo, y para preservar las ventajas esperadas al tener cada vez más núcleos de
+Sin embargo, y para preservar las ventajas esperadas al tener cada vez más núcleos de
 procesamiento, se deben no solo mantener los bajos costos de fabricación, sino superar
 tres grandes dificultades \cite{Asanovic2007} relacionadas con: el aumento en la 
 complejidad por la programación en paralelo, el limitado ancho de banda hacia los dispositivos de
@@ -143,7 +160,11 @@ sobre silicio para chips multiprocesadores.
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
-\item Caracterizar los componentes básicos de las redes nanofotónicas sobre silicio.
+\item Caracterizar los componentes básicos de los dispositivos que conforman la
+capa de interconexión en las redes nanofotónicas sobre silicio.
+\item Comprender los parámetros que gobiernan, a nivel físico, los dispositivos 
+de una red de interconexión nanofotónica para su manipulación conciente en
+ un nivel de abstracción superior o de sistema.
 \item Explorar las topologías de interconexión más usadas en los CMPs electrónicos actuales.
 \item Simular cada una de las topologías en los dominios electrónico y nanofotónico híbrido sobre silicio.
 \item Evaluar y comparar las redes en términos de latencia y potencia.
@@ -155,18 +176,29 @@ topologías Mesh y Torus más eficientes en términos de consumo de potencia
  y latencia que sus pares electrónicos?
 
 \section{Metodología}
-Este proyecto se plantea como una investigación aplicada donde se busca 
+Este proyecto se planteó como una investigación aplicada donde se buscaba 
 encontrar soluciones del estado del arte en el área de arquitectura de 
 computadores para la problemática del consumo de recursos de las redes de 
 interconexión electrónicas actuales en los chips multiprocesadores. 
 
-Resulta entonces conveniente la utilización de una metodología estructural, 
-dividiendo la investigación en tres fases que dan solución a la 
-problemática propuesta:
+Resultó entonces conveniente la utilización de una metodología estructural, 
+en la cual se identificaron 2 grandes etapas: 
 
+La primera corresponde
+a la visualización del problema desde el punto de vista del comportamiento físico de
+los dispositivos que componen la red de interconexión nanofotónica. 
+La segunda tiene un enfoque con un nivel de abstracción superior, extrayendo
+sólo algunos parámetros de la primera etapa como base para un análisis holístico de rendimiento,
+latencia y potencia del sistema.
+
+La importancia de realizar ambas etapas radica en el conocimiento adquirido en la primera
+ permite una manipulación conciente de los parámetros que son insumo de la segunda. 
+
+
+\subsection{Etapa 1}
 \begin{itemize}
 \item Fase 1: Base Teórica
-En esta etapa se hace un estudio de los fundamentos teóricos tanto físicos
+En esta etapa se hizo un estudio de los fundamentos teóricos tanto físicos
 como matemáticos que rigen el comportamiento de los dispositivos que soportan
 los componentes que forman una red de interconexión nanofotónica sobre silicio. 
 
@@ -181,7 +213,10 @@ emplean anillos resonadores: filtro Notch y filtro AddDrop.
 
 En esta etapa, se usarán 2 softwares de simulación que correrán 
 sobre dos servidores especializados para este propósito. 
+\end{itemize} 
 
+\subsection{Etapa 2} 
+\begin{itemize}
 \item Fase 3: Análisis de Topologías de Interconexión
 Se analizarán las topologías de interconexión electrónicas 
 actuales que se desean evaluar en el alcance de este proyecto: Mesh y Torus 
@@ -197,4 +232,4 @@ midiendo los resultados en términos de potencia y latencia.
 
 Debido a la estructura metodológica sobre la que se desarrolló esta investigación,
 los resultados se presentarán en los 3 capítulos siguientes, correspondientes a 
-los resultados obtenidos en cada una de las fases.
+los resultados obtenidos en cada una de las fases mencionadas.

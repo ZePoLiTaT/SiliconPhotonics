@@ -8,10 +8,11 @@
 \usepackage{mathtools}
 \usepackage{natbib}
 \usepackage{floatrow}
-
+\usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{url}
 
 \usepackage[usenames,dvipsnames]{color} 
 %\usepackage{pkgs/codesnippet}
@@ -28,8 +29,11 @@
 
 %%%%%%%%%% DEDICATION SECTION %%%%%%%%%%%%
 \newenvironment{dedication}
-    {\vspace{6ex}\begin{quotation}\begin{center}\begin{em}}
-    {\par\end{em}\end{center}\end{quotation}}
+    {\vspace{6ex}\begin{quotation}\begin{flushright}\begin{em}\raggedleft}
+    {\par\end{em}\end{flushright}\end{quotation}}
+%\newenvironment{dedication}
+%    {\phantom{}\vfill\begin{flushright}\raggedleft}
+%    {\end{flushright}}
 
 %%%%%%%%%%%%% PARAGRAPHS %%%%%%%%%%%%%%%%%
 %No ident in new paragraph

@@ -21,6 +21,8 @@ hold on;
 
 %graphics_toolkit fltk;
 %[xp,yp] = ginput(4);
+%x=[0;iW;iW;0];
+%y=[0;0;iH;iH];
 scatter(xp,yp,5,'r');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -61,4 +63,4 @@ fImg = zimasmat(fVecImg, fW, fH);
 figure(2);
 imshow(fImg);
 %imwrite(iImg, 'out1.jpg');
-%imwrite(fImg, 'out2.jpg');
+imwrite(fImg, 'out2.jpg');

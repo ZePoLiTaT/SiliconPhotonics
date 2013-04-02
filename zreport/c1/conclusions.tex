@@ -1,0 +1,27 @@
+\subsection{Conclusiones y Trabajos Futuros}
+\begin{itemize}
+\item Las frecuencias de resonancia del anillo pueden ser manipuladas mediante
+modificaciones en el diámetro del anillo, el gap o el índice de refracción. Este
+último es de gran importancia por ser la base del funcionamiento algunos dispositivos
+moduladores en Silicon Photonics donde se aplica un campo
+magnético, generando un efecto plasmónico que altera el índice y por lo tanto
+los modos de resonancia.
+\item Debido a que se asumió que el anillo no presentaba pérdidas $(\alpha = 1)$ en
+el cálculo teórico de la transmitancia tanto del filtro Notch como del filtro
+AddDrop, se pueden apreciar diferencias en las condiciones de resonancia
+de la teoría con respecto a lo obtenido en la práctica.
+\item Las diferencias en el $FSR$ obtenido en las simulaciones realizadas en Meep
+con respecto a las realizadas en Lumerical, pueden ser explicadas debido a la 
+diferencia en las dimensiones de ambas simulaciones. Mientras que en Lumerical 
+se realizó una simulación 3D de ambos filtros, en Meep la mayoría fueron realizadas
+en 2D a diferencia del último caso. Este escenario permitió corroborar esta teoría
+ya que la simulación Meep 3D del filtro Notch fue muy similar a la simulación del mismo
+filtro en la plataforma Lumerical.
+\item Como trabajo futuro se plantea realizar nuevas simulaciones para los dos
+filtros modificando el diámetro del anillo para visualizar 
+la alteración en el FSR y su uso como filtro selectivo o filtro de banda ancha.
+\item Se propone también, para un diámetro fijo, realizar simulaciones alterando 
+el índice de refracción del anillo para simular el efecto plasmónico que 
+sucede dentro del modulador y que hace que se desplacen las frecuencias de resonancia
+de un estado On a Off.
+\end{itemize} 

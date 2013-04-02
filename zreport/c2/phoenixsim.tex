@@ -1,5 +1,28 @@
 \section{PhoenixSim}
 
+El nombre de PhoenixSim proviene de \textit{Photonic and Electronic Network Integration} ó 
+integración fotónica y electrónica de redes. Esta herramienta permite modelar y 
+analizar el rendimiento de sistemas multiprocesador que usan redes electrónicas, fotónicas
+o híbridas. PhoenixSim captura las características físicas y las métricas de los diferentes 
+dispositivos de interconexión nanofotónicos y elementos de red que no poseen un equivalente
+ electrónico \cite{Chan2010}.
+ 
+Está desarrollado sobre la herramienta OMNeT++ para simulación de eventos discretos
+\cite{varga2005omnet++} sobre la cuál se montó una librería de dispositivos fotónicos
+y electrónicos altamente parametrizable.
+
+Para el desarrollo de redes de interconexión sobre PhoenixSim, se recomienda seguir
+las siguientes etapas metodológicas \cite{Chan2011} mostradas en la Figura \ref{fig:phoenix_ovw}:
+
+\begin{itemize}
+\item Especificar los dispositvos con los que se construirá la red.
+\item Seleccionar la aplicación o aplicaciones que se ejecutarán sobre la red.
+\item Modelar la aquitectura de la red
+\item Analizar el rendimiento a nivel de sistema.
+\item Caracterizar la red a nivel físico.
+\item Refinamiento iterativo de los pasos anteriores (parámetros y diseño).
+\end{itemize} 
+
 \begin{figure}[H]
 \caption{Vista General PhoenixSim. Fuente \cite{Chan2011}}
 \centering
@@ -11,6 +34,8 @@
 \subsubsection{Electrónicos}
 
 \paragraph{Router Electrónico}~\\
+El router electrónico es usado tanto en las redes completamente electrónicas como en las fotónicas. En éstas últimas su uso se da a través del router híbrido, el cual lo necesita para controlar el camino por el cual serán enviados los datos en el plano fotónico.
+
 \begin{itemize}
 \item Puerto de Entrada (InPort)
 \item Entramado de comunicación (Crossbar)
@@ -18,26 +43,24 @@
 \end{itemize} 
 
 \subsubsection{Fotónicos}
-La caracterización  de los dispositivos de PhoenixSim abstrae las características físicas más importantes de los elementos fotónicos (capítulos \ref{ch:intro} y \ref{ch:rr}) sin perder la presición de sus resultados y sin necesidad de realizar una simulación FDTD completa. 
+PhoenixSim abstrae las características físicas más importantes de los elementos fotónicos (capítulos \ref{ch:intro} y \ref{ch:rr}) sin perder la presición de sus resultados y sin necesidad de realizar una simulación FDTD completa. 
 
 Al usar sólo las características más relevantes, se pueden emplear como componentes de las diferentes redes al mismo tiempo que se mantiene el rendimiento de la simulación a nivel de sistema.
+Existen 2 categorías: activos y pasivos. La diferencia radica en que el comportamiento 
+de los dispositivos pasivos o estáticos no cambia durante la ejecución de la simulación.
 
 \paragraph{Pasivos}~\\
 \begin{itemize}
 \item Guía de onda
 
-Cables óptivos con los que se conectan los demás dispositivos fotónicos. Exhiben 
-pérdidas de propagación principalmente debido a las imperfecciones en el proceso
-de fabricación y a rugosidades en las paredes de la misma.
-La abstracción de su funcionamiento está basada en 3 parámetros \cite{Chan2011} 
-(ver Tabla \ref{tb:wg_params}).
+Representa el cable óptico con el que se conectan los demás dispositivos fotónicos. 
+Presentan pérdidas por inserción debido a la atenuación que experimenta la onda
+al viajar a través de la estructura. Otros factores influyen son 
+las dimensiones de la guía, las propiedades de los materiales usados y las técnicas
+de fabricación.
 
-\begin{figure}[H]
-\caption{Caracterización: Guía de Onda.}
-\centering
-\includegraphics[width=0.9\textwidth,natwidth=665,natheight=200]{figs/wg.png}
-\label{fig:phoenix_wg}
-\end{figure}
+Este dispositivo está caracterizado por los 3 parámetros  mostrados en 
+las tablas \ref{tb:wg_params} y \ref{tb:phpar_wg}.
 
 \begin{table}[H]
 \centering
@@ -46,7 +69,7 @@ La abstracción de su funcionamiento está basada en 3 parámetros \cite{Chan201
 Descripción &  Nombre Parámetro & Abv. \\
 \hline
 Longitud & $Length$ & $L_{wg}$ \\
-Latencia & $LatencyRate_Line$ & $t_{wg}$ \\
+Latencia & $LatencyRate\_Line$ & $t_{wg}$ \\
 Pérdidas por Propagación & $PropagationLoss$ & $\alpha_{wg}$ \\
 \hline
 \end{tabular}
@@ -54,9 +77,62 @@ Pérdidas por Propagación & $PropagationLoss$ & $\alpha_{wg}$ \\
 \label{tb:wg_params}
 \end{table} 
 
+En PhoenixSim la guía de onda es modelada como un sistema con 2 puertos de entrada
+y 2 puertos de salida. Como se ve en la figura \ref{fig:phoenix_wg}, este sistema
+posee una tabla de enrutamiento $[1,0]$ donde el índice representa el puerto de entrada
+y el valor indica el puerto por el que sale la señal. Es decir, la señal óptica que ingresa
+por el puerto 0 sale por el puerto 1 y viceversa. \cite{Chan2011}
+
+\begin{figure}[H]
+\caption{Caracterización: Guía de Onda.}
+\centering
+\includegraphics[width=0.9\textwidth,natwidth=665,natheight=200]{figs/wg.png}
+\label{fig:phoenix_wg}
+\end{figure}
+
+Finalmente, para dar una idea de la implementación de este componente, se extrajo la siguiente
+sección de código del archivo $line.cc$ de PhoenixSim.
+
+\zcodectl{"sources/c2_wg.cpp"}{Implementación de la guía de onda en PhoenixSim.} 
+
+
 \item Guía de onda doblada
 
+Este tipo de estructura es requerido con el fin de cambiar la trayectoria de una señal en
+un ángulo no mayor a 90 grados. Presentan pérdidas por inserción adicionales a las de 
+la guía de onda recta (\textit{BendingLoss}) debido a 
+los dobleces \cite{Chan2011}. Están modelados por los parámetros de la tabla \ref{tb:wgb_params} 
+y \ref{tb:phpar_wgb}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Descripción &  Nombre Parámetro \\
+\hline
+Ángulo & $Angle\_Bend$ \\
+Latencia & $Latency\_Bend$ \\
+Pérdidas por Propagación & $PropagationLoss$ \\
+Pérdidas por doblez & $BendingLoss$ \\
+\hline
+\end{tabular}
+\caption{Caracterización Guía de Onda.}
+\label{tb:wgb_params}
+\end{table} 
+
+
 \item Cruce de guías de onda
+
+Los cruces en una topología de red se presentan debido a la naturaleza planar o 2D 
+de la plataforma tecnológica sobre la cual están construidas. Esta situación se da cada vez que 
+2 guías de onda recta se intersectan presentando tanto pérdidas por inserción como diafonía 
+(\textit{crosstalk}) \cite{Chan2010}. Este efecto es minimizado gracias a técnicas de fabricación donde 
+se amplía y se emplea un doble borde en el área de cruce \cite{bogaerts2007low}.
+Este fenómeno no se presenta en las interconexiones electrónicas ya que generaría un corto
+circuito. 
+
+Este dispositivo está modelado como un sistema de 4 entradas y 4 salidas como se ve en la 
+figura \ref{fig:phoenix_wgc} y por los parámetros de la tabla \ref{tb:phpar_wgc}.
 \begin{figure}[H]
 \caption{Caracterización: Cruce de Guía de Onda.}
 \centering
@@ -64,9 +140,22 @@ Pérdidas por Propagación & $PropagationLoss$ & $\alpha_{wg}$ \\
 \label{fig:phoenix_wgc}
 \end{figure}
 
+\item Acoplador
+
+Un acoplador es una interfaz óptica entre los dominios dentro y fuera del chip. 
+Es decir, es capaz de transferir una onda de un médio de propagación (como una
+fibra óptica) hacia otro (como una guía de onda) y es prácticamente transparente
+a la distancia de propagación \cite{Chan2011}.
+
+Se modela como un dispositivo de 2 puertos con un sólo parámetro para demarcar
+las pérdidas por inserción.
+
 \end{itemize}
 
-\paragraph{Activos (basados en anillos resonadores \ref{ch:rr})}~\\
+\paragraph{Activos}~\\
+
+Estos dispositivos están basados en anillos resonadores (Capítulo \ref{ch:rr}).
+
 \begin{figure}[H]
 \caption{(a). Cambio de estado de resonancia on-off
 al aplicar un voltaje Fuente \cite{hendry2011time}. (b). Caracterización: Anillo Resonador.}
@@ -81,8 +170,6 @@ al aplicar un voltaje Fuente \cite{hendry2011time}. (b). Caracterización: Anill
 \item Moduladores
 \item Detectores
 \end{itemize}  
-
-
 
 
 \subsection{Benchmarks}
@@ -102,7 +189,7 @@ Las pruebas sobre la memoria están divididas en 3 según la característica que
 \paragraph{Transformada rápida de Fourier (FFT)}~\\
 
 Está dividido en las etapas del algoritmo de Cooley-Turkey. La etapa principal es la que toma el mayor tiempo, 
-Los tiempos de cada etapa deben ser pasados como parámetros de la simulación. Los valores por defecto incluidos en el texit{textbed} de PhoenixSim fueron obtenidos de la caracterización  dada por Frigo y Johnson \cite{benchFFT} y usa 8 núcleos de procesamiento. 
+Los tiempos de cada etapa deben ser pasados como parámetros de la simulación. Los valores por defecto incluidos en el \textit{textbed} de PhoenixSim fueron obtenidos de la caracterización  dada por Frigo y Johnson \cite{benchFFT} usando 8 núcleos de procesamiento. 
 
 \subsection{Herramientas de Medición y Análisis}
 
