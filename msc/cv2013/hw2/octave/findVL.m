@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% usage: vl = findVL(A,B,C,D)
+% usage: [VL,l] = findVL(A,B,C,D)
 %
 % Returns the vanishing line from 4 points that 
 % belong to the corners (clockwise order) of a 
@@ -11,9 +11,10 @@
 % Version: 0.0.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function VL = findVL(A,B,C,D)
-    P = cross( cross(A,B) , cross(C,D) );
-    Q = cross( cross(A,C) , cross(B,D) );
+function [VL,l] = findVL(A,B,C,D)
+    l = [cross(A,B) cross(C,D) cross(A,C) cross(B,D)];
+    P = cross( l(:,1) , l(:,2) );
+    Q = cross( l(:,3) , l(:,4) );
     VL = cross(P,Q);    
     VL = VL ./ VL(3);
 end
