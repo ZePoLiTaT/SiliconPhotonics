@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+
+\bibitem{BicubicPaul}
+Paul Breeuwsma.
+\newblock Cubic interpolation.
+\newblock \url{http://www.paulinternet.nl/?page=bicubic}.
+\newblock [Online; accessed Apr-2013].
+
+\bibitem{hartley2000multiple}
+Richard Hartley and Andrew Zisserman.
+\newblock {\em Multiple view geometry in computer vision}, volume~2.
+\newblock Cambridge Univ Press, 2000.
+
+\bibitem{BicubicWiki}
+Wikipedia.
+\newblock Bicubic interpolation.
+\newblock \url{http://en.wikipedia.org/wiki/Bicubic_interpolation}.
+\newblock [Online; accessed Apr-2013].
+
+\end{thebibliography}

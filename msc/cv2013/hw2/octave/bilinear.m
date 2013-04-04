@@ -19,10 +19,10 @@ function b = bilinear(f, pos, H)
     y2 = y1 + 1 ;
     f = double(f);
     
-    fQ11 = f(x1*H+y1,:); 
-    fQ21 = f(x2*H+y1,:);
-    fQ12 = f(x1*H+y2,:);
-    fQ22 = f(x2*H+y2,:);
+    fQ11 = f( (x1-1)*H + y1,:); 
+    fQ21 = f( (x2-1)*H + y1,:);
+    fQ12 = f( (x1-1)*H + y2,:);
+    fQ22 = f( (x2-1)*H + y2,:);
 
     b = bsxfun(@times, fQ11, (x2-x).*(y2-y)) + ...
 	bsxfun(@times, fQ21, (x-x1).*(y2-y)) + ...

@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: hw2doc.aux
+The style file: plain.bst
+Database file #1: biblio.bib
+Warning--string name "marzo" is undefined
+--line 4 of file biblio.bib
+Warning--string name "april" is undefined
+--line 11 of file biblio.bib
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            513 strings with 4349 characters,
+and the built_in function-call counts, 670 in all, are:
+= -- 65
+> -- 27
+< -- 1
++ -- 11
+- -- 8
+* -- 27
+:= -- 128
+add.period$ -- 11
+call.type$ -- 3
+change.case$ -- 12
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 28
+empty$ -- 53
+format.name$ -- 8
+if$ -- 134
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 20
+num.names$ -- 6
+pop$ -- 18
+preamble$ -- 1
+purify$ -- 10
+quote$ -- 0
+skip$ -- 16
+stack$ -- 0
+substring$ -- 15
+swap$ -- 4
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 10
+warning$ -- 0
+while$ -- 6
+width$ -- 4
+write$ -- 35
+(There were 2 warnings)

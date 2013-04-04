@@ -37,11 +37,18 @@ HpInv = inv(Hp);
 % Transform the corners to get the new size of the image
 fSize = transformCorner(Hp, [1,iSize(1); 1,iSize(2)]);
 iPos = transformImg(HpInv, [1 1 fSize]);
-[fImg, fVecImg] = createTransfImg(fSize, iSize, iPos, iVecImg);
-
+tic
+[fImg, fVecImg] = createTransfImg(fSize, iSize, iPos, iVecImg,'bicubic');
+toc
 figure(2); imshow(fImg); hold on;
 
 lo = HpInv'*l;
 drawLine(linspace(1,fSize(1),fSize(1)), lo);
 
 imwrite(fImg, strcat(strcat(fname,'-toAffinity'),'.jpg'));
+
+tic
+T=maketform('projective',Hp');
+P2=imtransform(iImg,T,'bicubic');
+toc
+figure(3); imshow(P2);

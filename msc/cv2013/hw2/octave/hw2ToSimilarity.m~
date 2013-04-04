@@ -26,7 +26,7 @@ p = [x; y; ones(size(x))];
 [K,l] = findKMat(p);
 
 %graphics_toolkit fltk;
-%[x,y] = ginput(4); x=x'; y=y';
+%[x,y] = ginput(4);
 scatter(x,y,5,'c');
 drawLine(linspace(1,iW,iW), l);
 

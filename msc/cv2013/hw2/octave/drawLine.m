@@ -17,9 +17,9 @@ function drawLine(x, l)
     plot(x,ly);
 
     lvert = find(l(2,:)==0);
-    if(!isempty(lvert))
+    if(~isempty(lvert))
         lvert = l(:,lvert);
 	xvert = -lvert(3,:)./lvert(1,:);
-        plot([xvert:xvert],[-7:0.1:7],".g");
+        plot([xvert:xvert],[-7:0.1:7],'.g');
     end
 end

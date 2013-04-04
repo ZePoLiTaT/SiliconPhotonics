@@ -19,7 +19,6 @@
 function [K, l] = findKMat(p)
     l = [cross(p(:,1) , p(:,2))  cross(p(:,2) , p(:,3)) ...
 	 cross(p(:,4) , p(:,5))  cross(p(:,5) , p(:,6))];
-    l ./ l(3,:);
 
     % Solve the eq system given by:
     A = [l(1,1)*l(1,2) l(1,1)*l(2,2)+l(2,1)*l(1,2) l(2,1)*l(2,2);

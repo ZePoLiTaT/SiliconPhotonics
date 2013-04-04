@@ -1,0 +1,49 @@
+﻿WFDB Toolbox for MATLAB es una colección de aplicaciones para leer, escribir, manipular y graficar datos de PhysioBank sobre MATLAB.
+
+El enlace para descargar el toolbox está en la siguiente dirección:
+http://www.physionet.org/physiotools/matlab/wfdb-swig-matlab/
+
+A continuación, el código para graficar un registro de una arritmia:
+
+RECORD = 'mitdb/100'
+%RECORD = 'svdb/800'
+ANNOTATOR = 'atr'
+
+%
+disp(['Loading 10 seconds of record ',RECORD,' ...']);
+data10 = rdsamp(RECORD, 'begin', '00:00:00', 'stop', '00:00:10');
+
+%
+disp(['Loading 10 seconds of annotations from ',ANNOTATOR, ...
+      ' for record ',RECORD,' ...']);
+anns10 = rdann(RECORD, ANNOTATOR, 'start', '00:00:00', 'stop', ...
+    '00:00:10', 'concise');
+
+%
+disp(['Finding the frequency of ',RECORD,' using wfdbdesc ...']);
+desc = wfdbdesc(RECORD, false);
+freq = desc.samplingFrequency;
+
+% just a safety measure
+if freq == 0
+  freq = 1;
+end
+
+%
+disp('Plotting the first signal in the record ...');
+plot(data10(:,1)/freq, data10(:,2), 'b')
+
+%
+disp('Plotting the annotations (as magenta diamonds) ...');
+hold on;
+plot(anns10(:,2)/freq, data10(anns10(:,2)+1, 2), 'md', ...
+    'MarkerSize', 8);
+
+Los registros de datos pueden ser leidos desde un archivo local, o directamente desde las bases de datos de physionet. Por ejemplo, el path 'mitdb/100' corresponde a el registro 100 de la base de datos de arritmias (MIT-BIH Arrhythmia Database) y el 'svdb/800' corresponde al nombre del registro 800 de la base de datos de arritmias supraventriculares (MIT-BIH Supraventricular Arrhythmia Database'.
+
+En el siguiente enlace se encuentra la aplicación ATM que permite visualizar las bases de datos de physionet desde el navegador, es decir, sin necesidad de instalar ningún software adicional:
+
+http://www.physionet.org/cgi-bin/atm/ATM?database=mitdb&tool=plot_waveforms
+
+Bases de datos:
+http://www.physionet.org/physiobank/database/#neuro
