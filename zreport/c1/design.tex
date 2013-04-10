@@ -1,7 +1,29 @@
+\subsection{Metodología}
+Para la realización de esta etapa de la investigación, se planteó realizar la simulación
+de la onda electromagética cuando interactúa con una estructura en anillo con el fin de 
+conocer los parámetros que afectan directamente su comportamiento.
+
+\paragraph{Caso de Estudio} ~\\
+Para el caso de prueba el diseño propuesto se eligieron dos filtros: Notch y AddDrop.
+Estos componentes son de extrema importancia ya que son los ladrillos de construcción
+de estructuras más complejas que se emplean como filtros, switches banda ancha y detectores.
+
+Las simulaciones se realizaron mediante la técnica de FDTD en 2 plataformas diferentes. 
+La primera es una herramienta de software libre llamda MEEP en la cual se codifca un 
+script que contiene la información de la estructura a simular.
+La segunda es una herramienta comercial llamada Lumerical-FDTD, que cuenta con una interfaz
+gráfica de usuario que sirve para controlar el diseño y la ejecución de la simulación, pero
+a su vez también cuenta con soporte para scripts con una sintaxis similar a la de matlab 
+(ver \ref{ss:lumerical} y \ref{ss:c1_meep}).
+
+Una vez ejecutadas las simulaciones, se obtuvieron las gráficas de potencia vs longitud de onda
+y se procedió a comparar los resultados.
+
 \subsection{Diseño del Resonador}
 \label{sss:rr_design}
 
-Para el diseño del simulador, se siguieron los lineamientos descritos en \cite{Lumerical2009}
+
+Para el diseño del anillo, se siguieron los lineamientos descritos en \cite{Lumerical2009}
 tanto para el filtro AddDrop como para el filtro Notch. El primero consiste en
 el modelo explicado en la sección \ref{ss:generic_theory} con la salvedad que 
 la región de Acoplamiento 1 es idéntica a la región de Acoplamiento 2, por lo tanto
@@ -12,7 +34,7 @@ $t^*=t_1^* = t_2^*$.
 Adicionalmente, se asume que no hay pérdidas $(\alpha=1)$ y
 se seleccionan las características dadas en la tabla \ref{tb:lum_params}.
 
-\begin{table}
+\begin{table}[H]
 \centering
 \begin{tabular}{|l|l|}
 \hline

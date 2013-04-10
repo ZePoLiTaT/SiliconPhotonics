@@ -1,5 +1,66 @@
 \section{Simulaciones}
 
+Las simulaciones se realizaron sobre PhoenixSim en una máquina con
+las siguientes características:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|}
+\hline
+Procesador intel core i7 Ivy Bridge, 3770k. Frecuencia de reloj OC 4.4 GHz \\
+4 núcleos - 8 hilos. \\
+16 GB de RAM a bus de 1600 MHZ \\
+GPU ATI Radeon 5830 \\
+128 GB  de disco duro de estado sólido sata3 \\
+2 TB de disco duro 7200rpm \\
+\hline
+\end{tabular}
+\caption{Equipo para simulación en PhoenixSim. Codename: mateubuntuSSD}
+\label{tb:pcsim3}
+\end{table} 
+
+\subsection{Metodología}
+En esta fase de la investigación, se planteó realizar la simulación de 
+una red de interconexión electrónica y nanofotónica híbrida para 
+realizar la comparación del desempeño en términos de latencia y consumo
+de energía en 5x2 diferentes escenarios.
+
+Para cada escenario se obtuvo el tamaño de la muestra requerido
+para obtener un nivel de confianza del 95\%. Luego se procedió
+a definir la comparación para cada variable a medir, 
+mediante la prueba de hipótesis para comparación de medias. 
+
+\paragraph{Caso de Estudio} ~\\
+La red consta de 2 planos independientes: procesamiento y
+red de interconexión fotónica híbrida conmutada. 
+
+El plano de procesamiento está compuesto por 64 
+cores en un arreglo de 8x8. 
+
+Como se indica en \cite{dally2004principles}, una red de interconexión está definida
+por 3 características principales: la topología empleada, el algoritmo de control de
+flujo y el algoritmo de ruteo. La red de interconexión simulada en este experimento
+consta de una topología Mesh con concentración de nodos, de un algoritmo de control de
+flujo llamado \textit{Bubble Flow Control}\cite{puente1999adaptive}\cite{Manual} y
+de un algoritmo de enrutamiento basado en un esquema direccionamiento jerárquico
+basado en direcciones de la forma $NET.PROC$ como se explica en \cite{Manual}.
+
+Debido a la topología concentrada que se seleccionó, la red de interconexión 
+está compuesta por 4x4 elementos, donde cada nodo terminal da servicio al 
+número dado por el parámetro de concentración, que para esta simulación se estableció
+en 4.
+
+Sobre cada red se ejecutaron las primeras 5 aplicaciones sintéticas
+mencionadas en \ref{sss:synthetic} donde el promedio del tiempo
+de generación de mensajes se escogió de 1 milisegundo. Adicionalmente,
+para cada red y para cada aplicación, se decidió realizar la simulación
+con 2 tamaños de mensajes (pequeño: 512Bytes y grande:65kBites) entre núcleos,
+siguiendo la metodología empleada en \cite{hendry2009analysis}.
+
+Algunos de los parámetros de dispositivos fotónicos
+empleados en la simulación se muestran en las tablas 
+\ref{tb:phpar_wgb} a \ref{tb:phpar_rr}.
+
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|}
@@ -43,4 +104,40 @@ Crosstalk\_Cross & 40 &dB\\
 \label{tb:phpar_wgc}
 \end{table} 
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Parámetro & Valor & Unidad \\ 
+\hline
+RingOn\_ER\_2x2 & 20 &dB\\
+RingOff\_ER\_2x2 & 25 &dB\\
+CrossDelay\_2x2 & 4.35e-12 &s\\
+BarDelay\_2x2 & 1.25e-12   &s\\
+\hline
+RingOn\_ER\_1x2 & 20 &dB\\
+RingOff\_ER\_1x2 & 25 &dB\\
+ThroughDelay\_1x2 & 1.00e-12 &s\\
+DropDelay\_1x2 & 4.10e-12 &s\\
+\hline
+RingThrough\_ER\_Filter1x2 & 25 &dB\\
+RingDrop\_ER\_Filter1x2 & 20 &dB\\
+ThroughDelay\_Filter1x2 & 0.14e-12 &s\\
+DropDelay\_Filter1x2 & 0.34e-12 &s\\
+\hline
+RingOn\_ER\_1x2NX& 20 &dB\\
+RingOff\_ER\_1x2NX & 25 &dB\\
+ThroughDelay\_1x2NX & 0.7e-12 &s\\
+DropDelay\_1x2NX & 3.8e-12 &s\\
+\hline
+RingThrough\_ER\_DetectorFilter & 25 &dB\\
+RingDrop\_ER\_DetectorFilter & 20 &dB\\
+\hline
+\end{tabular}
+\caption{Parámetros de anillos resonadores.}
+\label{tb:phpar_rr}
+\end{table} 
 
+
+\input{c2/results.tex}
+\input{c2/conclusions}

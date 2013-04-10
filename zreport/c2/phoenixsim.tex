@@ -174,8 +174,36 @@ al aplicar un voltaje Fuente \cite{hendry2011time}. (b). Caracterización: Anill
 
 \subsection{Benchmarks}
 \subsubsection{Modelos de Patrones Sintéticos}
-All2All permite probar que todas las rutas de comunicación entre los nodos sean accesibles. Esto permite evaluar el peor caso de pérdida por inserción en la red fotónica \cite{Manual}.
+\label{sss:synthetic}
 
+\paragraph{Random}~\\
+Ejecuta un tráfico aleatorio sobre la red. Cada core selecciona un core destino aleatoriamente
+mediante una distribución uniforme. Una vez enviado, espera un tiempo dado por el parámetro
+\textit{appParam1} para enviar un nuevo mensaje \cite{Manual}.
+
+\paragraph{Neighboor}~\\
+Realiza el envío de mensajes de cada core a sus vecinos \cite{hendry2009analysis}.
+
+\paragraph{BitReverse}~\\
+Patrón de envío de mensajes diseñado para realizar pruebas de estrés sobre topologías NoC 2D.
+Cada core envía un mensaje a una dirección que corresponde a su dirección inversa a nivel de
+bits. Este tipo de comunicación, los mensajes deben viajar trayectos largos que atraviezan la 
+red \cite{hendry2009analysis}.
+
+\paragraph{Tornado} ~\\
+Otro patrón de envío de mensajes que realiza pruebas de estrés sobre Mesh 2D al hacer que
+cada core se comunique con el vecino de su vecino. Es una versión competitiva del patrón
+Neighboor \cite{hendry2009analysis}.
+
+\begin{figure}[H]
+\caption{Patrones sintéticos. Fuente \cite{hendry2009analysis}}
+\centering
+\includegraphics[width=1.0\textwidth,natwidth=787,natheight=205]{figs/syntbench.png}
+\label{fig:synthbench}
+\end{figure} 
+
+\paragraph{All2All}~\\ 
+Permite probar que todas las rutas de comunicación entre los nodos sean accesibles. Esto permite evaluar el peor caso de pérdida por inserción en la red fotónica \cite{Manual}.
 
 \paragraph{Pruebas de Memoria DRAM}~\\
 Las pruebas sobre la memoria están divididas en 3 según la característica que se desee analizar: 
@@ -191,5 +219,25 @@ Las pruebas sobre la memoria están divididas en 3 según la característica que
 Está dividido en las etapas del algoritmo de Cooley-Turkey. La etapa principal es la que toma el mayor tiempo, 
 Los tiempos de cada etapa deben ser pasados como parámetros de la simulación. Los valores por defecto incluidos en el \textit{textbed} de PhoenixSim fueron obtenidos de la caracterización  dada por Frigo y Johnson \cite{benchFFT} usando 8 núcleos de procesamiento. 
 
-\subsection{Herramientas de Medición y Análisis}
+\subsubsection{Tipos de Redes}
+
+Existe 3 tipos diferentes de redes implementadas en PhoenixSim: electrónicas basadas en créditos,
+fotónicas híbridas conmutadas o con arbitraje basado en longitud de onda como la empleada
+en \cite{hendry2011time}.
+
+A continuación se explica el tipo de red que será empleado en esta fase de la investigación:
+
+\paragraph{Fotónicas Híbridas Conmutadas}~\\
+
+El plano de comunicación entre los cores 
+está compuesta por una subred de control electrónica y la subred de datos
+fotónica -es por esto que recibe el nombre de red híbrida.
+La subred electrónica se encarga de establecer
+un camino entre el origen y el destino de la comunicación mediante
+negociaciones entre los routers involucrados en el camino del mensaje.
+Una vez se recibe un mensaje de confirmación de que el 
+camino puede ser asignado, este plano de control se encarga también de 
+generar las señales eléctricas que configuran los dispositivos fotónicos 
+para que establezcan el camino por el cual viajarán los datos sobre la
+red fotónica.
 
