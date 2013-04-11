@@ -15,12 +15,13 @@
 \usepackage{url}
 
 \usepackage[usenames,dvipsnames]{color} 
-%\usepackage{pkgs/codesnippet}
 \usepackage{pkgs/elegantsinppet}
 
 %%%%%%%%%%%%% WATERMARKS  %%%%%%%%%%%%%%%%%
-%usepackage{eso-pic}
-%\AddToShipoutPicture{
+\usepackage{eso-pic}
+\AddToShipoutPicture{
+    \includegraphics[width=1.74\textwidth,natwidth=1223,natheight=121]{figs/lowImg2.png}}
+%    \includegraphics[width=1.75\textwidth,natwidth=768,natheight=83]{figs/lowImg.png}}
 %    \includegraphics[width=0.3\textwidth,natwidth=413,natheight=406]{figs/logo.png}}
 
 \definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
@@ -45,6 +46,17 @@
 %Sans-serif font by default
 %\renewcommand{\familydefault}{\sfdefault}
 %\usepackage{mathptmx}
+
+%\usepackage{bookman}
+%\usepackage[T1]{fontenc}
+%\usepackage[default]{droidserif}
+%\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{lxfonts}
+\usepackage{tgadventor}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
 
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}

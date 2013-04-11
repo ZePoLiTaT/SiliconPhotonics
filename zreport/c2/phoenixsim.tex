@@ -84,7 +84,7 @@ y el valor indica el puerto por el que sale la señal. Es decir, la señal ópti
 por el puerto 0 sale por el puerto 1 y viceversa. \cite{Chan2011}
 
 \begin{figure}[H]
-\caption{Caracterización: Guía de Onda.}
+\caption{Caracterización: Guía de Onda. Fuente: Autor.}
 \centering
 \includegraphics[width=0.9\textwidth,natwidth=665,natheight=200]{figs/wg.png}
 \label{fig:phoenix_wg}
@@ -134,7 +134,7 @@ circuito.
 Este dispositivo está modelado como un sistema de 4 entradas y 4 salidas como se ve en la 
 figura \ref{fig:phoenix_wgc} y por los parámetros de la tabla \ref{tb:phpar_wgc}.
 \begin{figure}[H]
-\caption{Caracterización: Cruce de Guía de Onda.}
+\caption{Caracterización: Cruce de Guía de Onda. Fuente: Autor.}
 \centering
 \includegraphics[width=0.6\textwidth,natwidth=430,natheight=139]{figs/wgcross.png}
 \label{fig:phoenix_wgc}
@@ -154,21 +154,59 @@ las pérdidas por inserción.
 
 \paragraph{Activos}~\\
 
-Estos dispositivos están basados en anillos resonadores (Capítulo \ref{ch:rr}).
+Estos dispositivos son unos de los elementos principales
+empleados en Silicon Photonics y están basados los en anillos 
+resonadores (Capítulo \ref{ch:rr}).
+
+Como se vio en (\ref{eq:mode_l}) y (\ref{eq:mode_l+1}) las señales ópticas se acoplan
+en el resonador a longitudes de onda específicas llamadas modos resonantes. 
+Estos modos están separados periódicamente por el parámetro FSR (\ref{eq:fsr}) 
+el cuál es inversamente proporcional al diámetro del anillo. Es decir, que anillos
+con radio grande tienen un espaciamiento entre los modos pequeño y viceversa.
+Como se analizó en la anterior fase, el FSR puede ser ajustado variando
+el tamaño físico del radio, pero también mediante cambios en el índice de refracción
+del anillo. Para esto, se pueden emplear 2 técnicas: mediante alteraciones térmicas,
+o mediante la aplicación de un voltaje (Figura \ref{fig:phoenix_wgc}(a)) \cite{Chan2010}.
+
+Debido a estas características, este elemento puede ser diseñado para realizar 
+tareas de ruteo, modulación y recepción de señales ópticas. Es decir, puede ser
+diseñado para comportarse como:
 
 \begin{figure}[H]
 \caption{(a). Cambio de estado de resonancia on-off
-al aplicar un voltaje Fuente \cite{hendry2011time}. (b). Caracterización: Anillo Resonador.}
+al aplicar un voltaje Fuente \cite{hendry2011time}. (b). Caracterización: Anillo Resonador. Fuente: Autor.}
 \centering
 \includegraphics[width=1.0\textwidth,natwidth=800,natheight=390]{figs/rr.png}
 \label{fig:phoenix_wgc}
 \end{figure}
 
 \begin{itemize}
-\item Filtros
+\item Filtros:
+Este dispositivo trabaja sobre una longitud específica y por eso es diseñado 
+para tener una separación alta entre los modos (FSR alto), es decir que el 
+tamaño del diámetro de estos dispositivos es pequeño. En \cite{little1998ultra} 
+se demuestran filtros basados en anillos de $3\mu m$.
+
 \item Switches de banda ancha
+En este caso se requiere poder manipular o rutear un conjunto de longitudes
+de onda al mismo tiempo. Es decir que se requiere un FSR pequeño donde, cuando
+el anillo esté activo (estado ON), las frecuencias de interés estén alineadas con los
+modos de resonancia del anillo y cuando esté apagado (OFF), se altere el índice
+de refracción de tal forma que dejen de entrar en resonancia.
+Debido al FSR pequeño requerido, estos anillos son de mayor tamaño que los filtros.
+
 \item Moduladores
+Estos dispositivos codifican un conjunto de datos electrónicos en
+una longitud de onda específica. Esta selectividad requerida signfica
+que el dispositivo tiene un FSR alto, es decir, se comporta similar
+al filtro mencionado anteriormente.
+
 \item Detectores
+Los anillos resonadores aunque no se comportan como dispositivos de detección
+propiamente, si son una pieza complementaria a estos, ya que realizan 
+el filtrado de las longitudes de onda específicas antes de pasarlo
+al dispositivo de detección.
+
 \end{itemize}  
 
 

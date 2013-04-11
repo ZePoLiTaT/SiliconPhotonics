@@ -40,10 +40,18 @@ cores en un arreglo de 8x8.
 Como se indica en \cite{dally2004principles}, una red de interconexión está definida
 por 3 características principales: la topología empleada, el algoritmo de control de
 flujo y el algoritmo de ruteo. La red de interconexión simulada en este experimento
-consta de una topología Mesh con concentración de nodos, de un algoritmo de control de
+consta de una topología Mesh con concentración de nodos ó C-Mesh (Figura \ref{fig:cmesh}), 
+de un algoritmo de control de
 flujo llamado \textit{Bubble Flow Control}\cite{puente1999adaptive}\cite{Manual} y
 de un algoritmo de enrutamiento basado en un esquema direccionamiento jerárquico
 basado en direcciones de la forma $NET.PROC$ como se explica en \cite{Manual}.
+
+\begin{figure}[h!]
+\caption{Topología C-Mesh. Fuente: \cite{Manual}}
+\centering
+\includegraphics[width=0.5\textwidth,natwidth=333,natheight=336]{figs/cmesh.png}
+\label{fig:cmesh}
+\end{figure} 
 
 Debido a la topología concentrada que se seleccionó, la red de interconexión 
 está compuesta por 4x4 elementos, donde cada nodo terminal da servicio al 

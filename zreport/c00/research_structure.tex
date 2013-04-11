@@ -19,15 +19,49 @@ en un chip o NoCs nano ópticas sobre silicio, ya ha sido conceptualizada,
 permitiendo superar las actuales limitaciones de su equivalente electrónico 
 en los chips de multiprocesamiento o CMP.
 
+En este proyecto se empleó una metodología estructural encaminada a resolver
+la siguiente hipótesis: ¿Es la red de interconexión nanofotónica híbrida para la
+topologías C-Mesh más eficiente en términos de consumo de potencia
+ y latencia que su equivalente electrónico?. 
+
+Para lograr este objetivo se identificaron entonces 2 grandes etapas: 
+
+La primera correspondió
+a la visualización del problema desde el punto de vista del comportamiento físico de
+los dispositivos que componen la red de interconexión nanofotónica. 
+
+En ésta se simuló
+una de las estructuras más importantes en Silicon Photonics: el anillo resonador. Se 
+obtuvieron los resultados de las longitudes de onda resonantes y de la separación
+entre los modos para las configuraciones de filtro Notch y filtro AddDrop y adicionalmente
+se ejecutaron las pruebas sobre 2 software FDTD diferentes.
+
+
+La segunda tuvo un enfoque con un nivel de abstracción superior, extrayendo
+sólo algunos parámetros de la primera etapa como base para un análisis holístico de rendimiento,
+latencia y potencia del sistema.
+
+En esta etapa se simularon 2 redes de interconexión con topología C-Mesh para 5 aplicaciones
+sintéticas diferentes y con tamaños de mensajes pequeños y grandes. Con los tamaños grandes
+se comprobó la hipótesis, es decir, la red nanofotónica híbrida se comportó mejor en
+términos de potencia y latencia que la electrónica. Sin embargo, para tamaños de paquetes
+pequeños el sobrecosto en el que incurre la red híbrida debido al subplano de control,
+hace que el beneficio en consumo de potencia se vea opacado por una latencia mayor
+que la electrónica.
+
+La aplicación de este conocimiento 
+científico orientado al área de arquitectura de computadores y a la nanotecnología, 
+permitirá la creación de nuevos diseños que aporten a la solución de los
+problemas de rendimiento vs potencia, apuntando a mejorar la competitividad 
+nacional mediante la generación de producción intelectual en dicho aspecto.
+
 %TODO Resumen de metodología 
 %TODO Resumen de resultados y conclusiones
 \begin{comment}
 En este proyecto se evalúa el comportamiento de los elementos básicos que conforman
 los dispositivos fotónicos. Esta caracterización a nivel físico, permite tener un
 mayor control sobre los parámetros con los que se simula su comportamiento a nivel
-de un sistema completo de
-en
-una capa de abstracción superior
+de un sistema completo en una capa de abstracción superior.
 
 También se analizan diferentes diseños de 
 arquitecturas que permiten analizar el impacto de las NoCs ópticas en 
@@ -147,7 +181,7 @@ la creación de sistemas híbridos que aprovechen las ventajas que ofrece cada u
 Las plataformas de prototipado BEE3 \cite{davis2009bee3}, 
 desarrolladas en la Universidad de Stanford,
 permiten la completa emulación de CMPs usando las redes de interconexión eléctrica
-convencionales. En este sistema, Watts \cite{TODO} propone la implementación de módulos de
+convencionales. En este sistema, Watts \cite{watts2013} propone la implementación de módulos de
 lógica que presenten un comportamiento equivalente a los dispositivos de nanofotónica
 sobre silicio, permitiendo así alcanzar tiempos de simulación que permitan una
 evaluación dinámica de múltiples arquitecturas NoCs.
@@ -155,7 +189,7 @@ evaluación dinámica de múltiples arquitecturas NoCs.
 
 \section{Objetivos}
 \subsection{Objetivo General}
-Simular y evaluar redes de interconexión nanofotónicas híbridas 
+Simular y evaluar redes de interconexión con topología C-Mesh nanofotónicas híbridas 
 sobre silicio para chips multiprocesadores.
 
 \subsection{Objetivos Específicos}
@@ -166,14 +200,16 @@ capa de interconexión en las redes nanofotónicas sobre silicio.
 de una red de interconexión nanofotónica para su manipulación conciente en
  un nivel de abstracción superior o de sistema.
 \item Explorar las topologías de interconexión más usadas en los CMPs electrónicos actuales.
-\item Simular cada una de las topologías en los dominios electrónico y nanofotónico híbrido sobre silicio.
+\item Simular la topologías C-Mesh con aplicaciones sintéticas y
+para tamaños pequeños y grandes de mensajes en los dominios electrónico y 
+nanofotónico híbrido sobre silicio.
 \item Evaluar y comparar las redes en términos de latencia y potencia.
 \end{itemize} 
 
 \section{Hipótesis}
-¿Son las redes de interconexión nanofotónicas híbridas para las
-topologías Mesh y Torus más eficientes en términos de consumo de potencia
- y latencia que sus pares electrónicos?
+¿Es la red de interconexión nanofotónica híbrida para la
+topologías C-Mesh más eficiente en términos de consumo de potencia
+ y latencia que su equivalente electrónico?
 
 \section{Metodología}
 Este proyecto se planteó como una investigación aplicada donde se buscaba 
@@ -218,9 +254,11 @@ sobre dos servidores especializados para este propósito.
 \subsection{Etapa 2} 
 \begin{itemize}
 \item Fase 3: Análisis de Topologías de Interconexión
-Se analizarán las topologías de interconexión electrónicas 
-actuales que se desean evaluar en el alcance de este proyecto: Mesh y Torus 
-en el dominio de los CMPs.
+Se analizará la topología de interconexión electrónica 
+que se desean evaluar en el alcance de este proyecto: Mesh Concentrada o C-Mesh
+para 5 aplicaciones
+sintéticas diferentes y con tamaños de paquetes grandes y pequeños
+.
 
 Una vez obtenida la información de las topologías en el dominio electrónico, 
 se procederá a simular estas topologías híbridas y se evaluará su rendimiento
@@ -231,5 +269,5 @@ midiendo los resultados en términos de potencia y latencia.
 \section{Resultados}
 
 Debido a la estructura metodológica sobre la que se desarrolló esta investigación,
-los resultados se presentarán en los 3 capítulos siguientes, correspondientes a 
+los resultados se presentarán en los 2 capítulos siguientes, correspondientes a 
 los resultados obtenidos en cada una de las fases mencionadas.
