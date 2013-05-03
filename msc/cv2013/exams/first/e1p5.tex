@@ -1,0 +1,57 @@
+\section*{Problema 5}
+\setcounter{equation}{0}
+Demuestre que la submatriz superior izquierda de $2 \times 2$ en una transformación afín de 
+$3 \times 3$ puede ser descrita como la composición de una rotación pura acompañada por un 
+escalamiento anisotrópico.
+
+\subsection*{Solución}
+
+Una transformación afín tiene la siguiente representación:
+
+\begin{equation*}
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\ 
+a_{21} & a_{22} & a_{23} \\ 
+0 & 0 & 1
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+A & \vec{t} \\ 
+\vec{0}^T & 1
+\end{pmatrix} 
+\end{equation*} 
+
+Donde $A$ es una matriz de $2 \times 2$ no singular. Por lo tanto puede ser descompuesta
+mediante SVD de la siguiente forma:
+
+\begin{align*}
+A &= U D V^T \\
+A &= (U V^T) V D V^T
+\end{align*} 
+
+Sea
+\begin{align*}
+V^T &\triangleq R(\phi) \\
+U V^T &\triangleq R(\theta)
+\end{align*} 
+
+Donde $R(\phi)$ y $R(\theta)$ son rotaciones en los ángulos $(\phi)$ y $(\theta)$ respectivamente.
+La matriz $D$ es una matriz diagonal que contiene los valores propios 
+$\lambda_1$ y $\lambda_2$, así:
+
+\begin{equation*}
+D = \begin{pmatrix}
+\lambda_1 & 0 \\ 
+0 &\lambda_2
+\end{pmatrix} 
+\end{equation*} 
+
+Por lo tanto, la matriz $A$ puede verse como una rotación por un ángulo $\phi$, luego un 
+escalamiento anisotrópico dado por los valores propios, una anti-rotación nuevamente
+por $\phi$ y finalmente otra rotación por un ángulo $\theta$.
+
+
+\begin{equation}
+A = R(\theta) R(-\phi) D R(\phi)
+\label{eq:}
+\end{equation} 

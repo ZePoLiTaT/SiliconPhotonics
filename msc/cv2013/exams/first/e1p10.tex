@@ -1,0 +1,90 @@
+\section*{Problema 10}
+\setcounter{equation}{0}
+Demuestre que en 3D dos planos paralelos se intersectan en una línea que está en $\pi_\infty$.
+
+\subsection*{Solución}
+Dos planos $\pi_1$ y $\pi_2$ son paralelos si tienen el mismo vector normal $\vec{n_{3,1}}$, 
+es decir, pueden ser expresados como:
+
+\begin{equation}
+\begin{aligned}
+\pi_1 &= \left(
+\begin{array}{c}
+  \vec{n_{3,1}} \\ 
+  d_1
+\end{array}
+\right) 
+\qquad
+\pi_2 &= \left(
+\begin{array}{c}
+  \vec{n_{3,1}} \\ 
+  d_2
+\end{array}
+\right) 
+\end{aligned} 
+\end{equation}
+
+Donde $d_1 \neq d_2$ son las distancias del origen a los planos 1 y 2 respectivamente.
+
+
+Sea $X$ un punto que pertenece a la intersección de ambos planos:
+\begin{equation*}
+X = 
+\left(
+\begin{array}{c}
+  \vec{x_{3,1}} \\ 
+  x_4
+\end{array}
+\right) 
+\end{equation*} 
+
+\begin{equation*}
+\begin{array}{c c}
+\pi_1 X = 0
+&
+\pi_2 X = 0 \\
+\vec{n_{3,1}} x_{3,1} + d_1 x_4 = 0 
+&
+\vec{n_{3,1}} x_{3,1} + d_2 x_4 = 0\\ 
+\end{array} 
+\end{equation*} 
+
+Igualando ambas ecuaciones se tiene:
+\begin{equation*}
+d_1 x_4 = d_2 x_4
+\end{equation*} 
+
+La condición $d_1 \neq d_2$ debe cumplirse porque de lo contrario se estaría hablando 
+del mismo plano. Por lo tanto, única solución a esta ecuación se da
+cuando el componente $x_4$ es 0. Es decir, los puntos de la línea 
+formada por la intersección de ambos planos son de la forma:
+
+\begin{equation*}
+X = 
+\left(
+\begin{array}{c}
+  \vec{x_{3,1}} \\ 
+  0
+\end{array}
+\right) 
+\end{equation*} 
+
+Que pertenecen al plano al infinito.
+
+\begin{equation*}
+\pi_\infty X = 
+\left(
+\begin{array}{c c c c}
+  0 & 0 & 0 & 1
+\end{array}
+\right) 
+\left(
+\begin{array}{c}
+  x_1 \\ 
+  x_2 \\ 
+  x_3 \\
+  0
+\end{array}
+\right) 
+=0
+\end{equation*} 
