@@ -1,0 +1,32 @@
+#include <string>
+#include <iostream>
+#include <istream>
+#include <ostream>
+#include <iterator>
+#include <stdio.h>
+
+using namespace std;
+
+int main()
+{
+	int n;
+	int x[4][4];
+	
+	cin >> n;
+	printf(">>>%d<<",n);
+	
+	for(int tc = 1; tc<=n; tc++)
+	{
+		
+	}
+	
+	// characters
+	char c;
+	while (cin.get(c))
+	{
+		if(c=='\n')
+			printf("\nNewLine\n");
+		else
+			printf(" \'%c\' " ,c);
+	}
+}
