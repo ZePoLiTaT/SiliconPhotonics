@@ -1,0 +1,32 @@
+\input{headers/header}
+\makeindex
+
+\begin{document}
+
+    %%%%%%%%\frontmatter%%%%%%%%%%
+    \input{frontmat/pagetitle}
+
+    \tableofcontents
+
+    %%%%%%%%%\mainmatter%%%%%%%%%%
+    \chapter{Fourier Series}
+	\label{ch:fs}
+
+	\input{c1/intro}
+	\input{c1/p1}
+	\input{c1/p2}
+  
+
+    \chapter{Fourier Transform}
+    \label{ch:ft}
+    \input{c2/ftransform}
+
+
+    \chapter{Haar Transform}
+    \label{ch:ht}
+    \input{c3/htransform}
+
+    \bibliographystyle{plain}
+    \bibliography{biblio}
+
+\end{document}

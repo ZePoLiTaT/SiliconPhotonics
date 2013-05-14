@@ -1,0 +1,61 @@
+\usepackage{courier}
+
+\definecolor{DarkGray}{rgb}{0.43,0.35,0.35} % Comment color
+
+% Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
+\lstdefinestyle{Style2}
+{  
+	 language=matlab,
+         basicstyle=\footnotesize\ttfamily, % Standardschrift
+         numbers=left,               % Ort der Zeilennummern
+         numberstyle=\tiny,          % Stil der Zeilennummern
+         %stepnumber=2,               % Abstand zwischen den Zeilennummern
+         numbersep=10pt,              % Abstand der Nummern zum Text
+         tabsize=2,                  % Groesse von Tabs
+         extendedchars=true,         %
+         breaklines=true,            % Zeilen werden Umgebrochen
+         keywordstyle=\color{DarkGray}\bf,
+		 frame=b,         
+		 stringstyle=\color[rgb]{0.627,0.126,0.941},
+         showspaces=false,           % Leerzeichen anzeigen ?
+         showtabs=false,             % Tabs anzeigen ?
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         %backgroundcolor=\color{lightgray},
+         showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
+ }
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+%\DeclareCaptionFormat{listing}
+%{
+%    \colorbox[cmyk]{0.43, 0.35, 0.35,0.01}
+%    {\parbox{\textwidth-10}{\hspace{15pt}#1#2#3}}
+%}
+
+\DeclareCaptionFormat{listing}
+{
+    \colorbox[rgb]{0.83, 0.85, 0.88}
+    {\parbox{\dimexpr\textwidth-8\fboxsep\relax}{#1#2#3}}
+}
+
+\captionsetup[lstlisting]
+{
+    format=listing,
+    labelfont=white,
+    textfont=white, 
+    singlelinecheck=false, 
+    margin=0pt, 
+    font={bf,footnotesize}
+}
+
+\newcommand{\zcodemat}[2]
+{
+    \begin{itemize}
+	\item[]\lstinputlisting[caption=#2,label=#1,style=Style2, language=matlab]{#1}
+    \end{itemize}
+}
+
+

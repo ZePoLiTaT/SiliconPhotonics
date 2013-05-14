@@ -1,0 +1,56 @@
+\documentclass{report}
+
+ % Required for inserting code snippets
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{natbib}
+\usepackage{floatrow}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+
+%\usepackage[usenames,dvipsnames]{color} 
+%\usepackage[framed,numbered]{pkgs/mcode}
+\usepackage{pkgs/elegantsinppet}
+
+%%%%%%%%%%%%% WATERMARKS  %%%%%%%%%%%%%%%%%
+\usepackage{eso-pic}
+\AddToShipoutPicture{
+    \includegraphics[width=1.74\textwidth,natwidth=1223,natheight=121]{figs/lowImg2.png}}
+%    \includegraphics[width=1.75\textwidth,natwidth=768,natheight=83]{figs/lowImg.png}}
+%    \includegraphics[width=0.3\textwidth,natwidth=413,natheight=406]{figs/logo.png}}
+
+\definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
+\definecolor{highlight}{RGB}{255,251,204} % Code highlight color
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+
+%%%%%%%%%%%%% PARAGRAPHS %%%%%%%%%%%%%%%%%
+%No ident in new paragraph
+\usepackage[parfill]{parskip}
+%% Add a space of 1.5 lines between paragraphs
+\parskip=1.1\baselineskip
+
+%%%%%%%%%%%%% DEFAULT FONT %%%%%%%%%%%%%%%
+%Sans-serif font by default
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{mathptmx}
+
+%\usepackage{bookman}
+\usepackage[default]{droidserif}
+%\usepackage[T1]{fontenc}
+%\usepackage{lxfonts}
+%\usepackage{tgadventor}
+%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+%\usepackage[T1]{fontenc}
+
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\usepackage{float}

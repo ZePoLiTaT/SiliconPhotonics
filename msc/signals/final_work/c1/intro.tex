@@ -1,0 +1,32 @@
+The frequency spectrum is a complex-valued function of the frequency variable, 
+and thus it is usually specified in terms of an amplitude spectrum and a phase spectrum 
+\cite{kamen2000fundamentals}. The complex exponential form is given by:
+
+\begin{equation}
+\begin{aligned}
+x(t) &= \displaystyle\sum_{- \infty}^{\infty} X_n e^{j n \omega_0 t} \\
+X_n &= \displaystyle\int_{-T/2}^{T/2} x(t) e^{-j n \omega_0 t} \; dt 
+\label{eq:c11}
+\end{aligned}
+\end{equation}
+
+In the next exercises we will also be using the first and/or the second 
+derivative of the previous expressions (\ref{eq:c1p11}), and therefore
+we write them here explicitly:
+
+\begin{equation}
+\begin{aligned}
+\dot{x}(t) &= \displaystyle\sum_{- \infty}^{\infty} j n \omega_0 X_n e^{j n \omega_0 t} \\
+j n \omega_0 X_n &= \displaystyle\int_{-T/2}^{T/2} \dot{x}(t) e^{-j n \omega_0 t} \; dt 
+\label{eq:c12}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\ddot{x}(t) &= \displaystyle\sum_{- \infty}^{\infty} - n^2 \omega_0^2 X_n e^{j n \omega_0 t} \\
+-n^2 \omega_0^2 X_n &= \displaystyle\int_{-T/2}^{T/2} \dot{x}(t) e^{-j n \omega_0 t} \; dt 
+\label{eq:c13}
+\end{aligned}
+\end{equation}
+
