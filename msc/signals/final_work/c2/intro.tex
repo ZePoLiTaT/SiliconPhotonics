@@ -1,0 +1,28 @@
+When we want to know the description of aperiodic signals in terms of the 
+frecuency content we need to use the Fourier Transform.
+The frecuency components of this non-periodic signals are defined for all
+reall values of the frecuency variable of $\omega$ and not just for discrete
+values as in the case of periodic ones in which we used the Fourier Series 
+\cite{kamen2000fundamentals}.
+
+The Fourier Transform and its inverse of an aperiodic signal are defined as:
+
+\begin{equation}
+\begin{aligned}
+X(\omega) &= \displaystyle\int_{-\infty}^{\infty} x(t) e^{-j \omega t} \; dt \\
+x(t) &= \frac{1}{2 \pi} \displaystyle\int_{-\infty}^{\infty} X(\omega) e^{j \omega t}\; d\omega \\
+\label{eq:c21}
+\end{aligned}
+\end{equation}
+
+In the next exercises we will also be using the following properties:
+
+\begin{subequations}
+\begin{align}
+x(t) &\Leftrightarrow X(\omega) \label{eq:c22a} \\
+x(t-t_0) &\Leftrightarrow e^{-j \omega t_0} X(\omega) \label{eq:c22b}\\
+e^{j \omega_0 t} x(t)  &\Leftrightarrow X(\omega - \omega_0) \label{eq:c22c}\\
+\frac{dx(t)}{dt} &\Leftrightarrow j \omega X(\omega) \label{eq:c22d} \\
+x(\alpha t) &\Leftrightarrow \frac{1}{|\alpha|} X\left(\frac{\omega}{a}\right) \label{eq:c22e}
+\end{align}
+\end{subequations}

@@ -1,0 +1,1587 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.10)  28 MAY 2013 09:11
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**report.tex
+(./report.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, et
+hiopic, farsi, arabic, pinyin, croatian, bulgarian, ukrainian, russian, slovak,
+ czech, danish, dutch, usenglishmax, ukenglish, finnish, french, basque, ngerma
+n, german, swissgerman, ngerman-x-2012-05-30, german-x-2012-05-30, monogreek, g
+reek, ibycus, ancientgreek, hungarian, bengali, tamil, hindi, telugu, gujarati,
+ sanskrit, malayalam, kannada, assamese, marathi, oriya, panjabi, italian, lati
+n, latvian, lithuanian, mongolian, mongolianlmc, nynorsk, bokmal, indonesian, e
+speranto, coptic, welsh, irish, interlingua, serbian, serbianc, slovenian, friu
+lan, romansh, estonian, romanian, armenian, uppersorbian, turkish, afrikaans, i
+celandic, kurmanji, polish, portuguese, galician, catalan, spanish, swedish, th
+ai, loaded.
+(./headers/header.tex (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\lst@mode=\count88
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count89
+\lst@currlwidth=\dimen103
+\lst@column=\count90
+\lst@pos=\count91
+\lst@lostspace=\dimen104
+\lst@width=\dimen105
+\lst@newlines=\count92
+\lst@lineno=\count93
+\lst@maxwidth=\dimen106
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count94
+\lst@skipnumbers=\count95
+\lst@framebox=\box27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mh/mathtools.sty
+Package: mathtools 2012/04/24 v1.12 mathematical typesetting tools
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count96
+\calc@Bcount=\count97
+\calc@Adimen=\dimen107
+\calc@Bdimen=\dimen108
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count98
+\calc@Cskip=\skip45
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mh/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen109
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen110
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count99
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count100
+\leftroot@=\count101
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count102
+\DOTSCASE@=\count103
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen111
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count104
+\c@MaxMatrixCols=\count105
+\dotsspace@=\muskip10
+\c@parentequation=\count106
+\dspbrk@lvl=\count107
+\tag@help=\toks17
+\row@=\count108
+\column@=\count109
+\maxfields@=\count110
+\andhelp@=\toks18
+\eqnshift@=\dimen112
+\alignsep@=\dimen113
+\tagshift@=\dimen114
+\tagwidth@=\dimen115
+\totwidth@=\dimen116
+\lineht@=\dimen117
+\@envbody=\toks19
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+\g_MT_multlinerow_int=\count111
+\l_MT_multwidth_dim=\dimen118
+\origjot=\skip49
+\l_MT_shortvdotswithinadjustabove_dim=\dimen119
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen120
+\l_MT_above_intertext_dim=\dimen121
+\l_MT_below_intertext_dim=\dimen122
+\l_MT_above_shortintertext_dim=\dimen123
+\l_MT_below_shortintertext_dim=\dimen124
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip50
+\bibsep=\skip51
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count112
+)
+(/usr/share/texlive/texmf-dist/tex/latex/floatrow/floatrow.sty
+Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
+\captionmargin=\dimen125
+\captionmargin@=\dimen126
+\captionwidth=\dimen127
+\caption@indent=\dimen128
+\caption@parindent=\dimen129
+\caption@hangindent=\dimen130
+)
+\c@float@type=\count113
+\float@exts=\toks21
+\float@box=\box30
+\@floatcapt=\box31
+Package floatrow Info: Modified float package code loaded on input line 455.
+Package floatrow Info: Modified rotfloat package code loaded on input line 473.
+
+\FR@everyfloat=\toks22
+\flrow@foot=\insert233
+\FB@wd=\dimen131
+\FBo@wd=\dimen132
+\FBc@wd=\dimen133
+\FBo@ht=\skip52
+\FBc@ht=\skip53
+\FBf@ht=\skip54
+\FBo@max=\skip55
+\FBc@max=\skip56
+\FBf@max=\skip57
+\c@FBl@b=\count114
+\floatbox@depth=\count115
+\c@FRobj=\count116
+\c@FRsobj=\count117
+\Xhsize=\skip58
+\sXhsize=\skip59
+\Zhsize=\skip60
+\sZhsize=\skip61
+\flrow@rowbox=\box32
+\FR@Zunitlength=\dimen134
+\c@FBcnt=\count118
+\FPOScnt=\count119
+\LTleft=\skip62
+\LTright=\skip63
+\LTleft=\skip64
+\LTright=\skip65
+\flrow@types=\toks23
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks24
+\verbatim@line=\toks25
+\verbatim@in@stream=\read1
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count120
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
+\c@ContinuedFloat=\count121
+Package caption Info: float package is loaded.
+Package caption Info: floatrow package is loaded.
+Package caption Info: listings package is loaded.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
+\c@subfigure=\count122
+\c@subtable=\count123
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2012/04/03 v0.4s Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2010/10/06 v2.0c eso-pic (RN)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+))
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2012/04/03 v0.4s Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box33
+\AM@toc@title=\toks26
+\c@AM@survey=\count124
+\AM@templatesizebox=\box34
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(./pkgs/elegantsinppet.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+))
+(/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+(/usr/share/texlive/texmf-dist/tex/latex/droid/droidserif.sty
+Package: droidserif 2011/09/11 Droid Serif
+
+(/usr/share/texlive/texmf-dist/tex/latex/slantsc/slantsc.sty
+Package: slantsc 2012/01/01 v2.11 Provide Slanted an Italic Small Caps
+LaTeX Info: Redefining \upshape on input line 35.
+LaTeX Info: Redefining \slshape on input line 45.
+LaTeX Info: Redefining \itshape on input line 55.
+LaTeX Info: Redefining \scshape on input line 65.
+)))
+\@indexfile=\write3
+\openout3 = `report.idx'.
+
+
+Writing index file report.idx
+(./report.aux
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:c1p1b' multiply defined.
+
+
+LaTeX Warning: Label `fig:c1p1c' multiply defined.
+
+
+LaTeX Warning: Label `fig:c1p4' multiply defined.
+
+
+LaTeX Warning: Label `fig:c1p1c' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:' multiply defined.
+
+
+LaTeX Warning: Label `fig:c2p2a' multiply defined.
+
+
+LaTeX Warning: Label `eq:c2p5' multiply defined.
+
+
+LaTeX Warning: Label `fig:c3p33' multiply defined.
+
+
+LaTeX Warning: Label `fig:c3p5a1' multiply defined.
+
+
+LaTeX Warning: Label `fig:c3p31' multiply defined.
+
+
+LaTeX Warning: Label `fig:c3p32' multiply defined.
+
+)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 4.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Try loading font information for OT1+fdr on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/droid/ot1fdr.fd
+File: ot1fdr.fd 2011/09/11 Fontinst v1.933 font definitions for OT1/fdr.
+)
+\c@lstlisting=\count125
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count126
+\scratchdimen=\dimen137
+\scratchbox=\box35
+\nofMPsegments=\count127
+\nofMParguments=\count128
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count129
+\MPscratchDim=\dimen138
+\MPnumerator=\count130
+\makeMPintoPDFobject=\count131
+\everyMPtoPDFconversion=\toks28
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\AtBeginShipoutBox=\box36
+
+(./frontmat/pagetitle.tex <figs/wordly.png, id=1, 792.9625pt x 534.99875pt>
+File: figs/wordly.png Graphic file (type png)
+
+<use figs/wordly.png>
+Package pdftex.def Info: figs/wordly.png used on input line 10.
+(pdftex.def)             Requested size: 345.0pt x 232.77155pt.
+ <figs/lowImg2.png, id=2, 920.68968pt x 91.09032pt>
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 14.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [1 <./figs/lowImg2.png> <./figs/wordly.png>])
+LaTeX Font Info:    Font shape `OT1/fdr/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/fdr/b/n' tried instead on input line 9.
+
+(./report.toc
+LaTeX Font Info:    Font shape `OT1/fdr/bx/n' in size <10> not available
+(Font)              Font shape `OT1/fdr/b/n' tried instead on input line 1.
+)
+\tf@toc=\write4
+\openout4 = `report.toc'.
+
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 12.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [1
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Chapter 1.
+LaTeX Font Info:    Font shape `OT1/fdr/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/fdr/b/n' tried instead on input line 12.
+(./c1/intro.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+
+LaTeX Warning: Reference `eq:c1p11' on page 2 undefined on input line 14.
+
+File: figs/lowImg2.png Graphic file (type png)
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 31.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [2
+
+]) (./c1/p1.tex
+LaTeX Font Info:    Font shape `OT1/fdr/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/fdr/b/n' tried instead on input line 1.
+
+<figs/c1p1.png, id=26, 490.83376pt x 156.585pt>
+File: figs/c1p1.png Graphic file (type png)
+ <use figs/c1p1.png>
+Package pdftex.def Info: figs/c1p1.png used on input line 7.
+(pdftex.def)             Requested size: 276.00105pt x 88.05255pt.
+LaTeX Font Info:    Font shape `OT1/fdr/bx/n' in size <12> not available
+(Font)              Font shape `OT1/fdr/b/n' tried instead on input line 15.
+
+<figs/c1p1a.png, id=27, 447.271pt x 180.675pt>
+File: figs/c1p1a.png Graphic file (type png)
+ <use figs/c1p1a.png>
+Package pdftex.def Info: figs/c1p1a.png used on input line 23.
+(pdftex.def)             Requested size: 276.00105pt x 111.49352pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 26.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [3 <./figs/c1p1.png>]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+LaTeX Font Info:    Font shape `OT1/fdr/bx/n' in size <8> not available
+(Font)              Font shape `OT1/fdr/b/n' tried instead on input line 55.
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 55--55
+[] [][][][][][] 
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 55.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) (./sources/c1p1.m
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 9.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [4 <./figs/c1p1a.png (PNG copy)>])
+<figs/c1p1b.png, id=38, 449.68pt x 337.26pt>
+File: figs/c1p1b.png Graphic file (type png)
+ <use figs/c1p1b.png>
+Package pdftex.def Info: figs/c1p1b.png used on input line 60.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 67--67
+[] [][][][][][] 
+ []
+
+(./sources/fapprox.m
+LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <8> not available
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 5.
+) <figs/c1p1c.png, id=39, 449.68pt x 337.26pt>
+File: figs/c1p1c.png Graphic file (type png)
+
+<use figs/c1p1c.png>
+Package pdftex.def Info: figs/c1p1c.png used on input line 74.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 77.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [5 <./figs/c1p1b.png (PNG copy)>])
+(./c1/p2.tex <figs/c1p2.png, id=45, 462.72874pt x 146.5475pt>
+File: figs/c1p2.png Graphic file (type png)
+
+<use figs/c1p2.png>
+Package pdftex.def Info: figs/c1p2.png used on input line 7.
+(pdftex.def)             Requested size: 276.00105pt x 87.41037pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 14.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [6 <./figs/c1p1c.png (PNG copy)> <./figs/c1p2.png>] <figs/c1p2a.png, id=50, 44
+9.68pt x 337.26pt>
+File: figs/c1p2a.png Graphic file (type png)
+
+<use figs/c1p2a.png>
+Package pdftex.def Info: figs/c1p2a.png used on input line 19.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 46.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [7 <./figs/c1p2a.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 50--50
+[] [][][][][][] 
+ []
+
+(./sources/c1p2.m) <figs/c1p2b.png, id=54, 580.569pt x 124.465pt>
+File: figs/c1p2b.png Graphic file (type png)
+
+<use figs/c1p2b.png>
+Package pdftex.def Info: figs/c1p2b.png used on input line 55.
+(pdftex.def)             Requested size: 276.00105pt x 59.16896pt.
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 62--62
+[] [][][][][][] 
+ []
+
+(./sources/fapprox2.m) <figs/c1p2c.png, id=55, 697.004pt x 134.904pt>
+File: figs/c1p2c.png Graphic file (type png)
+
+<use figs/c1p2c.png>
+Package pdftex.def Info: figs/c1p2c.png used on input line 67.
+(pdftex.def)             Requested size: 276.00105pt x 53.41927pt.
+) (./c1/p3.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 1.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [8 <./figs/c1p2b.png (PNG copy)>]
+Overfull \hbox (30.57602pt too wide) in paragraph at lines 27--27
+[] [][][][][][] 
+ []
+
+(./sources/c1p3a.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 10.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [9 <./figs/c1p2c.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 16.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+))
+<figs/c1p3a.png, id=65, 449.68pt x 337.26pt>
+File: figs/c1p3a.png Graphic file (type png)
+ <use figs/c1p3a.png>
+Package pdftex.def Info: figs/c1p3a.png used on input line 32.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+
+<figs/c1p3b.png, id=66, 449.68pt x 337.26pt>
+File: figs/c1p3b.png Graphic file (type png)
+ <use figs/c1p3b.png>
+Package pdftex.def Info: figs/c1p3b.png used on input line 50.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 53.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [10 <./figs/c1p3a.png (PNG copy)>]
+<figs/c1p3e1.png, id=70, 408.52625pt x 123.46124pt>
+File: figs/c1p3e1.png Graphic file (type png)
+ <use figs/c1p3e1.png>
+Package pdftex.def Info: figs/c1p3e1.png used on input line 59.
+(pdftex.def)             Requested size: 241.49895pt x 72.98466pt.
+
+<figs/c1p3c1.png, id=71, 355.729pt x 165.418pt>
+File: figs/c1p3c1.png Graphic file (type png)
+ <use figs/c1p3c1.png>
+Package pdftex.def Info: figs/c1p3c1.png used on input line 70.
+(pdftex.def)             Requested size: 276.00105pt x 128.34653pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 73.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [11 <./figs/c1p3b.png (PNG copy)> <./figs/c1p3e1.png>]
+<figs/c1p3e2.png, id=75, 406.51875pt x 141.52875pt>
+File: figs/c1p3e2.png Graphic file (type png)
+ <use figs/c1p3e2.png>
+Package pdftex.def Info: figs/c1p3e2.png used on input line 115.
+(pdftex.def)             Requested size: 241.49895pt x 84.07784pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 118.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [12 <./figs/c1p3c1.png (PNG copy)>]
+<figs/c1p3d1.png, id=80, 554.873pt x 185.493pt>
+File: figs/c1p3d1.png Graphic file (type png)
+ <use figs/c1p3d1.png>
+Package pdftex.def Info: figs/c1p3d1.png used on input line 126.
+(pdftex.def)             Requested size: 276.00105pt x 92.27075pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 146.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [13 <./figs/c1p3e2.png> <./figs/c1p3d1.png (PNG copy)>]) (./c1/p4.tex
+Overfull \hbox (30.57602pt too wide) in paragraph at lines 8--8
+[] [][][][][][] 
+ []
+
+(./sources/fapprox3.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 15.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [14])
+<figs/c1p4.png, id=87, 449.68pt x 337.26pt>
+File: figs/c1p4.png Graphic file (type png)
+ <use figs/c1p4.png>
+Package pdftex.def Info: figs/c1p4.png used on input line 13.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+
+Overfull \hbox (30.57602pt too wide) in paragraph at lines 18--18
+[] [][][][][][] 
+ []
+
+(./sources/fapprox4.m) <figs/c1p4b.png, id=88, 449.68pt x 337.26pt>
+File: figs/c1p4b.png Graphic file (type png)
+
+<use figs/c1p4b.png>
+Package pdftex.def Info: figs/c1p4b.png used on input line 23.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 26.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [15 <./figs/c1p4.png (PNG copy)>])
+(./c1/p5.tex <figs/c1p5.png, id=92, 480.79625pt x 148.555pt>
+File: figs/c1p5.png Graphic file (type png)
+
+<use figs/c1p5.png>
+Package pdftex.def Info: figs/c1p5.png used on input line 7.
+(pdftex.def)             Requested size: 241.49895pt x 74.61958pt.
+ <figs/c1p5a.png, id=93, 306.746pt x 176.66pt>
+File: figs/c1p5a.png Graphic file (type png)
+
+<use figs/c1p5a.png>
+Package pdftex.def Info: figs/c1p5a.png used on input line 23.
+(pdftex.def)             Requested size: 207.0021pt x 119.21878pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 25.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [16 <./figs/c1p4b.png (PNG copy)> <./figs/c1p5.png>]
+Overfull \hbox (18.87961pt too wide) in paragraph at lines 50--51
+[]\OT1/fdr/m/n/10 The plot for ap-prox-i-mat-ing the func-tion us-ing its Fouri
+er co-ef-fi-cients is: 
+ []
+
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 52--52
+[] [][][][][][] 
+ []
+
+(./sources/fapprox5.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 7.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [17 <./figs/c1p5a.png (PNG copy)>]) <figs/c1p5b.png, id=100, 664.884pt x 275.4
+29pt>
+File: figs/c1p5b.png Graphic file (type png)
+ <use figs/c1p5b.png>
+Package pdftex.def Info: figs/c1p5b.png used on input line 57.
+(pdftex.def)             Requested size: 345.0pt x 142.9171pt.
+)
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 23.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [18 <./figs/c1p5b.png (PNG copy)>]
+Chapter 2.
+(./c2/intro.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 27.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [19
+
+]) (./c2/p1.tex
+<figs/c2p11.png, id=108, 245.91875pt x 113.42375pt>
+File: figs/c2p11.png Graphic file (type png)
+ <use figs/c2p11.png>
+Package pdftex.def Info: figs/c2p11.png used on input line 9.
+(pdftex.def)             Requested size: 137.9979pt x 63.65012pt.
+
+<figs/c2p1dotx.png, id=109, 302.731pt x 184.69pt>
+File: figs/c2p1dotx.png Graphic file (type png)
+ <use figs/c2p1dotx.png>
+Package pdftex.def Info: figs/c2p1dotx.png used on input line 19.
+(pdftex.def)             Requested size: 207.0021pt x 126.29205pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 25.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [20 <./figs/c2p11.png> <./figs/c2p1dotx.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 37--37
+[] [][][][][][] 
+ []
+
+(./sources/c2p1a.m) <figs/c2p1a.png, id=113, 714.67pt x 167.024pt>
+File: figs/c2p1a.png Graphic file (type png)
+
+<use figs/c2p1a.png>
+Package pdftex.def Info: figs/c2p1a.png used on input line 42.
+(pdftex.def)             Requested size: 345.0pt x 80.62935pt.
+) (./c2/p2.tex
+<figs/c2p2.png, id=114, 236.885pt x 111.41624pt>
+File: figs/c2p2.png Graphic file (type png)
+ <use figs/c2p2.png>
+Package pdftex.def Info: figs/c2p2.png used on input line 6.
+(pdftex.def)             Requested size: 137.9979pt x 64.90707pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 9.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [21 <./figs/c2p1a.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 32--32
+[] [][][][][][] 
+ []
+
+(./sources/c2p2a.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 13.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [22 <./figs/c2p2.png>])
+<figs/c2p2a.png, id=121, 738.76pt x 160.6pt>
+File: figs/c2p2a.png Graphic file (type png)
+ <use figs/c2p2a.png>
+Package pdftex.def Info: figs/c2p2a.png used on input line 37.
+(pdftex.def)             Requested size: 345.0pt x 74.99924pt.
+) (./c2/p3.tex <figs/c2p3.png, id=122, 240.9pt x 113.42375pt>
+File: figs/c2p3.png Graphic file (type png)
+ <use figs/c2p3.png>
+Package pdftex.def Info: figs/c2p3.png used on input line 6.
+(pdftex.def)             Requested size: 137.9979pt x 64.97585pt.
+
+<figs/c2p3dotx.png, id=123, 413.545pt x 201.553pt>
+File: figs/c2p3dotx.png Graphic file (type png)
+ <use figs/c2p3dotx.png>
+Package pdftex.def Info: figs/c2p3dotx.png used on input line 17.
+(pdftex.def)             Requested size: 207.0021pt x 100.89003pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 25.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [23 <./figs/c2p2a.png (PNG copy)> <./figs/c2p3.png> <./figs/c2p3dotx.png (PNG 
+copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 42--42
+[] [][][][][][] 
+ []
+
+(./sources/c2p3a.m) <figs/c2p3a.png, id=127, 683.353pt x 187.902pt>
+File: figs/c2p3a.png Graphic file (type png)
+
+<use figs/c2p3a.png>
+Package pdftex.def Info: figs/c2p3a.png used on input line 47.
+(pdftex.def)             Requested size: 345.0pt x 94.86539pt.
+) (./c2/p4.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 5.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [24 <./figs/c2p3a.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for U+euf on input line 12.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
+)
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 28--28
+[] [][][][][][] 
+ []
+
+(./sources/c2p4a.m) <figs/c2p4a.png, id=132, 608.674pt x 158.191pt>
+File: figs/c2p4a.png Graphic file (type png)
+
+<use figs/c2p4a.png>
+Package pdftex.def Info: figs/c2p4a.png used on input line 33.
+(pdftex.def)             Requested size: 345.0pt x 89.66531pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 36.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [25]) (./c2/p5.tex
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 37.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [26 <./figs/c2p4a.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 37--37
+[] [][][][][][] 
+ []
+
+(./sources/c2p5.m) <figs/c2p5a.png, id=140, 554.873pt x 142.934pt>
+File: figs/c2p5a.png Graphic file (type png)
+
+<use figs/c2p5a.png>
+Package pdftex.def Info: figs/c2p5a.png used on input line 42.
+(pdftex.def)             Requested size: 345.0pt x 88.87552pt.
+) (./c2/p6.tex
+<figs/c2p6a.png, id=141, 263.98625pt x 110.4125pt>
+File: figs/c2p6a.png Graphic file (type png)
+ <use figs/c2p6a.png>
+Package pdftex.def Info: figs/c2p6a.png used on input line 11.
+(pdftex.def)             Requested size: 137.9979pt x 57.71638pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 19.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [27 <./figs/c2p5a.png (PNG copy)> <./figs/c2p6a.png>]
+Overfull \hbox (30.57602pt too wide) in paragraph at lines 35--35
+[] [][][][][][] 
+ []
+
+(./sources/c2p6a.m) <figs/c2p6a1.png, id=145, 430.408pt x 148.555pt>
+File: figs/c2p6a1.png Graphic file (type png)
+
+<use figs/c2p6a1.png>
+Package pdftex.def Info: figs/c2p6a1.png used on input line 40.
+(pdftex.def)             Requested size: 276.00105pt x 95.26074pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 50.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [28 <./figs/c2p6a1.png (PNG copy)>]
+Overfull \hbox (30.57602pt too wide) in paragraph at lines 53--53
+[] [][][][][][] 
+ []
+
+(./sources/c2p6b.m) <figs/c2p6b.png, id=149, 468.952pt x 154.979pt>
+File: figs/c2p6b.png Graphic file (type png)
+
+<use figs/c2p6b.png>
+Package pdftex.def Info: figs/c2p6b.png used on input line 58.
+(pdftex.def)             Requested size: 276.00105pt x 91.21452pt.
+
+Overfull \hbox (30.57602pt too wide) in paragraph at lines 71--71
+[] [][][][][][] 
+ []
+
+(./sources/c2p6c.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 2.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [29 <./figs/c2p6b.png (PNG copy)>])
+<figs/c2p6c.png, id=153, 434.423pt x 158.994pt>
+File: figs/c2p6c.png Graphic file (type png)
+ <use figs/c2p6c.png>
+Package pdftex.def Info: figs/c2p6c.png used on input line 76.
+(pdftex.def)             Requested size: 276.00105pt x 101.01585pt.
+
+Overfull \hbox (30.57602pt too wide) in paragraph at lines 102--102
+[] [][][][][][] 
+ []
+
+(./sources/c2p6d.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 6.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [30 <./figs/c2p6c.png (PNG copy)>])
+<figs/c2p6d.png, id=158, 431.211pt x 144.54pt>
+File: figs/c2p6d.png Graphic file (type png)
+ <use figs/c2p6d.png>
+Package pdftex.def Info: figs/c2p6d.png used on input line 107.
+(pdftex.def)             Requested size: 276.00105pt x 92.5185pt.
+)
+(./c2/p7.tex
+Overfull \hbox (19.5996pt too wide) in paragraph at lines 3--4
+\OT1/fdr/m/n/10 Match the time re-sponses with the cor-re-spond-ing fre-quency 
+re-sponses. 
+ []
+
+<figs/c2p7.png, id=159, 645.41125pt x 659.46375pt>
+File: figs/c2p7.png Graphic file (type png)
+ <use figs/c2p7.png>
+Package pdftex.def Info: figs/c2p7.png used on input line 8.
+(pdftex.def)             Requested size: 276.00105pt x 282.00418pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 11.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [31 <./figs/c2p6d.png (PNG copy)>]
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 30.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [32 <./figs/c2p7.png>]) (./c2/p8.tex
+<figs/c2p8.png, id=166, 549.05125pt x 179.67125pt>
+File: figs/c2p8.png Graphic file (type png)
+ <use figs/c2p8.png>
+Package pdftex.def Info: figs/c2p8.png used on input line 8.
+(pdftex.def)             Requested size: 276.00105pt x 90.32065pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 44.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [33 <./figs/c2p8.png>])
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 35.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [34]
+Chapter 3.
+(./c3/p1.tex <figs/c3p11.png, id=173, 293.095pt x 105.39375pt>
+File: figs/c3p11.png Graphic file (type png)
+
+<use figs/c3p11.png>
+Package pdftex.def Info: figs/c3p11.png used on input line 12.
+(pdftex.def)             Requested size: 137.9979pt x 49.6219pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 26.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [35
+
+ <./figs/c3p11.png>]
+LaTeX Font Info:    Try loading font information for TS1+fdr on input line 29.
+
+(/usr/share/texlive/texmf-dist/tex/latex/droid/ts1fdr.fd
+File: ts1fdr.fd 2011/09/11 Fontinst v1.933 font definitions for TS1/fdr.
+)
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 39--39
+[] [][][][][][] 
+ []
+
+(./sources/c3p1a.m) <figs/c3p1a.png, id=177, 464.937pt x 111.617pt>
+File: figs/c3p1a.png Graphic file (type png)
+
+<use figs/c3p1a.png>
+Package pdftex.def Info: figs/c3p1a.png used on input line 44.
+(pdftex.def)             Requested size: 207.0021pt x 49.6958pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 57.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [36 <./figs/c3p1a.png (PNG copy)>]
+<figs/c3p1b.png, id=184, 385.44pt x 111.617pt>
+File: figs/c3p1b.png Graphic file (type png)
+ <use figs/c3p1b.png>
+Package pdftex.def Info: figs/c3p1b.png used on input line 62.
+(pdftex.def)             Requested size: 207.0021pt x 59.94356pt.
+
+<figs/c3p1c.png, id=185, 407.121pt x 124.465pt>
+File: figs/c3p1c.png Graphic file (type png)
+ <use figs/c3p1c.png>
+Package pdftex.def Info: figs/c3p1c.png used on input line 80.
+(pdftex.def)             Requested size: 207.0021pt x 63.28448pt.
+)
+(./c3/p2.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 20.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [37 <./figs/c3p1b.png (PNG copy)> <./figs/c3p1c.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 35--35
+[] [][][][][][] 
+ []
+
+(./sources/c3p21.m) <figs/c3p21.png, id=189, 376.607pt x 169.433pt>
+File: figs/c3p21.png Graphic file (type png)
+
+<use figs/c3p21.png>
+Package pdftex.def Info: figs/c3p21.png used on input line 40.
+(pdftex.def)             Requested size: 276.00105pt x 124.17368pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 53.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [38 <./figs/c3p21.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 55--55
+[] [][][][][][] 
+ []
+
+(./sources/c3p2a.m) <figs/c3p2a.png, id=193, 505.087pt x 175.054pt>
+File: figs/c3p2a.png Graphic file (type png)
+
+<use figs/c3p2a.png>
+Package pdftex.def Info: figs/c3p2a.png used on input line 60.
+(pdftex.def)             Requested size: 207.0021pt x 71.74321pt.
+ <figs/c3p2b.png, id=194, 456.104pt x 154.176pt>
+File: figs/c3p2b.png Graphic file (type png)
+
+<use figs/c3p2b.png>
+Package pdftex.def Info: figs/c3p2b.png used on input line 78.
+(pdftex.def)             Requested size: 207.0021pt x 69.97372pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 84.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [39 <./figs/c3p2a.png (PNG copy)> <./figs/c3p2b.png (PNG copy)>] <figs/c3p2c.p
+ng, id=198, 435.226pt x 160.6pt>
+File: figs/c3p2c.png Graphic file (type png)
+
+<use figs/c3p2c.png>
+Package pdftex.def Info: figs/c3p2c.png used on input line 96.
+(pdftex.def)             Requested size: 207.0021pt x 76.3838pt.
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 102--102
+[] [][][][][][] 
+ []
+
+(./sources/c3p2recons.m) <figs/c3p2recons.png, id=199, 476.179pt x 512.314pt>
+File: figs/c3p2recons.png Graphic file (type png)
+
+<use figs/c3p2recons.png>
+Package pdftex.def Info: figs/c3p2recons.png used on input line 107.
+(pdftex.def)             Requested size: 276.00105pt x 296.95471pt.
+) (./c3/p3.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 1.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [40 <./figs/c3p2c.png (PNG copy)>] <figs/c3p31.png, id=203, 422.57875pt x 56.2
+1pt>
+File: figs/c3p31.png Graphic file (type png)
+
+<use figs/c3p31.png>
+Package pdftex.def Info: figs/c3p31.png used on input line 8.
+(pdftex.def)             Requested size: 241.49895pt x 32.12407pt.
+ <figs/c3p32.png, id=204, 117.43875pt x 65.24374pt>
+File: figs/c3p32.png Graphic file (type png)
+
+<use figs/c3p32.png>
+Package pdftex.def Info: figs/c3p32.png used on input line 18.
+(pdftex.def)             Requested size: 68.99895pt x 38.33218pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 21.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [41 <./figs/c3p2recons.png (PNG copy)> <./figs/c3p31.png>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 47--47
+[] [][][][][][] 
+ []
+
+(./sources/c3p31.m) <figs/c3p33.png, id=208, 429.605pt x 181.478pt>
+File: figs/c3p33.png Graphic file (type png)
+
+<use figs/c3p33.png>
+Package pdftex.def Info: figs/c3p33.png used on input line 52.
+(pdftex.def)             Requested size: 276.00105pt x 116.59134pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 55.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [42 <./figs/c3p32.png>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 73--73
+[] [][][][][][] 
+ []
+
+(./sources/c3p3a.m) <figs/c3p3a.png, id=213, 485.012pt x 150.161pt>
+File: figs/c3p3a.png Graphic file (type png)
+
+<use figs/c3p3a.png>
+Package pdftex.def Info: figs/c3p3a.png used on input line 78.
+(pdftex.def)             Requested size: 276.00105pt x 85.45058pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 81.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [43 <./figs/c3p33.png (PNG copy)>]
+File: figs/c3p33.png Graphic file (type png)
+
+<use figs/c3p33.png>
+Package pdftex.def Info: figs/c3p33.png used on input line 94.
+(pdftex.def)             Requested size: 276.00105pt x 116.59134pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 117.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [44 <./figs/c3p3a.png (PNG copy)>]) (./c3/p4.tex <figs/c3p4a.png, id=220, 437.
+635pt x 169.433pt>
+File: figs/c3p4a.png Graphic file (type png)
+
+<use figs/c3p4a.png>
+Package pdftex.def Info: figs/c3p4a.png used on input line 21.
+(pdftex.def)             Requested size: 276.00105pt x 106.8571pt.
+ <figs/c3p4b.png, id=221, 358.138pt x 206.371pt>
+File: figs/c3p4b.png Graphic file (type png)
+
+<use figs/c3p4b.png>
+Package pdftex.def Info: figs/c3p4b.png used on input line 37.
+(pdftex.def)             Requested size: 207.0021pt x 119.28275pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 39.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [45 <./figs/c3p4a.png (PNG copy)>]) (./c3/p5.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 13.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [46 <./figs/c3p4b.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 22--22
+[] [][][][][][] 
+ []
+
+(./sources/c3p5a1.m) <figs/c3p5a1.png, id=228, 427.196pt x 154.979pt>
+File: figs/c3p5a1.png Graphic file (type png)
+
+<use figs/c3p5a1.png>
+Package pdftex.def Info: figs/c3p5a1.png used on input line 27.
+(pdftex.def)             Requested size: 276.00105pt x 100.12976pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 46.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [47 <./figs/c3p5a1.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 48--48
+[] [][][][][][] 
+ []
+
+(./sources/c3p5a2.m) <figs/c3p5a2.png, id=232, 520.344pt x 155.782pt>
+File: figs/c3p5a2.png Graphic file (type png)
+
+<use figs/c3p5a2.png>
+Package pdftex.def Info: figs/c3p5a2.png used on input line 53.
+(pdftex.def)             Requested size: 276.00105pt x 82.63298pt.
+File: figs/c3p5a1.png Graphic file (type png)
+ <use figs/c3p5a1.png>
+Package pdftex.def Info: figs/c3p5a1.png used on input line 69.
+(pdftex.def)             Requested size: 276.00105pt x 100.12976pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 72.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [48 <./figs/c3p5a2.png (PNG copy)>]) (./c3/p6.tex
+File: figs/c3p31.png Graphic file (type png)
+ <use figs/c3p31.png>
+Package pdftex.def Info: figs/c3p31.png used on input line 8.
+(pdftex.def)             Requested size: 241.49895pt x 32.12407pt.
+File: figs/c3p32.png Graphic file (type png)
+
+<use figs/c3p32.png>
+Package pdftex.def Info: figs/c3p32.png used on input line 18.
+(pdftex.def)             Requested size: 68.99895pt x 38.33218pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 21.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [49]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 40--40
+[] [][][][][][] 
+ []
+
+(./sources/c3p6a1.m) <figs/c3p6a1.png, id=241, 445.665pt x 238.491pt>
+File: figs/c3p6a1.png Graphic file (type png)
+
+<use figs/c3p6a1.png>
+Package pdftex.def Info: figs/c3p6a1.png used on input line 45.
+(pdftex.def)             Requested size: 276.00105pt x 147.69911pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 50.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [50 <./figs/c3p6a1.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 66--66
+[] [][][][][][] 
+ []
+
+(./sources/c3p6a2.m) <figs/c3p6a2.png, id=245, 438.438pt x 200.75pt>
+File: figs/c3p6a2.png Graphic file (type png)
+
+<use figs/c3p6a2.png>
+Package pdftex.def Info: figs/c3p6a2.png used on input line 71.
+(pdftex.def)             Requested size: 276.00105pt x 126.38126pt.
+ <figs/c3p6a3.png, id=246, 418.363pt x 203.159pt>
+File: figs/c3p6a3.png Graphic file (type png)
+
+<use figs/c3p6a3.png>
+Package pdftex.def Info: figs/c3p6a3.png used on input line 81.
+(pdftex.def)             Requested size: 276.00105pt x 134.03264pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 83.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [51 <./figs/c3p6a2.png (PNG copy)>]
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 124.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [52 <./figs/c3p6a3.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 125--125
+[] [][][][][][] 
+ []
+
+(./sources/c3p6b1.m) <figs/c3p6b2.png, id=253, 449.68pt x 337.26pt>
+File: figs/c3p6b2.png Graphic file (type png)
+
+<use figs/c3p6b2.png>
+Package pdftex.def Info: figs/c3p6b2.png used on input line 130.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 133.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [53])
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 44.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+
+[54 <./figs/c3p6b2.png (PNG copy)>]
+Chapter 4.
+(./c4/intro.tex) (./c4/p1.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 30.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [55
+
+]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 33--33
+[] [][][][][][] 
+ []
+
+(./sources/c4p1a.m) <figs/c4p1a.png, id=264, 449.68pt x 337.26pt>
+File: figs/c4p1a.png Graphic file (type png)
+
+<use figs/c4p1a.png>
+Package pdftex.def Info: figs/c4p1a.png used on input line 38.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 55.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [56 <./figs/c4p1a.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 66--66
+[] [][][][][][] 
+ []
+
+(./sources/c4p1b.m) <figs/c4p1b.png, id=268, 449.68pt x 337.26pt>
+File: figs/c4p1b.png Graphic file (type png)
+
+<use figs/c4p1b.png>
+Package pdftex.def Info: figs/c4p1b.png used on input line 71.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 74.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [57]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 104--104
+[] [][][][][][] 
+ []
+
+(./sources/c4p1c.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 5.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [58 <./figs/c4p1b.png (PNG copy)>])
+<figs/c4p1c.png, id=275, 449.68pt x 337.26pt>
+File: figs/c4p1c.png Graphic file (type png)
+ <use figs/c4p1c.png>
+Package pdftex.def Info: figs/c4p1c.png used on input line 109.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+)
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 49.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [59 <./figs/c4p1c.png (PNG copy)>]
+Chapter 5.
+File: figs/lowImg2.png Graphic file (type png)
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 52.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [60
+
+]
+Chapter 6.
+(./c5/p1.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 29.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [61
+
+]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 33--33
+[] [][][][][][] 
+ []
+
+(../hw1/mlab/approximate_t2.m
+Missing character: There is no ó in font pcrro7t!
+Missing character: There is no ó in font pcrro7t!
+)
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 34--34
+[] [][][][][][] 
+ []
+
+(../hw1/mlab/plotAprox.m)
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 35--35
+[] [][][][][][] 
+ []
+
+(../hw1/mlab/haar.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 5.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [62]
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 50.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [63]
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 101.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [64]
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 145.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [65]
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 187.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+
+[66]))
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 56.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [67]
+Chapter 7.
+(./report.bbl
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 1.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [68
+
+])
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 62.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [69
+
+]
+(./report.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 9255 strings out of 493485
+ 134835 string characters out of 3143526
+ 367131 words of memory out of 3000000
+ 12163 multiletter control sequences out of 15000+200000
+ 33880 words of font info for 90 fonts, out of 3000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 43i,11n,52p,281b,2274s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/droid/droid-01.enc}{/usr/share
+/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/
+fonts/enc/dvips/droid/droid-03.enc}</usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/droid/DroidSerif-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/droid/DroidSerif-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/droid/DroidSerif-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eu
+fm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msa
+m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
+Output written on report.pdf (70 pages, 780831 bytes).
+PDF statistics:
+ 386 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+

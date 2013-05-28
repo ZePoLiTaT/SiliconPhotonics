@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{kamen2000fundamentals}
+Edward Kamen and Bonnie Heck.
+\newblock {\em Fundamentals of Signals and Systems: With MATLAB Examples}.
+\newblock Prentice Hall PTR, 2000.
+
+\bibitem{wprobl_c1}
+Georgia~Tech {School of Electrical and Computer Engineering}.
+\newblock {Worked Problems, Chapter 4}.
+\newblock
+  \url{http://users.ece.gatech.edu/~bonnie/book/worked_problems/Chap4_Fseries_sol.pdf}.
+\newblock [Online; accessed Apr-2013].
+
+\end{thebibliography}
