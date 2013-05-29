@@ -95,7 +95,6 @@ int main( int argc, char** argv )
 
 	createDisplayImg("Harris NonMax Suppression Image 1", harrisNMS);
 
-	mtype mean1;
 	Mat image1 = image.clone();
 	vector<Point> corners1;
 	Edges::getCornerPoints(harrisNMS, corners1, 5.0f);
@@ -117,7 +116,6 @@ int main( int argc, char** argv )
 
 	createDisplayImg("Harris NonMax Suppression Image 2", harrisCVNMS);
 
-	mtype mean2;
 	Mat image2 = image.clone();
 	vector<Point> corners2;
 	Edges::getCornerPoints(harrisCVNMS, corners2, 5.0f);
@@ -141,7 +139,7 @@ int main( int argc, char** argv )
 	// NCC Method
 	correspondences.clear();
 	poiCompMethod = new NCC();
-	Edges::findCorrespondences(gausImg, corners1, gausImg, corners2, correspondences, 0.9f, 15, poiCompMethod);
+	Edges::findCorrespondences(gausImg, corners1, gausImg, corners2, correspondences, 0.99f, 15, poiCompMethod);
 	delete poiCompMethod;
 
 	Mat bigImg2;
@@ -162,12 +160,29 @@ int main( int argc, char** argv )
 	image1.release();
 	image2.release();
 	bigImg.release();
+	bigImg2.release();
 
 	sobelCV.release();
 	sobelCVX.release();
 	sobelCVY.release();
 	harrisCV.release();
 	harrisCVNMS.release();
+
+/*
+	map<Point,Point,PointCompare> correspondences;
+	IStrategyCompare *poiCompMethod;
+	correspondences.clear();
+	poiCompMethod = new NCC();
+	poiCompMethod->getMeasure(gausImg, Point(5,5), gausImg, Point(5,5), 3);
+
+	Edges::findCorrespondences(gausImg, corners1, gausImg, corners1, correspondences, 0.2f, 15, poiCompMethod);
+	delete poiCompMethod;
+
+	Mat bigImg2;
+	Edges::plotCorrespondences(image1, corners1, image2, correspondences, bigImg2);
+	createDisplayImg("Merged Image 2", bigImg2);
+
+	*/
 
 /*
 	float m[5][5] = {{1,4,3,2,1}, {9,8,5,-1,0}, {4,10,6,1,0},{1,4,2,-1,-2},{0,1,3,-4,-5}};

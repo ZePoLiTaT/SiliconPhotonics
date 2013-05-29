@@ -29,6 +29,8 @@ typedef float mtype;
 namespace poicomparemethods
 {
 
+/****************** class prototypes ****************/
+
 //Interface of Strategy pattern for each comparison algorithm
 class IStrategyCompare;
 //Implementation of Normalized Cross Correlation comparison algorithm under Strategy pattern
@@ -66,7 +68,6 @@ public:
 	NCC();
 	NCC(mtype f1m, mtype f2m);
 	virtual mtype getMeasure(const Mat &f1, Point p1, const Mat& f2, Point p2, int WSize);
-	virtual mtype getMeasureT(const Mat &f1, Point p1, const Mat& f2, Point p2, int WSize);
 	virtual bool compare(mtype value, mtype threshold);
 };
 

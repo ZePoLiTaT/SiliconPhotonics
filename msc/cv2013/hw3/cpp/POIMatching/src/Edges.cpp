@@ -46,8 +46,7 @@ void Edges::discreteGaussianKernel(float* kernel, float var, int WSize)
 		{
 			x = i - WHalf;
 			y = j - WHalf;
-			kernel[i * WSize + j] = 1.0 / (2 * var * M_PI)
-					* exp(-(x * x + y * y) / (2 * var));
+			kernel[i * WSize + j] = 1.0 / (2 * var * M_PI) * exp(-(x * x + y * y) / (2 * var));
 			sum += kernel[i * WSize + j];
 			//printf("[%f] ", kernel[i * WSize + j]);
 		}
@@ -220,8 +219,7 @@ void Edges::colorToGray(const Mat& src, Mat& dst)
 
 		for (int j = 0; j < src.cols; ++j)
 		{
-			dstP[j] = (.114f * srcP[j][0] + .587f * srcP[j][1]
-					+ .299f * srcP[j][2]) / 256.0f;
+			dstP[j] = (.114f * srcP[j][0] + .587f * srcP[j][1] + .299f * srcP[j][2]) / 256.0f;
 		}
 	}
 }
@@ -335,37 +333,42 @@ void Edges::drawCorners(Mat& img, vector<Point>& corners, int radius)
 	}
 }
 
-void Edges::findCorrespondences(const Mat &img1, vector<Point>& corners1,
-		const Mat &img2, vector<Point>& corners2,
-		map<Point, Point, PointCompare> &correspondences, float threshold,
+void Edges::findCorrespondences(const Mat &img1, vector<Point>& corners1, const Mat &img2,
+		vector<Point>& corners2, map<Point, Point, PointCompare> &correspondences, float threshold,
 		int WSize, IStrategyCompare *poiCompareMethod)
 {
-	mtype val, minval;
+	mtype val, topval;
 	Point minpoint;
+	bool firstComparison;
 
 	vector<Point>::iterator it1, it2;
 	for (it1 = corners1.begin(); it1 != corners1.end(); ++it1)
 	{
-		minval = FLT_MAX;
+		firstComparison = true;
 		for (it2 = corners2.begin(); it2 != corners2.end(); ++it2)
 		{
 			val = poiCompareMethod->getMeasure(img1, *it1, img2, *it2, WSize);
-			if (val < minval)
+			if(firstComparison)
 			{
 				minpoint = *it2;
-				minval = val;
+				topval = val;
+				firstComparison = false;
+			}
+			else if (poiCompareMethod->compare(val, topval))
+			{
+				minpoint = *it2;
+				topval = val;
 			}
 		}
 
-		cout << minval << endl;
-		if (poiCompareMethod->compare(minval, threshold))
+		cout << topval << endl;
+		if (poiCompareMethod->compare(topval, threshold))
 			correspondences[*it1] = minpoint;
 	}
 }
 
-void Edges::plotCorrespondences(const Mat& img1, vector<Point>& corners1,
-		const Mat& img2, map<Point, Point, PointCompare> &correspondences,
-		Mat& dst)
+void Edges::plotCorrespondences(const Mat& img1, vector<Point>& corners1, const Mat& img2,
+		map<Point, Point, PointCompare> &correspondences, Mat& dst)
 {
 	dst.create(max(img1.rows, img2.rows), img1.cols + img2.cols, img1.type());
 
