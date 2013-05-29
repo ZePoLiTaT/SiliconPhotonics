@@ -1,0 +1,1 @@
+El operador de sobel combina un suavizado gausiano (óptimo) en un eje con una diferenciación en el otro eje \cite{nixon2008feature}.

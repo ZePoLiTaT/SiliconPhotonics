@@ -39,7 +39,6 @@ void Edges::discreteGaussianKernel(float* kernel, float var, int WSize)
 	float x, y;
 	float sum = 0;
 
-
 	//Calculate discrete coefficients
 	for (int i = 0; i < WSize; ++i)
 	{
@@ -47,7 +46,8 @@ void Edges::discreteGaussianKernel(float* kernel, float var, int WSize)
 		{
 			x = i - WHalf;
 			y = j - WHalf;
-			kernel[i * WSize + j] = 1.0/(2*var*M_PI) * exp(-(x * x + y * y) / (2 * var));
+			kernel[i * WSize + j] = 1.0 / (2 * var * M_PI)
+					* exp(-(x * x + y * y) / (2 * var));
 			sum += kernel[i * WSize + j];
 			//printf("[%f] ", kernel[i * WSize + j]);
 		}
@@ -71,18 +71,20 @@ void Edges::sobelKernel(float* kernelX, float* kernelY, int WSize)
 {
 	//TODO: Implement pascal triangle to get coefficients from WSize
 	/* kernelX = (float *)malloc(WSize*WSize*sizeof(float));
-	kernelY = (float *)malloc(WSize*WSize*sizeof(float));
-	calcPascalCoefs(baseKernX, WSize);
-	for (int i = 0; i < WSize; ++i)
-	{
-		for (int j = 0; j < WSize; ++j)
-		{
-			baseKernY[i*WSize+j] = baseKernX[j*WSize+i];
-		}
-	}*/
+	 kernelY = (float *)malloc(WSize*WSize*sizeof(float));
+	 calcPascalCoefs(baseKernX, WSize);
+	 for (int i = 0; i < WSize; ++i)
+	 {
+	 for (int j = 0; j < WSize; ++j)
+	 {
+	 baseKernY[i*WSize+j] = baseKernX[j*WSize+i];
+	 }
+	 }*/
 
-	float baseKernX[] = {-1, 0, 1, -2,0,2, -1,0,1};
-	float baseKernY[] = {-1, -2, -1, 0,0,0,  1,2,1};
+	float baseKernX[] =
+	{ 1, 0, -1, 2, 0, -2, 1, 0, -1 };
+	float baseKernY[] =
+	{ 1, 2, 1, 0, 0, 0, -1, -2, -1 };
 
 	for (int i = 0; i < WSize; ++i)
 	{
@@ -139,24 +141,24 @@ void Edges::magnitude(const Mat& mx, const Mat& my, Mat& mm)
 	mm.create(mx.rows, mx.cols, mx.type());
 
 	// number of lines
-	int nr= mx.rows;
-	int nc= mx.cols * mx.channels();
+	int nr = mx.rows;
+	int nc = mx.cols * mx.channels();
 	if (mx.isContinuous())
 	{
 		// since its unwrapped, it can be seen as only 1 row and WxH cols
-		nc= nc*nr;
-		nr= 1;
+		nc = nc * nr;
+		nr = 1;
 	}
 
 	float norm;
-	for (int i=0; i<nr; i++)
+	for (int i = 0; i < nr; i++)
 	{
 		const mtype* mxPtr = mx.ptr<mtype>(i);
 		const mtype* myPtr = my.ptr<mtype>(i);
 		mtype* mmPtr = mm.ptr<mtype>(i);
-		for (int j=0; j<nc; j++)
+		for (int j = 0; j < nc; j++)
 		{
-			norm = (float)mxPtr[j]*mxPtr[j] + (float)myPtr[j]*myPtr[j];
+			norm = (float) mxPtr[j] * mxPtr[j] + (float) myPtr[j] * myPtr[j];
 			mmPtr[j] = sqrt(norm);
 		}
 	}
@@ -164,7 +166,7 @@ void Edges::magnitude(const Mat& mx, const Mat& my, Mat& mm)
 
 int Edges::windowSize(float stdev)
 {
-	return 2 * ceil(3*stdev) + 1;
+	return 2 * ceil(3 * stdev) + 1;
 }
 
 void Edges::gaussian(const Mat& src, Mat& dst, float stdev)
@@ -172,7 +174,7 @@ void Edges::gaussian(const Mat& src, Mat& dst, float stdev)
 	dst.create(src.rows, src.cols, src.type());
 
 	int WSize = Edges::windowSize(stdev);
-	float gausKernel[WSize*WSize];
+	float gausKernel[WSize * WSize];
 
 	cout << ">>>>> W=" << WSize << endl;
 
@@ -186,8 +188,8 @@ void Edges::sobel(const Mat& src, Mat& sx, Mat& sy, Mat& s, int WSize)
 	sy.create(src.rows, src.cols, src.type());
 	s.create(src.rows, src.cols, src.type());
 
-	float kernelX[WSize*WSize];
-	float kernelY[WSize*WSize];
+	float kernelX[WSize * WSize];
+	float kernelY[WSize * WSize];
 
 	Edges::sobelKernel(kernelX, kernelY, WSize);
 	//TODO: Remove this line when automatic sobelKernel generation works!
@@ -218,7 +220,8 @@ void Edges::colorToGray(const Mat& src, Mat& dst)
 
 		for (int j = 0; j < src.cols; ++j)
 		{
-			dstP[j] = (.114f*srcP[j][0] + .587f*srcP[j][1] + .299f*srcP[j][2])/256.0f;
+			dstP[j] = (.114f * srcP[j][0] + .587f * srcP[j][1]
+					+ .299f * srcP[j][2]) / 256.0f;
 		}
 	}
 }
@@ -227,43 +230,40 @@ void Edges::colorToGray(const Mat& src, Mat& dst)
  * Edges detection based on differential on both dimensions
  * and a threshold k
  */
-void Edges::harris(const Mat& dx, const Mat& dy, Mat& dst, int k, int WSize)
+void Edges::harris(const Mat& sIx, const Mat& sIy, Mat& dst, float k, int WSize)
 {
-	dst.create(dx.rows, dx.cols, dx.type());
+	dst.create(sIx.rows, sIx.cols, sIx.type());
 
-	float A,B,C, trApB, max=0;
+	float A, B, C, trApB;
 	int WHalf = floor(WSize / 2);
 	int twi, twj;
 
-	for (int i = 0; i < dx.rows; ++i)
+	for (int i = 0; i < sIx.rows; ++i)
 	{
 		mtype* dstP = dst.ptr<mtype>(i);
-		for (int j = 0; j < dx.cols; ++j)
+		for (int j = 0; j < sIx.cols; ++j)
 		{
-			A=0; B=0; C=0;
+			A = 0, B = 0, C = 0;
 			for (int wi = -WHalf; wi <= WHalf; ++wi)
 			{
-				twi = getIdx(i + wi, dx.rows);
-				const mtype* dxP = dx.ptr<mtype>(twi);
-				const mtype* dyP = dy.ptr<mtype>(twi);
+				twi = getIdx(i + wi, sIx.rows);
+				const mtype* sIxP = sIx.ptr<mtype>(twi);
+				const mtype* sIyP = sIy.ptr<mtype>(twi);
 
-				for (int wj = -WHalf; wj <= -WHalf; ++wj)
+				for (int wj = -WHalf; wj <= WHalf; ++wj)
 				{
-					twj = getIdx(j + wj, dx.cols);
+					twj = getIdx(j + wj, sIx.cols);
 
-					A += dxP[twj] * dxP[twj];
-					B += dyP[twj] * dyP[twj];
-					C += dxP[twj] * dyP[twj];
+					A += sIxP[twj] * sIxP[twj];
+					B += sIyP[twj] * sIyP[twj];
+					C += sIxP[twj] * sIyP[twj];
 				}
 			}
-			trApB = A+B;
-			dstP[j] = A*B  - C*C - k*(trApB*trApB);
 
-			if (max < dstP[j])
-				max = dstP[j];
+			trApB = A + B;
+			dstP[j] = A * B - C * C - k * (trApB * trApB);
 		}
 	}
-	cout<<"MAX: "<<max<<endl;
 }
 
 /**
@@ -271,31 +271,32 @@ void Edges::harris(const Mat& dx, const Mat& dy, Mat& dst, int k, int WSize)
  */
 void Edges::nonMaxSuppression(Mat& mat, int WSize)
 {
-	if(mat.empty()) return;
+	if (mat.empty())
+		return;
 
 	int WHalf = floor(WSize / 2);
 	int twi, twj;
-	bool suppressed;
+	//bool suppressed;
 
 	for (int i = 0; i < mat.rows; ++i)
 	{
 		mtype* matP = mat.ptr<mtype>(i);
 		for (int j = 0; j < mat.cols; ++j)
 		{
-			suppressed = false;
-			for (int wi = -WHalf; wi <= WHalf && !suppressed; ++wi)
+			//suppressed = false;
+			for (int wi = -WHalf; wi <= WHalf /*&& !suppressed*/; ++wi)
 			{
 				twi = getIdx(i + wi, mat.rows);
-				const mtype* wmatP = mat.ptr<mtype>(twi);
+				mtype* wmatP = mat.ptr<mtype>(twi);
 
-				for (int wj = -WHalf; wj <= -WHalf && !suppressed; ++wj)
+				for (int wj = -WHalf; wj <= WHalf /*&& !suppressed*/; ++wj)
 				{
 					twj = getIdx(j + wj, mat.cols);
 
-					if(matP[j] < wmatP[twj])
+					if (matP[j] < wmatP[twj])
 					{
 						matP[j] = 0;
-						suppressed = true;
+						//suppressed = true;
 					}
 				}
 			}
@@ -303,6 +304,9 @@ void Edges::nonMaxSuppression(Mat& mat, int WSize)
 	}
 }
 
+/*
+ * Obtain the corners that are greater than a threshold as (x,y) points
+ */
 void Edges::getCornerPoints(Mat& mat, vector<Point>& corners, mtype threshold)
 {
 	for (int i = 0; i < mat.rows; ++i)
@@ -311,15 +315,77 @@ void Edges::getCornerPoints(Mat& mat, vector<Point>& corners, mtype threshold)
 		for (int j = 0; j < mat.cols; ++j)
 		{
 			if (matP[j] > threshold)
-				corners.push_back(Point(j,i));
+				corners.push_back(Point(j, i));
+
 		}
 	}
 }
 
+/*
+ * Draws the corners as circles over the image
+ */
 void Edges::drawCorners(Mat& img, vector<Point>& corners, int radius)
 {
-	for(std::vector<Point>::iterator it = corners.begin(); it != corners.end(); ++it)
+	Scalar color(0, 255, 255);
+
+	vector<Point>::iterator it;
+	for (it = corners.begin(); it != corners.end(); ++it)
 	{
-		circle(img,*it,radius, Scalar(0,255,255) , 2);
+		circle(img, *it, radius, color, 2);
+	}
+}
+
+void Edges::findCorrespondences(const Mat &img1, vector<Point>& corners1,
+		const Mat &img2, vector<Point>& corners2,
+		map<Point, Point, PointCompare> &correspondences, float threshold,
+		int WSize, IStrategyCompare *poiCompareMethod)
+{
+	mtype val, minval;
+	Point minpoint;
+
+	vector<Point>::iterator it1, it2;
+	for (it1 = corners1.begin(); it1 != corners1.end(); ++it1)
+	{
+		minval = FLT_MAX;
+		for (it2 = corners2.begin(); it2 != corners2.end(); ++it2)
+		{
+			val = poiCompareMethod->getMeasure(img1, *it1, img2, *it2, WSize);
+			if (val < minval)
+			{
+				minpoint = *it2;
+				minval = val;
+			}
+		}
+
+		cout << minval << endl;
+		if (poiCompareMethod->compare(minval, threshold))
+			correspondences[*it1] = minpoint;
+	}
+}
+
+void Edges::plotCorrespondences(const Mat& img1, vector<Point>& corners1,
+		const Mat& img2, map<Point, Point, PointCompare> &correspondences,
+		Mat& dst)
+{
+	dst.create(max(img1.rows, img2.rows), img1.cols + img2.cols, img1.type());
+
+	//ROI of bigger image pointing to first half
+	Mat dstImg1 = dst(Rect(0, 0, img1.cols, img1.rows));
+	//ROI of bigger image pointing to second half
+	Mat dstImg2 = dst(Rect(img1.cols, 0, img2.cols, img2.rows));
+
+	img1.copyTo(dstImg1);
+	img2.copyTo(dstImg2);
+
+	//Draw green lines
+	Scalar colorL(0, 255, 0);
+
+	int xP2;
+	map<Point, Point>::iterator it;
+	for (it = correspondences.begin(); it != correspondences.end(); ++it)
+	{
+		//Displace point in image2 since its located in the second half of the big image
+		xP2 = it->second.x + img1.cols;
+		line(dst, it->first, Point(xP2, it->second.y), colorL, 1, CV_AA);
 	}
 }

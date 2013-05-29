@@ -68,11 +68,10 @@ int main( int argc, char** argv )
 	createDisplayImg("Gaussian Blur Image", gausImg);
 
 	// ----------------- Detect Edges with Sobel -------------------- //
-	Mat sobelX, sobelY, sobel;
-	Edges::sobel(gausImg, sobelX, sobelY, sobel, 3);
+	Mat sIx, sIy, sobel;
+	Edges::sobel(gausImg, sIx, sIy, sobel, 3);
 
 	createDisplayImg("Sobel Edges Detection Image", sobel);
-
 
 	// ------------- Detect Edges with Sobel OpenCV ----------------- //
 	Mat sobelCVX, sobelCVY, sobelCV, sobelCVAng;
@@ -86,28 +85,68 @@ int main( int argc, char** argv )
 
 	// ----------------- Find corners with Harris -------------------- //
 	Mat harris;
-	Edges::harris(sobelX,sobelY,harris,0.04,7);
+	Edges::harris(sIx,sIy,harris,0.09f,5);
 
 	createDisplayImg("Harris Image", harris);
 
+	// ----------------- Non Maximum Suppression -------------------- //
+	Mat harrisNMS = harris.clone();
+	Edges::nonMaxSuppression(harrisNMS,11);
+
+	createDisplayImg("Harris NonMax Suppression Image 1", harrisNMS);
+
+	mtype mean1;
+	Mat image1 = image.clone();
+	vector<Point> corners1;
+	Edges::getCornerPoints(harrisNMS, corners1, 5.0f);
+	Edges::drawCorners(image1, corners1, 2);
+
+	cout<<"Corners: "<<corners1.size()<<endl;
+	//createDisplayImg("Detected Points Image 1", image1);
+
+
 	// ----------------- Find corners with Harris OpenCV -------------- //
 	Mat harrisCV;
-	cornerHarris(gausImg,harrisCV,5,7,0.04,BORDER_DEFAULT);
+	cornerHarris(gausImg,harrisCV,5,7,0.04f,BORDER_DEFAULT);
 
 	createDisplayImg("Harris Image CV", harrisCV);
 
-	// ----------------- Non Maximum Suppression -------------------- //
-	Mat harrisNMS = harris.clone();
-	Edges::nonMaxSuppression(harrisNMS,20);
+	// ----------------- Non Maximum Suppression OpenCV -------------------- //
+	Mat harrisCVNMS = harrisCV.clone();
+	Edges::nonMaxSuppression(harrisCVNMS,11);
 
-	createDisplayImg("Harris NonMax Suppression Image", harrisNMS);
+	createDisplayImg("Harris NonMax Suppression Image 2", harrisCVNMS);
 
-	vector<Point> corners;
-	Edges::getCornerPoints(harrisNMS, corners, 4.5);
-	Edges::drawCorners(image, corners, 2);
+	mtype mean2;
+	Mat image2 = image.clone();
+	vector<Point> corners2;
+	Edges::getCornerPoints(harrisCVNMS, corners2, 5.0f);
+	Edges::drawCorners(image2, corners2, 2);
 
-	cout<<"Corners: "<<corners.size()<<endl;
-	createDisplayImg("Detected Points Image", image);
+	cout<<"Corners: "<<corners2.size()<<endl;
+	//createDisplayImg("Detected Points Image 2", image2);
+
+	// ----------------- Correspondences of Points -------------------- //
+
+	// SSD Method
+	map<Point,Point,PointCompare> correspondences;
+	IStrategyCompare *poiCompMethod = new SSD;
+	Edges::findCorrespondences(gausImg, corners1, gausImg, corners2, correspondences, 0.0f, 15, poiCompMethod);
+	delete poiCompMethod;
+
+	Mat bigImg;
+	Edges::plotCorrespondences(image1, corners1, image2, correspondences, bigImg);
+	createDisplayImg("Merged Image", bigImg);
+
+	// NCC Method
+	correspondences.clear();
+	poiCompMethod = new NCC();
+	Edges::findCorrespondences(gausImg, corners1, gausImg, corners2, correspondences, 0.9f, 15, poiCompMethod);
+	delete poiCompMethod;
+
+	Mat bigImg2;
+	Edges::plotCorrespondences(image1, corners1, image2, correspondences, bigImg2);
+	createDisplayImg("Merged Image 2", bigImg2);
 
 	waitKey(0);
 
@@ -115,16 +154,36 @@ int main( int argc, char** argv )
 	grayImg.release();
 	gausImg.release();
 	sobel.release();
-	sobelX.release();
-	sobelY.release();
+	sIx.release();
+	sIy.release();
 	harris.release();
 	harrisNMS.release();
+
+	image1.release();
+	image2.release();
+	bigImg.release();
 
 	sobelCV.release();
 	sobelCVX.release();
 	sobelCVY.release();
 	harrisCV.release();
+	harrisCVNMS.release();
 
+/*
+	float m[5][5] = {{1,4,3,2,1}, {9,8,5,-1,0}, {4,10,6,1,0},{1,4,2,-1,-2},{0,1,3,-4,-5}};
+	float m2[5][5] = {{7,10,1,3,5}, {1,2,3,4,5}, {5,4,3,2,1},{0,10,20,-5,1},{0,0,2,8,1}};
+	Mat M = Mat(5, 5, CV_32F, m);
+	Mat M2 = Mat(5, 5, CV_32F, m2);
+	Mat dst;
+
+	cout<<"Original:"<<endl<<M<<endl;
+	cout<<"Original2:"<<endl<<M2<<endl;
+	Edges::harris(M,M2,dst,0.04f,3);
+	cout<<"Harris:"<<endl<<dst<<endl;
+
+	//Edges::nonMaxSuppression(M,3);
+	//cout<<"Suppressed:"<<endl<<M<<endl;
+*/
 
 	return 0;
 }
