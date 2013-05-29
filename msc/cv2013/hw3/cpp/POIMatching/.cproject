@@ -45,17 +45,13 @@
 									<listOptionValue builtIn="false" value="opencv_imgproc"/>
 									<listOptionValue builtIn="false" value="opencv_highgui"/>
 									<listOptionValue builtIn="false" value="opencv_contrib"/>
-									<listOptionValue builtIn="false" value="opencv_legacy"/>
 									<listOptionValue builtIn="false" value="opencv_ml"/>
 									<listOptionValue builtIn="false" value="opencv_nonfree"/>
 									<listOptionValue builtIn="false" value="opencv_objdetect"/>
-									<listOptionValue builtIn="false" value="opencv_ocl"/>
 									<listOptionValue builtIn="false" value="opencv_photo"/>
 									<listOptionValue builtIn="false" value="opencv_stitching"/>
-									<listOptionValue builtIn="false" value="opencv_superres"/>
 									<listOptionValue builtIn="false" value="opencv_ts"/>
 									<listOptionValue builtIn="false" value="opencv_video"/>
-									<listOptionValue builtIn="false" value="opencv_videostab"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.815848797" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="/usr/local/lib"/>
