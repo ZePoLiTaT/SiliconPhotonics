@@ -20,6 +20,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include "Utils.h"
 
 using namespace cv;
 using namespace std;
@@ -59,11 +60,6 @@ public:
 
 class NCC: public IStrategyCompare
 {
-private:
-	mtype f1mean;
-	mtype f2mean;
-
-	void calcMean(const Mat& f1, Point p1, const Mat& f2, Point p2, int WSize);
 public:
 	NCC();
 	NCC(mtype f1m, mtype f2m);

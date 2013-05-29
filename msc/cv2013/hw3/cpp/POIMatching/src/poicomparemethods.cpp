@@ -19,15 +19,6 @@
 namespace poicomparemethods
 {
 
-inline int getIdx(int val, int MAX)
-{
-	if (val < 0)
-		return 0;
-	if (val >= MAX)
-		return MAX - 0.01;
-	return val;
-}
-
 SSD::SSD()
 {
 }

@@ -134,7 +134,9 @@ int main( int argc, char** argv )
 
 	Mat bigImg;
 	Edges::plotCorrespondences(image1, corners1, image2, correspondences, bigImg);
-	createDisplayImg("Merged Image", bigImg);
+	createDisplayImg("Merged Image SSD Comparison", bigImg);
+
+	cout<<"SSD Matches Detected: "<<correspondences.size()<<endl;
 
 	// NCC Method
 	correspondences.clear();
@@ -144,7 +146,9 @@ int main( int argc, char** argv )
 
 	Mat bigImg2;
 	Edges::plotCorrespondences(image1, corners1, image2, correspondences, bigImg2);
-	createDisplayImg("Merged Image 2", bigImg2);
+	createDisplayImg("Merged Image NCC Comparison", bigImg2);
+
+	cout<<"NCC Matches Detected: "<<correspondences.size()<<endl;
 
 	waitKey(0);
 
