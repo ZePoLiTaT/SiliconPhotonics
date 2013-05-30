@@ -28,13 +28,17 @@ using namespace std;
 
 namespace poi
 {
-
 struct PointCompare
 {
-	bool operator()(const Point& lhs, const Point& rhs)
+	//This is extremely important for the map stl since the key-value
+	//pair is <Point,Point>. Its used to locate
+	bool operator()(const Point& me, const Point& other)
 	{
-		return lhs.x < rhs.x;
+		if (me.x != other.x)
+			return me.x < other.x;
+		return me.y < other.y;
 	}
+
 };
 
 class POICorrespondence
@@ -43,7 +47,7 @@ public:
 
 	static void findCorrespondences(const Mat &img1, vector<Point>& corners1, const Mat &img2,
 			vector<Point>& corners2, map<Point, Point, PointCompare> &correspondences,
-			float threshold, int WSize, IStrategyCompare *poiCompareMethod);
+			float threshold, int WSize, int WShiftSize, IStrategyCompare *poiCompareMethod);
 	static void plotCorrespondences(const Mat& img1, vector<Point>& corners1, const Mat& img2,
 			map<Point, Point, PointCompare> &correspondences, Mat& dst);
 };

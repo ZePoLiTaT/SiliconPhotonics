@@ -103,8 +103,8 @@ int main(int argc, char** argv)
 	// SSD Method
 	map<Point, Point, PointCompare> correspondences;
 	IStrategyCompare *poiCompMethod = new SSD;
-	POICorrespondence::findCorrespondences(gausImg1, corners1, gausImg2, corners2, correspondences, 0.3f, 17,
-			poiCompMethod);
+	POICorrespondence::findCorrespondences(gausImg1, corners1, gausImg2, corners2, correspondences, 0.3f,
+			11, 200, poiCompMethod);
 	delete poiCompMethod;
 
 	Mat bigImg;
@@ -117,7 +117,7 @@ int main(int argc, char** argv)
 	correspondences.clear();
 	poiCompMethod = new NCC();
 	POICorrespondence::findCorrespondences(gausImg1, corners1, gausImg2, corners2, correspondences, 0.989f,
-			17, poiCompMethod);
+			11, 200, poiCompMethod);
 	delete poiCompMethod;
 
 	Mat bigImg2;
@@ -145,10 +145,9 @@ int main(int argc, char** argv)
 	harris2.release();
 	harrisNMS2.release();
 
-	image1.release();
-	image2.release();
 	bigImg.release();
 	bigImg2.release();
+
 
 	return 0;
 }
