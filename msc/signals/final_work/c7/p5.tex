@@ -1,0 +1,48 @@
+\section*{Problem 5}
+
+Solve the following difference equation using z-transforms:
+
+\begin{equation*}
+\begin{aligned}
+y[n] + 3y[n-1] + 2y[n-2] = 2x[n] - x[n-1]\\
+y[-1] = 0\\
+y[-2] = 1\\
+\end{aligned}
+\end{equation*} 
+
+To the input:
+\begin{equation*}
+\begin{aligned}
+x[n]=u[n]
+\end{aligned}
+\end{equation*} 
+
+\subsection*{Solution}
+
+\begin{equation*}
+\begin{aligned}
+y[z] + 3z^{-1}y[z] + 2(z^{-2}y[z]+1) &= 2\frac{z}{z-1} - \frac{1}{z-1}\\
+y[z](z^2+3z+2) + 2z^2 &= 2 \frac{z^3}{z-1} - \frac{z^2}{z-1}\\
+y[z] &= \frac{2z^3-z^2-2z^3+2z^2}{(z-1)(z+1)(z+2)} \\
+&= \frac{z^2}{(z-1)(z+1)(z+2)} \\
+\frac{y[z]}{z} &= \frac{z}{(z-1)(z+1)(z+2)} \\
+&= \frac{A}{z-1} + \frac{B}{z+1} + \frac{C}{z+2}
+\end{aligned}
+\end{equation*} 
+
+We find the values of $A,B,C$ using partial fractions:
+\begin{equation*}
+\begin{aligned}
+A &= \frac{1}{6} \\
+B &= \frac{1}{2} \\
+C &= \frac{-2}{3}
+\end{aligned}
+\end{equation*} 
+
+Therefore,
+\begin{equation*}
+\begin{aligned}
+y[z] &= \frac{1}{6} \frac{z}{z-1} + \frac{1}{2} \frac{z}{z+1} - \frac{2}{3} \frac{z}{z+2} \\
+y[n] &= \frac{1}{6} u[n] + \frac{1}{2} (-1)^n - \frac{2}{3} (-2)^n
+\end{aligned}
+\end{equation*} 

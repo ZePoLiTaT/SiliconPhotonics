@@ -2,6 +2,6 @@
 \contentsline {chapter}{\numberline {2}Fourier Transform}{19}
 \contentsline {chapter}{\numberline {3}Sampling and Reconstruction}{35}
 \contentsline {chapter}{\numberline {4}DTFT and DFT}{55}
-\contentsline {chapter}{\numberline {5}Z-Transform}{60}
-\contentsline {chapter}{\numberline {6}Haar Base}{61}
-\contentsline {chapter}{\numberline {7}Haar Transform}{68}
+\contentsline {chapter}{\numberline {5}Z-Transform}{76}
+\contentsline {chapter}{\numberline {6}Haar Base}{88}
+\contentsline {chapter}{\numberline {7}Haar Transform}{95}

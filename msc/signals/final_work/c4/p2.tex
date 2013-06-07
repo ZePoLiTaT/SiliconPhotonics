@@ -1,7 +1,9 @@
 \section*{Problem 2}
 
-Compute the DTFT of the following signals and sketch $X(\omega)$.
+Compute by hand calculations the DFT of the signals given in Problem 1-a) 
+and 1-b) and compare your answers to those found in Problem 1.
 
+%%%%%%%%%%%%%%%%%%%%%%%%  a  %%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
 \item 
 $x[n] =
@@ -13,28 +15,73 @@ $x[n] =
 $
 \end{itemize} 
 
+
 \subsection*{Solution}
 
-Aplying the definition of (\ref{eq:c41}) we have:
+Using the function dft2 over the input vector we get:
 
 \begin{equation*}
 \begin{aligned}
-X(\omega) &= \displaystyle\sum_{0}^{3} \frac{1}{4} e^{-j \omega n} \\
-&= \frac{1}{4} [1 + e^{-jw} + e^{-2jw} + e^{-3jw}] \\
-&= \frac{1}{4} e^{-j \frac{3 \omega}{2}}
-		[e^{j \frac{3 \omega}{2}} + e^{-j \frac{\omega}{2}} + 
-		 e^{- j \frac{\omega}{2}} + e^{-j \frac{3 \omega}{2}} ] \\
-&= \frac{1}{2}  e^{-j \frac{3 \omega}{2}} [\cos(\frac{3 \omega}{2})\cos(\frac{\omega}{2})]
+X_k = \left(
+ \begin{array}{c c c c}
+ 1 & 0 & 0 & 0
+ \end{array}
+ \right) \\
+X_0 = 1 \\
+X_1 = 0 \\
+X_2 = 0 \\
+X_3 = 0 
 \end{aligned}
 \end{equation*} 
 
-The plot of the magintude $X(\omega)$ is:
-\zcodemat{sources/c4p1a.m}{Plot of Magnitude}
+To compare the results, we calculate the values from the analytic function obtained
+in \ref{eq:c4p1a} for each value of $\omega$ using:
 
-\begin{figure}[H]
-\caption{Magnitude $|X(\omega)|$}
-\centering
-\includegraphics[width=1.0\textwidth]{figs/c4p1a.png}
-\label{fig:c4p1a}
-\end{figure} 
+\begin{equation*}
+\begin{aligned}
+\omega &= \frac{2 \pi}{4} k = \frac{\pi}{2} k 
+\end{aligned}
+\end{equation*} 
 
+\zcodemat{sources/c4p2a.m}{Comparison of results of DTFT vs DFT}
+
+Getting the same result for both.
+
+%%%%%%%%%%%%%%%%%%%%%%%%  b  %%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+\item 
+$x[n] =
+\left[ \begin{array}{c c c}
+1 & -2 & 1
+\end{array} \right] $
+\end{itemize} 
+
+\subsection*{Solution}
+
+Using the function dft2 over the input vector we get:
+
+\begin{equation*}
+\begin{aligned}
+X_k &= \left(
+ \begin{array}{c c c}
+ 0 & 1.5000 + 2.5981i & 1.5000 + 2.5981i
+ \end{array}
+ \right) \\
+X_0 &= 0 \\
+X_1 &= 1.5000 + 2.5981i \\
+X_2 &= 1.5000 - 2.5981i 
+\end{aligned}
+\end{equation*} 
+
+To compare the results, we calculate the values from the analytic function obtained
+in \ref{eq:c4p1b} for each value of $\omega$ using:
+
+\begin{equation*}
+\begin{aligned}
+\omega &= \frac{2 \pi}{4} k = \frac{\pi}{2} k 
+\end{aligned}
+\end{equation*} 
+
+\zcodemat{sources/c4p2b.m}{Comparison of results of DTFT vs DFT}
+
+And we get the same result for both.

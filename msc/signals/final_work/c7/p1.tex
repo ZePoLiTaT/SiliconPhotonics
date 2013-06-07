@@ -1,0 +1,78 @@
+\section*{Problem 1}
+
+Let $T(n)$ be the temperature, in degrees Fahrenheit, of a cup of tea initially at a 
+temperature of $180^\circ$F that stays at a constant room temperature of $80^\circ$F.
+After one minute, the tea temperature has decreased to $175^\circ$F.
+
+How hot is the tea after 30 minutes?
+
+Hint: Use Newton's law of Cooling.
+\begin{equation}
+T(n-1) - T(n) = k[T(n) - 80]
+\label{eq:newton}
+\end{equation} 
+
+\subsection*{Solution}
+
+From (\ref{eq:newton}) we find K:
+
+\begin{equation*}
+\begin{aligned}
+T(n-1) - T(n) &= k[T(n) - 80]\\
+175 - 180 &= k[180 - 80]\\
+k&= \frac{-1}{20}
+\end{aligned}
+\end{equation*} 
+
+Now we solve the difference equation using the Z-Transform:
+
+\begin{equation*}
+\begin{aligned}
+T(0) &= 180^\circ \\
+T(1) &= 175^\circ \\
+\end{aligned}
+\end{equation*} 
+
+\begin{equation*}
+\begin{aligned}
+zT(z) - zT(0) - T(z) &= k T(z) - 80\frac{z}{z-1} \\
+T(z)[z -1 -k] &= 180z - 80k \frac{z}{z-1}\\
+T(z) &= z \frac{[180(z-1) - 80k]}{z-1}\\
+\frac{T(z)}{z} &= \frac{180z - 180 - 80k}{(z-1)(z-1-k)}\\
+&= \frac{A}{z-1} + \frac{B}{Z-1-k}
+\end{aligned}
+\end{equation*} 
+
+Solving by partial fractions we find 
+
+\begin{equation*}
+\begin{aligned}
+A &= \frac{80k}{k} = 90 \\
+B &= \frac{180+180k-180-80k}{1+k-1} = 100
+\end{aligned}
+\end{equation*} 
+
+Therefore:
+
+\begin{equation*}
+\begin{aligned}
+T(z) &= 80 \frac{z}{z-1} + 100 \frac{z}{z-1-k} \\
+T(n) &= 80 u(n) + 100 (1+k)^n \\
+&= 80 u(n) + 100 (\frac{19}{20})^n
+\end{aligned}
+\end{equation*} 
+
+When $n=30$ we have:
+
+\begin{equation*}
+\begin{aligned}
+T(30) &= 80 + 100(\frac{19}{20})^{30} \\
+ &\approx 101.464
+\end{aligned}
+\end{equation*} 
+
+Code implementation of the system:
+
+\zcodec{../ztransform/main.cpp}{C++ Implementation}
+
+

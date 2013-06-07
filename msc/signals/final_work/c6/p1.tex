@@ -1,0 +1,31 @@
+\section*{Algorithm}
+
+Implement the haar transform for discrete values
+
+\subsection*{Solution}
+
+The implementation was made in c.
+
+\zcodec{../haar/haar.cpp}{Haar Implementation}
+
+This program receives the data input from the standard input. Therefore, it can
+be executed from the command line as:
+
+\begin{verbatim}
+./haar < input.in
+\end{verbatim}
+
+Where input.in is a file containing the integer N in the first line
+and N points of data in the second:
+
+\begin{verbatim}
+8
+7 1 6 6 3 -5 4 2
+\end{verbatim}
+
+For this input, the algorithm prints the following output:
+
+\begin{verbatim}
+>> [7.0000 1.0000 6.0000 6.0000 3.0000 -5.0000 4.0000 2.0000 ]
+>> [3.0000 2.0000 -1.0000 -2.0000 3.0000 0.0000 4.0000 1.0000 ]
+\end{verbatim}

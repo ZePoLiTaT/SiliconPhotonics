@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.10)  28 MAY 2013 09:11
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.5.10)  7 JUN 2013 11:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -448,6 +448,9 @@ LaTeX Warning: Label `fig:c3p31' multiply defined.
 
 
 LaTeX Warning: Label `fig:c3p32' multiply defined.
+
+
+LaTeX Warning: Label `eq:c42' multiply defined.
 
 )
 \openout1 = `report.aux'.
@@ -1397,81 +1400,401 @@ Package pdftex.def Info: figs/lowImg2.png used on input line 44.
 
 [54 <./figs/c3p6b2.png (PNG copy)>]
 Chapter 4.
-(./c4/intro.tex) (./c4/p1.tex
+(./c4/intro.tex
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 29--29
+[] [][][][][][] 
+ []
+
 File: figs/lowImg2.png Graphic file (type png)
- <use figs/lowImg2.png>
-Package pdftex.def Info: figs/lowImg2.png used on input line 30.
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 29.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
  [55
 
-]
+] (./sources/dft2.m)) (./c4/p1.tex
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 34.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [56]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 34--34
+[] [][][][][][] 
+ []
+
+(./sources/c4p1a.m) <figs/c4p1a.png, id=267, 449.68pt x 337.26pt>
+File: figs/c4p1a.png Graphic file (type png)
+
+<use figs/c4p1a.png>
+Package pdftex.def Info: figs/c4p1a.png used on input line 39.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 65.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [57 <./figs/c4p1a.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 68--68
+[] [][][][][][] 
+ []
+
+(./sources/c4p1b.m) <figs/c4p1b.png, id=271, 449.68pt x 337.26pt>
+File: figs/c4p1b.png Graphic file (type png)
+
+<use figs/c4p1b.png>
+Package pdftex.def Info: figs/c4p1b.png used on input line 73.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 87.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [58 <./figs/c4p1b.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 106--106
+[] [][][][][][] 
+ []
+
+(./sources/c4p1c.m) <figs/c4p1c.png, id=275, 449.68pt x 337.26pt>
+File: figs/c4p1c.png Graphic file (type png)
+
+<use figs/c4p1c.png>
+Package pdftex.def Info: figs/c4p1c.png used on input line 111.
+(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 114.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [59]) (./c4/p2.tex
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 44.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [60 <./figs/c4p1c.png (PNG copy)>]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 46--46
+[] [][][][][][] 
+ []
+
+(./sources/c4p2a.m)
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 85--85
+[] [][][][][][] 
+ []
+
+(./sources/c4p2b.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 9.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [61])) (./c4/p3.tex
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 12--12
+[] [][][][][][] 
+ []
+
+(./sources/c4p3.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 28.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [62])
+<figs/c4p32.png, id=289, 449.68pt x 337.26pt>
+File: figs/c4p32.png Graphic file (type png)
+ <use figs/c4p32.png>
+Package pdftex.def Info: figs/c4p32.png used on input line 17.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+
+<figs/c4p31.png, id=290, 449.68pt x 337.26pt>
+File: figs/c4p31.png Graphic file (type png)
+ <use figs/c4p31.png>
+Package pdftex.def Info: figs/c4p31.png used on input line 24.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 27.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [63 <./figs/c4p32.png (PNG copy)>]) (./c4/p4.tex
+Missing character: There is no Ã in font DroidSerif-Bold-ot1!
+Missing character: There is no ± in font DroidSerif-Bold-ot1!
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 22--22
+[] [][][][][][] 
+ []
+
+(./sources/c4p4a.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 7.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [64 <./figs/c4p31.png (PNG copy)>])
+<figs/c4p4a.png, id=297, 449.68pt x 337.26pt>
+File: figs/c4p4a.png Graphic file (type png)
+ <use figs/c4p4a.png>
+Package pdftex.def Info: figs/c4p4a.png used on input line 27.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 30.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [65]
+Missing character: There is no Ã in font DroidSerif-Bold-ot1!
+Missing character: There is no ± in font DroidSerif-Bold-ot1!
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 51--51
+[] [][][][][][] 
+ []
+
+(./sources/c4p4b.m
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 7.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [66 <./figs/c4p4a.png (PNG copy)>])
+<figs/c4p4b.png, id=305, 449.68pt x 337.26pt>
+File: figs/c4p4b.png Graphic file (type png)
+ <use figs/c4p4b.png>
+Package pdftex.def Info: figs/c4p4b.png used on input line 56.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 59.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [67]) (./c4/p5.tex
+Missing character: There is no Ï in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no Ï in font cmr10!
+Missing character: There is no € in font cmr10!
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 17.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [68 <./figs/c4p4b.png (PNG copy)>]
+Overfull \hbox (30.57602pt too wide) in paragraph at lines 19--19
+[] [][][][][][] 
+ []
+
+(./sources/c4p5.m) <figs/c4p5.png, id=312, 553.267pt x 167.024pt>
+File: figs/c4p5.png Graphic file (type png)
+
+<use figs/c4p5.png>
+Package pdftex.def Info: figs/c4p5.png used on input line 24.
+(pdftex.def)             Requested size: 276.00105pt x 83.3232pt.
+) (./c4/p6.tex
+<figs/c4p6.png, id=313, 363.3575pt x 295.1025pt>
+File: figs/c4p6.png Graphic file (type png)
+ <use figs/c4p6.png>
+Package pdftex.def Info: figs/c4p6.png used on input line 9.
+(pdftex.def)             Requested size: 172.5pt x 140.09859pt.
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 11.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [69 <./figs/c4p5.png (PNG copy)>]
+<figs/c4p61.png, id=317, 363.3575pt x 295.1025pt>
+File: figs/c4p61.png Graphic file (type png)
+ <use figs/c4p61.png>
+Package pdftex.def Info: figs/c4p61.png used on input line 34.
+(pdftex.def)             Requested size: 172.5pt x 140.09859pt.
+)
+(./c4/p7.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 7.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [70 <./figs/c4p6.png> <./figs/c4p61.png>]
 Overfull \hbox (8.57602pt too wide) in paragraph at lines 33--33
 [] [][][][][][] 
  []
 
-(./sources/c4p1a.m) <figs/c4p1a.png, id=264, 449.68pt x 337.26pt>
-File: figs/c4p1a.png Graphic file (type png)
-
-<use figs/c4p1a.png>
-Package pdftex.def Info: figs/c4p1a.png used on input line 38.
-(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+(./sources/c4p7.m
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
-Package pdftex.def Info: figs/lowImg2.png used on input line 55.
+Package pdftex.def Info: figs/lowImg2.png used on input line 13.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [56 <./figs/c4p1a.png (PNG copy)>]
-Overfull \hbox (8.57602pt too wide) in paragraph at lines 66--66
+ [71])
+<figs/c4p7.png, id=324, 636.779pt x 374.198pt>
+File: figs/c4p7.png Graphic file (type png)
+ <use figs/c4p7.png>
+Package pdftex.def Info: figs/c4p7.png used on input line 38.
+(pdftex.def)             Requested size: 276.00105pt x 162.19241pt.
+)
+(./c4/p8.tex
+Missing character: There is no Ï in font DroidSerif-Regular-ot1!
+Missing character: There is no ‰ in font DroidSerif-Regular-ot1!
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 16.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [72 <./figs/c4p7.png (PNG copy)>]
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 66.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [73]
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 88--88
 [] [][][][][][] 
  []
 
-(./sources/c4p1b.m) <figs/c4p1b.png, id=268, 449.68pt x 337.26pt>
-File: figs/c4p1b.png Graphic file (type png)
-
-<use figs/c4p1b.png>
-Package pdftex.def Info: figs/c4p1b.png used on input line 71.
-(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+(./sources/c4p8.m)
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
-Package pdftex.def Info: figs/lowImg2.png used on input line 74.
+Package pdftex.def Info: figs/lowImg2.png used on input line 88.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [57]
-Overfull \hbox (8.57602pt too wide) in paragraph at lines 104--104
-[] [][][][][][] 
- []
-
-(./sources/c4p1c.m
-File: figs/lowImg2.png Graphic file (type png)
- <use figs/lowImg2.png>
-Package pdftex.def Info: figs/lowImg2.png used on input line 5.
-(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [58 <./figs/c4p1b.png (PNG copy)>])
-<figs/c4p1c.png, id=275, 449.68pt x 337.26pt>
-File: figs/c4p1c.png Graphic file (type png)
- <use figs/c4p1c.png>
-Package pdftex.def Info: figs/c4p1c.png used on input line 109.
-(pdftex.def)             Requested size: 207.0021pt x 155.24954pt.
+ [74]
+<figs/c4p8.png, id=335, 449.68pt x 337.26pt>
+File: figs/c4p8.png Graphic file (type png)
+ <use figs/c4p8.png>
+Package pdftex.def Info: figs/c4p8.png used on input line 93.
+(pdftex.def)             Requested size: 276.00105pt x 207.00969pt.
 )
 File: figs/lowImg2.png Graphic file (type png)
 
 <use figs/lowImg2.png>
-Package pdftex.def Info: figs/lowImg2.png used on input line 49.
+Package pdftex.def Info: figs/lowImg2.png used on input line 56.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [59 <./figs/c4p1c.png (PNG copy)>]
+ [75 <./figs/c4p8.png (PNG copy)>]
 Chapter 5.
+(./c7/p1.tex
 File: figs/lowImg2.png Graphic file (type png)
-<use figs/lowImg2.png>
-Package pdftex.def Info: figs/lowImg2.png used on input line 52.
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 29.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [60
+ [76
 
 ]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 76--76
+[] [][][][][][] 
+ []
+
+(../ztransform/main.cpp
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 2.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [77]
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ¡ in font pcrro7t!
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+)) (./c7/p2.tex
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 6.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [78] <figs/c7p2.jpg, id=349, 545.03625pt x 346.29375pt>
+File: figs/c7p2.jpg Graphic file (type jpg)
+
+<use figs/c7p2.jpg>
+Package pdftex.def Info: figs/c7p2.jpg used on input line 13.
+(pdftex.def)             Requested size: 276.00105pt x 175.36044pt.
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 20--20
+[] [][][][][][] 
+ []
+
+(../ztransform/c7p6.cpp
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ¡ in font pcrro7t!
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 20.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [79 <./figs/c7p2.jpg>])
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 42.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [80]
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 105.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [81]) (./c7/p3.tex
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 43.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [82]) (./c7/p4.tex
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 26.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [83]
+Overfull \hbox (8.52963pt too wide) in paragraph at lines 54--55
+[]\OT1/fdr/m/n/10 From the foll-wing code (in C++) we get the first 6 val-ues o
+f the sys-tem: 
+ []
+
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 55--55
+[] [][][][][][] 
+ []
+
+(../ztransform/c7p4.cpp
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 15.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [84])
+Overfull \hbox (8.52963pt too wide) in paragraph at lines 72--73
+\OT1/fdr/m/n/10 From the foll-wing code (in C++) we get the first 6 val-ues of 
+the sys-tem: 
+ []
+
+
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 73--73
+[] [][][][][][] 
+ []
+
+(../ztransform/c7p4b.cpp
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 2.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [85]
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+)) (./c7/p5.tex
+File: figs/lowImg2.png Graphic file (type png)
+
+<use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 5.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [86])
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 64.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [87]
 Chapter 6.
 (./c5/p1.tex
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
 Package pdftex.def Info: figs/lowImg2.png used on input line 29.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [61
+ [88
 
 ]
 Overfull \hbox (8.57602pt too wide) in paragraph at lines 33--33
@@ -1496,48 +1819,79 @@ File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
 Package pdftex.def Info: figs/lowImg2.png used on input line 5.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [62]
+ [89]
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
 Package pdftex.def Info: figs/lowImg2.png used on input line 50.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [63]
+ [90]
 File: figs/lowImg2.png Graphic file (type png)
 
 <use figs/lowImg2.png>
 Package pdftex.def Info: figs/lowImg2.png used on input line 101.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [64]
+ [91]
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
 Package pdftex.def Info: figs/lowImg2.png used on input line 145.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [65]
+ [92]
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
 Package pdftex.def Info: figs/lowImg2.png used on input line 187.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
 
-[66]))
+[93]))
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
-Package pdftex.def Info: figs/lowImg2.png used on input line 56.
+Package pdftex.def Info: figs/lowImg2.png used on input line 68.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [67]
+ [94]
 Chapter 7.
-(./report.bbl
+(./c6/p1.tex
+Overfull \hbox (8.57602pt too wide) in paragraph at lines 9--9
+[] [][][][][][] 
+ []
+
+(../haar/haar.cpp
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+Missing character: There is no Ã in font pcrro7t!
+Missing character: There is no ³ in font pcrro7t!
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 19.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [95
+
+]
+File: figs/lowImg2.png Graphic file (type png)
+ <use figs/lowImg2.png>
+Package pdftex.def Info: figs/lowImg2.png used on input line 76.
+(pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
+ [96])
+Overfull \hbox (27.0pt too wide) in paragraph at lines 29--29
+[]\OT1/pcr/m/n/10 >> [7.0000 1.0000 6.0000 6.0000 3.0000 -5.0000 4.0000 2.0000 
+] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 30--30
+[]\OT1/pcr/m/n/10 >> [3.0000 2.0000 -1.0000 -2.0000 3.0000 0.0000 4.0000 1.0000
+ ][] 
+ []
+
+) (./report.bbl
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
 Package pdftex.def Info: figs/lowImg2.png used on input line 1.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [68
-
-])
+ [97])
 File: figs/lowImg2.png Graphic file (type png)
  <use figs/lowImg2.png>
-Package pdftex.def Info: figs/lowImg2.png used on input line 62.
+Package pdftex.def Info: figs/lowImg2.png used on input line 75.
 (pdftex.def)             Requested size: 600.3019pt x 59.39563pt.
- [69
+ [98
 
 ]
 (./report.aux)
@@ -1549,13 +1903,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9255 strings out of 493485
- 134835 string characters out of 3143526
- 367131 words of memory out of 3000000
- 12163 multiletter control sequences out of 15000+200000
+ 9651 strings out of 493485
+ 139860 string characters out of 3143526
+ 368867 words of memory out of 3000000
+ 12477 multiletter control sequences out of 15000+200000
  33880 words of font info for 90 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 43i,11n,52p,281b,2274s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,13n,54p,281b,2274s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/droid/droid-01.enc}{/usr/share
 /texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/
 fonts/enc/dvips/droid/droid-03.enc}</usr/share/texlive/texmf-dist/fonts/type1/p
@@ -1578,10 +1932,10 @@ m/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eu
 fm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msa
 m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on report.pdf (70 pages, 780831 bytes).
+Output written on report.pdf (99 pages, 947198 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 227 compressed objects within 3 object streams
+ 489 PDF objects out of 1000 (max. 8388607)
+ 291 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
 

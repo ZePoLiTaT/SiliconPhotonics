@@ -1,10 +1,30 @@
-When we move into a discrete time domain, the Fourier Transform equivalent
-in this domain is called the DTFT or Discrete Time Fourier Transform
+When we move into a discrete time domain, the Fourier Transform can be calculated
+using the DTFT or Discrete Time Fourier Transform
 which is defined as \cite{kamen2000fundamentals}:
 
 \begin{equation}
-\mathfrak{F}\{ x[n] \} = \displaystyle\sum_{- \infty}^{\infty} x[n] e^{-j \omega n} = X(\omega)
+X(\omega) = \mathfrak{F}\{ x[n] \} = \displaystyle\sum_{- \infty}^{\infty} x[n] e^{-j \omega n}
 \label{eq:c41}
 \end{equation} 
 
+As can be seen in (\ref{eq:c41}), the frecuency domain obtained is continuous. 
+However, in order to manipulate (save/restore) such information in a computer,
+the frecuency should also be discretized.
+For time-frecuency discrete domains, the DFT is defined over the
+time interval from $n=0$ to $n=N$ as:
+
+\begin{equation}
+X_k = \displaystyle\sum_{n=0}^{N-1} x[n] e^{-j \frac{2 \pi k}{N} n}
+\label{eq:c42}
+\end{equation} 
+
+where the frecuency $\omega$ was redefined as $\omega = \frac{2 \pi k}{N}$.
+
+The following function was implemented to calculate the $k = [0,1,..N]$
+values for the Transform. Additionally, an extra parameter
+$N$ was added to force the input array to be of a bigger size.
+This will be used in some problems to extend the size of a discrete
+function $x[n]$ assuming that it fades to 0 for the missing values.
+
+\zcodemat{sources/dft2.m}{Fourier Discrete Transform with 0 padding implementation}
 

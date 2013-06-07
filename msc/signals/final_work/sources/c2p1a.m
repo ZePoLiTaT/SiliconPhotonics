@@ -2,7 +2,7 @@ LIM = 3*pi;
 w = -1.5*LIM:LIM/1000:1.5*LIM;
 Xw = 4 * sin(w)./w .* exp(-j * w);
 
-subplot(1,2,1), plot(w,real(Xw));
+subplot(1,2,1), plot(w,abs(Xw));
 grid on;
 xlim([-round(1.5*LIM) round(1.5*LIM)]);
 xlabel('$\omega$','interpreter','latex');

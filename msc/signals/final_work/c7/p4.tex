@@ -1,0 +1,83 @@
+\section*{Problem 4}
+
+Find the first 5 terms of the solution of:
+
+\begin{equation*}
+\begin{aligned}
+y[n] = 0.9y[n-1] + x[n] + 2x[n-1] + 3x[n-2]
+\end{aligned}
+\end{equation*} 
+
+To the input:
+\begin{equation*}
+\begin{aligned}
+x[n]=u[n]
+\end{aligned}
+\end{equation*} 
+
+\begin{enumerate}
+\item Using the Z-Transform
+\end{enumerate} 
+
+\subsection*{Solution}
+
+Let $y[-1] = 0$,
+
+\begin{equation*}
+\begin{aligned}
+y[z] &= 0.9[z^{-1} y[z]] + x[z] + 2z^{-1}x[z] + 3z^{-2}x[z] \\
+\frac{y[z]}{z} &= \frac{x[z]z^{-2} (z^2+2z+3)}{z-0.9} \\
+&= \frac{z^2+2z+3}{z(z-1)(z-0.9)} \\
+&= \frac{A}{z} + \frac{B}{z-1} + \frac{C}{z-0.9}
+\end{aligned}
+\end{equation*} 
+
+We find the constants $A,B,C$ with partial fractions:
+
+\begin{equation*}
+\begin{aligned}
+A &= \frac{3}{0.9} = 3.33 \\
+B &= \frac{6}{0.1} = 60 \\
+C &= \frac{5.61}{-0.09} = -62.33
+\end{aligned}
+\end{equation*} 
+
+Therefore,
+
+\begin{equation*}
+\begin{aligned}
+y[z] &= A + B\frac{z}{z-1} + C\frac{z}{z-0.9} \\
+y[n] &= 3.33 \delta_0[n] + 60 u[n] - 62.33 (0.9)^n
+\end{aligned}
+\end{equation*}
+
+From the follwing code (in C++) we get the first 6 values of the system:
+\zcodec{../ztransform/c7p4.cpp}{C++ Implementation}
+
+First 6 values of the system for the impulse input:
+\begin{verbatim}
+y[0] = 1.00000
+y[1] = 3.90000
+y[2] = 9.51000
+y[3] = 14.55900
+y[4] = 19.10310
+\end{verbatim}
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Recursively
+\end{enumerate} 
+
+\subsection*{Solution}
+From the follwing code (in C++) we get the first 6 values of the system:
+\zcodec{../ztransform/c7p4b.cpp}{C++ Implementation}
+
+First 6 values of the system for the impulse input:
+\begin{verbatim}
+y[0] = 1.00000
+y[1] = 3.90000
+y[2] = 9.51000
+y[3] = 14.55900
+y[4] = 19.10310
+\end{verbatim}
+

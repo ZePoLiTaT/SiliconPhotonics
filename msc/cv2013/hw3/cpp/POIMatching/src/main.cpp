@@ -15,145 +15,229 @@
  *
  * ===================================================================================*/
 
-#include "Filters.h"
-#include "HarrisCorner.h"
-#include "POICorrespondence.h"
+#include "libs/Filters.h"
+#include "libs/HarrisCorner.h"
+#include "libs/POICorrespondence.h"
 
 using namespace cv;
 using namespace std;
 using namespace features;
 using namespace poi;
 
-int main(int argc, char** argv)
+/*void harrisTest();
+void sobelTest();
+void harrisTest2();*/
+
+int process(string i1name, string i2name, float stdev, float harrisK, int harrisW, float nmsThrs, float ssdThrs, float nccThrs,	int corrW,	int corrKnownMovement)
 {
-	string fname;
-	if (argc != 3)
-	{
-		cout << " Usage: main Image1 Image2" << endl;
-		return -1;
-	}
+	printf("\\hline\n");
 
-	Mat image1, image2;
-	image1 = imread(argv[1], CV_LOAD_IMAGE_COLOR);   // Read the file
-	image2 = imread(argv[2], CV_LOAD_IMAGE_COLOR);   // Read the file
+	// -------------------------------------------------------------- //
+	// ------------------------ Load Images ------------------------- //
+	// -------------------------------------------------------------- //
+	Mat image, image1, image2;
+	image1 = imread(i1name, CV_LOAD_IMAGE_COLOR);   // Read the file
+	image2 = imread(i2name, CV_LOAD_IMAGE_COLOR);   // Read the file
 
-	if (!image1.data || !image2.data)                                // Check for invalid input
+	if (!image1.data || !image2.data)                 // Check for invalid input
 	{
 		cout << "Could not open or find the image" << std::endl;
 		return -1;
 	}
+	//createDisplayImg("Original Image", image1, image2, image);
 
-	//createDisplayImg("Original Image", image1);
-	//createDisplayImg("Original Image", image2);
 
-	// ----------------- Convert Gray Scale -------------------- //
-	Mat grayImg1, grayImg2;
+	// -------------------------------------------------------------- //
+	// ----------------- Convert Gray Scale ------------------------- //
+	// -------------------------------------------------------------- //
+	Mat grayImg, grayImg1, grayImg2;
 	Filters::colorToGray(image1, grayImg1);
 	Filters::colorToGray(image2, grayImg2);
-	//createDisplayImg("Gray Image", grayImg1);
 
-	// ----------------- Smooth with Gaussian Kernel -------------------- //
+	// -------------------------------------------------------------- //
+	// ----------------- Smooth with Gaussian Kernel ---------------- //
+	// -------------------------------------------------------------- //
 
-	float stdev = 1;
-	Mat gausImg1, gausImg2;
+	Mat gausImg, gausImg1, gausImg2;
 	Filters::gaussian(grayImg1, gausImg1, stdev);
 	Filters::gaussian(grayImg2, gausImg2, stdev);
+	//createDisplayImg("Gaussian Blur", gausImg1, gausImg2, gausImg);
 
-	createDisplayImg("Gaussian Blur Image 1", gausImg1);
-	createDisplayImg("Gaussian Blur Image 2", gausImg2);
-
+	// -------------------------------------------------------------- //
 	// ----------------- Detect Edges with Sobel -------------------- //
-	Mat sIx1, sIy1, sobel1;
+	// -------------------------------------------------------------- //
+	Mat sIx1, sIy1, sobel1, sobel;
 	Mat sIx2, sIy2, sobel2;
-	Filters::sobel(gausImg1, sIx1, sIy1, sobel1, 3);
-	Filters::sobel(gausImg2, sIx2, sIy2, sobel2, 3);
+	Filters::sobel(gausImg1, sIx1, sIy1, sobel1);
+	Filters::sobel(gausImg2, sIx2, sIy2, sobel2);
+	createDisplayImg("Sobel Edges Detection", sobel1, sobel2, sobel);
 
-	createDisplayImg("Sobel Edges Detection Image 1", sobel1);
-	createDisplayImg("Sobel Edges Detection Image 2", sobel2);
+	// -------------------------------------------------------------- //
+	// ----------------- Find corners with Harris ------------------- //
+	// -------------------------------------------------------------- //
+	Mat harris, harris1, harris2;
+	HarrisCorner::harris(sIx1, sIy1, harris1, harrisK, harrisW);
+	HarrisCorner::harris(sIx2, sIy2, harris2, harrisK, harrisW);
+	createDisplayImg("Harris", harris1, harris2, harris);
 
-	// ----------------- Find corners with Harris -------------------- //
-	Mat harris1, harris2;
-	HarrisCorner::harris(sIx1, sIy1, harris1, 0.09f, 5);
-	HarrisCorner::harris(sIx2, sIy2, harris2, 0.09f, 5);
+	vector<Point> cornersH1, cornersH2;
+	HarrisCorner::getCornerPoints(harris1, cornersH1, nmsThrs);
+	HarrisCorner::getCornerPoints(harris2, cornersH2, nmsThrs);
+	printf("Harris Corners L & %d \\\\\n", (int)cornersH1.size());
+	printf("Harris Corners R & %d \\\\\n", (int)cornersH2.size());
 
-	//createDisplayImg("Harris Image 1", harris1);
-	//createDisplayImg("Harris Image 2", harris2);
-
+	// -------------------------------------------------------------- //
 	// ----------------- Non Maximum Suppression -------------------- //
-	Mat harrisNMS1 = harris1.clone();
-	Mat harrisNMS2 = harris2.clone();
-	HarrisCorner::nonMaxSuppression(harrisNMS1, 11);
-	HarrisCorner::nonMaxSuppression(harrisNMS2, 11);
+	// -------------------------------------------------------------- //
+	Mat harrisNMS, harrisNMS1, harrisNMS2;
+	HarrisCorner::nonMaxSuppression(harris1, harrisNMS1, 11);
+	HarrisCorner::nonMaxSuppression(harris2, harrisNMS2, 11);
+	//createDisplayImg("Harris NonMax Suppression", harrisNMS1, harrisNMS2, harrisNMS);
 
-	createDisplayImg("Harris NonMax Suppression Image 1", harrisNMS1);
-	createDisplayImg("Harris NonMax Suppression Image 2", harrisNMS2);
+	vector<Point> cornersNMS1, cornersNMS2;
+	HarrisCorner::getCornerPoints(harrisNMS1, cornersNMS1, nmsThrs);
+	HarrisCorner::getCornerPoints(harrisNMS2, cornersNMS2, nmsThrs);
+	HarrisCorner::drawCorners(image1, cornersNMS1);
+	HarrisCorner::drawCorners(image2, cornersNMS2);
 
-	vector<Point> corners1, corners2;
-	HarrisCorner::getCornerPoints(harrisNMS1, corners1, 5.0f);
-	HarrisCorner::getCornerPoints(harrisNMS2, corners2, 5.0f);
-	HarrisCorner::drawCorners(image1, corners1);
-	HarrisCorner::drawCorners(image2, corners2);
+	printf("NMS Corners L & %d \\\\\n", (int)cornersNMS1.size());
+	printf("NMS Corners R & %d \\\\\n", (int)cornersNMS2.size());
 
-	cout << "Corners 1: " << corners1.size() << endl;
-	cout << "Corners 2: " << corners2.size() << endl;
-	//createDisplayImg("Detected Points Image 1", image1);
-
-	// ----------------- Correspondences of Points -------------------- //
-
-	// SSD Method
-	map<Point, Point, PointCompare> correspondences;
+	// -------------------------------------------------------------- //
+	// ----------------- Correspondences of Points ------------------ //
+	// -------------------------------------------------------------- //
+	// -----------------------> SSD Method
+	// -------------------------------------------------------------- //
+	map<Point, Point, PointCompare> ssdMatches;
 	IStrategyCompare *poiCompMethod = new SSD;
-	POICorrespondence::findCorrespondences(gausImg1, corners1, gausImg2, corners2, correspondences, 0.3f,
-			11, 200, poiCompMethod);
+	POICorrespondence::findCorrespondences(gausImg1, cornersNMS1, gausImg2, cornersNMS2,
+			ssdMatches, ssdThrs, corrW, corrKnownMovement, poiCompMethod);
 	delete poiCompMethod;
 
-	Mat bigImg;
-	POICorrespondence::plotCorrespondences(image1, corners1, image2, correspondences, bigImg);
-	createDisplayImg("Merged Image SSD Comparison", bigImg);
+	Mat ssd;
+	POICorrespondence::plotCorrespondences(image1, cornersNMS1, image2, ssdMatches,
+			ssd);
+	createDisplayImg("Merged Image SSD Comparison", ssd);
 
-	cout << "SSD Matches Detected: " << correspondences.size() << endl;
 
-	// NCC Method
-	correspondences.clear();
+	printf("SSD Matches & %d \\\\\n", (int)ssdMatches.size());
+
+	// -------------------------------------------------------------- //
+	// -----------------------> NCC Method
+	// -------------------------------------------------------------- //
+	map<Point, Point, PointCompare> nccMatches;
 	poiCompMethod = new NCC();
-	POICorrespondence::findCorrespondences(gausImg1, corners1, gausImg2, corners2, correspondences, 0.989f,
-			11, 200, poiCompMethod);
+	POICorrespondence::findCorrespondences(gausImg1, cornersNMS1, gausImg2, cornersNMS2,
+			nccMatches, nccThrs, corrW, corrKnownMovement, poiCompMethod);
 	delete poiCompMethod;
 
-	Mat bigImg2;
-	POICorrespondence::plotCorrespondences(image1, corners1, image2, correspondences, bigImg2);
-	createDisplayImg("Merged Image NCC Comparison", bigImg2);
+	Mat ncc;
+	POICorrespondence::plotCorrespondences(image1, cornersNMS1, image2, nccMatches,
+			ncc);
+	createDisplayImg("Merged Image NCC Comparison", ncc);
 
-	cout << "NCC Matches Detected: " << correspondences.size() << endl;
+	printf("NCC Matches & %d \\\\\n", (int)nccMatches.size());
 
-	waitKey(0);
-
-	image1.release();
-	image2.release();
-	grayImg1.release();
-	grayImg2.release();
-	gausImg1.release();
-	gausImg2.release();
-	sobel1.release();
-	sIx1.release();
-	sIy1.release();
-	sobel2.release();
-	sIx2.release();
-	sIy2.release();
-	harris1.release();
-	harrisNMS1.release();
-	harris2.release();
-	harrisNMS2.release();
-
-	bigImg.release();
-	bigImg2.release();
-
+	//imwrite( "../../doc/figs/img2ssd.png", ssd );
+	//imwrite( "../../doc/figs/img2ncc.png", ncc );
+	//printf("& %.2f & %d & %.2f & %d \\\\", ssdThrs, ssdMatches.size(), nccThrs, nccMatches.size() );
+	//printf("%.2f & %d & %d\\\\\n", nmsThrs, cornersNMS1.size(), cornersNMS2.size());
+	//printf("%.2f & %d\\\\\n", nccThrs, nccMatches.size());
 
 	return 0;
 }
 
+int main(int argc, char** argv)
+{
+	int result = 0;
+	string fnameI1, fnameI2;
+
+	float stdev = 0.6f;
+	float harrisK = 0.09f;
+	int harrisW = 5;
+	float harrisThrs = 0.4f;
+	float ssdThrs = 0.4f;
+	float nccThrs = 0.97f;
+	int corrW = 11;
+	int corrKnownMovement = 100;
+
+	if (argc != 7)
+	{
+		cout << " Usage: main Image1 Image2 harrisK harrisThrs ssdThrs nccThrs" << endl;
+		cout << " Setting default to: main img/benevolentAnnika.jpg img/benevolentAnnikaRot.jpg 0.09f 0.4f 0.4f 0.97f" << endl;
+
+		fnameI1 = "img/benevolentAnnika.jpg";
+		fnameI2 = "img/benevolentAnnikaRot.jpg";
+		harrisK = 0.09f;
+		harrisThrs = 0.4f;
+		ssdThrs = 0.4f;
+		nccThrs = 0.97f;
+	}
+	else
+	{
+		fnameI1 = argv[1];
+		fnameI2 = argv[2];
+		harrisK = atof(argv[3]);
+		harrisThrs = atof(argv[4]);
+		ssdThrs = atof(argv[5]);
+		nccThrs = atof(argv[6]);
+	}
+
+	//Parameters benevolent.png
+	/*fnameI1 = "img/benevolentAnnika.jpg";
+	fnameI2 = "img/benevolentAnnikaRot.jpg";
+	float stdev = 0.6f;
+	float harrisK = 0.09f;
+	int harrisW = 5;
+	float harrisThrs = 0.4f;
+	float ssdThrs = 0.4f;
+	float nccThrs = 0.97f;
+	int corrW = 11;
+	int corrKnownMovement = 100;*/
+
+	//Parameters Test SSD vs NCC high light change benevolent.png
+	/*fnameI1 = "img/benevolentAnnika.jpg";
+	fnameI2 = "img/benevolentAnnikaRotLight.jpg";
+	ssdThrs = 0.8f;
+	nccThrs = 0.92f;*/
+
+	//Parameters puregeometry.jpg
+	/*fnameI1 = "img/puregeometryRomanowsky.png";
+	fnameI2 = "img/puregeometryRomanowskyPersp.png";
+	harrisK = 0.04f;
+	harrisThrs = 0.25f;
+	ssdThrs = 1.2f;
+	nccThrs = 0.92f;
+	corrKnownMovement = 180;*/
+
+	//Parameters foto.jpg
+	/*fnameI1 = "img/foto1.jpg";
+	fnameI2 = "img/foto2.jpg";
+	harrisK = 0.09f;
+	harrisThrs = 0.45f;
+	ssdThrs = 0.8f;
+	nccThrs = 0.95f;
+	corrKnownMovement = 180;*/
+
+	printf("Stdev & %.2f \\\\\n", stdev);
+	printf("Harris k & %.2f \\\\\n", harrisK);
+	printf("Harris WSize & %d \\\\\n", harrisW);
+	printf("NMS Thold & %.2f \\\\\n", harrisThrs);
+	printf("SSD Thold & %.2f \\\\\n", ssdThrs);
+	printf("NCC Thold & %.2f \\\\\n", nccThrs);
+	printf("Correspondences WSize & %d \\\\\n", corrW);
+	printf("Correspondences knownDisplace & %d \\\\\n", corrKnownMovement);
+
+	result = process(fnameI1, fnameI2, stdev, harrisK, harrisW, harrisThrs, ssdThrs, nccThrs, corrW, corrKnownMovement);
+	//harrisTest2();
+
+	waitKey(0);
+	return result;
+}
+
 void openCVtest(Mat &image, Mat &gausImg)
 {
+	/*
 	// ------------- Detect Edges with Sobel OpenCV ----------------- //
 	Mat sobelCVX, sobelCVY, sobelCV, sobelCVAng;
 	Sobel(gausImg, sobelCVX, CV_32F, 1, 0);
@@ -189,6 +273,7 @@ void openCVtest(Mat &image, Mat &gausImg)
 	sobelCVY.release();
 	harrisCV.release();
 	harrisCVNMS.release();
+	*/
 }
 
 void correspondencesTest()
@@ -212,7 +297,7 @@ void correspondencesTest()
 
 void harrisTest()
 {
-	/*
+
 	 float m[5][5] = {{1,4,3,2,1}, {9,8,5,-1,0}, {4,10,6,1,0},{1,4,2,-1,-2},{0,1,3,-4,-5}};
 	 float m2[5][5] = {{7,10,1,3,5}, {1,2,3,4,5}, {5,4,3,2,1},{0,10,20,-5,1},{0,0,2,8,1}};
 	 Mat M = Mat(5, 5, CV_32F, m);
@@ -221,10 +306,54 @@ void harrisTest()
 
 	 cout<<"Original:"<<endl<<M<<endl;
 	 cout<<"Original2:"<<endl<<M2<<endl;
-	 Edges::harris(M,M2,dst,0.04f,3);
+	 HarrisCorner::harris(M,M2,dst,0.04f,3);
 	 cout<<"Harris:"<<endl<<dst<<endl;
+}
 
-	 //Edges::nonMaxSuppression(M,3);
-	 //cout<<"Suppressed:"<<endl<<M<<endl;
-	 */
+void sobelTest()
+{
+
+	 float m[5][5] = {{1,4,3,253,250}, {9,8,5,-1,0}, {4,10,6,1,0},{1,4,2,-1,-2},{0,1,3,-4,-5}};
+
+	 Mat M = Mat(5, 5, CV_32F, m);
+	 Mat Sx, Sy, s;
+
+	 cout<<"Original:"<<endl<<M<<endl;
+	 Filters::sobel(M, Sx, Sy, s);
+	 cout<<"Sobel X:"<<endl<<Sx<<endl;
+	 cout<<"Sobel Y:"<<endl<<Sy<<endl;
+	 cout<<"Sobel:"<<endl<<s<<endl;
+}
+
+void harrisTest2()
+{
+	Mat M, Mg2, Mg;
+	Mat Sx, Sy, s, h, hnms;
+
+	string fnameI1 = "img/casa.jpeg";
+	M = imread(fnameI1, CV_LOAD_IMAGE_COLOR);   // Read the file
+
+	Filters::colorToGray(M, Mg2);
+	Filters::gaussian(Mg2, Mg, 0.6f);
+	Filters::sobel(Mg, Sx, Sy, s);
+	HarrisCorner::harris(Sx, Sy, h, 0.08, 7);
+	HarrisCorner::nonMaxSuppression(h, hnms, 10);
+	vector<Point> corners;
+	HarrisCorner::getCornerPoints(hnms, corners, 0.4f);
+	HarrisCorner::drawCorners(M, corners);
+
+	createDisplayImg("Original", Mg);
+	createDisplayImg("Sobel", s);
+	createDisplayImg("Harris", h);
+	createDisplayImg("Harris NMS", hnms);
+	createDisplayImg("Points", M);
+
+
+	//cout << "Original:" << endl << Mg << endl;
+	//cout << "Gray X:" << endl << Mg << endl;
+	cout << "Sobel X:" << endl << Sx(Rect(18,0,3,3))<<endl;
+	cout << "Sobel Y:" << endl << Sy(Rect(18,0,3,3))<<endl;
+	cout << "Harris:" << endl << h(Rect(18,0,3,3))<<endl;
+	//cout << "Sobel Y:" << endl << Sy << endl;
+	//cout << "Sobel:" << endl << s << endl;
 }

@@ -1,0 +1,61 @@
+\section*{Problem 3}
+
+Find the output for the system in null state:
+
+\begin{equation*}
+\begin{aligned}
+y[n] = \frac{1}{2} y[n-1] + 4x[n] + 3x[n-1]
+\end{aligned}
+\end{equation*} 
+
+To the input:
+\begin{equation*}
+\begin{aligned}
+x[n]=e^{j n \pi/3} u[n]
+\end{aligned}
+\end{equation*} 
+
+\subsection*{Solution}
+Since the system is at null state we have:
+\begin{equation*}
+\begin{aligned}
+y[-1] &= 0\\
+x[-1] &= 0
+\end{aligned}
+\end{equation*} 
+
+The Z-Transform of the input $x[n]$ is:
+\begin{equation*}
+\begin{aligned}
+x[z] = \frac{z}{z-e^{j\pi/3}}
+\end{aligned}
+\end{equation*} 
+
+Therefore,
+
+\begin{equation*}
+\begin{aligned}
+y[z] &= \frac{1}{2} z^{-1}y[z] + 4x[z] + 3z^{-1}x[z] \\
+\frac{y[z]}{z} &= \frac{x[z]z^{-1}(4z+3)}{z-\frac{1}{2}}) \\
+&= \frac{4z+3}{z-0.5)z} \frac{z}{z-e^{j\pi/3}}\\
+&= \frac{A}{z-0.5} + \frac{B}{z-e^{j\pi/3}}
+\end{aligned}
+\end{equation*} 
+
+From partial fractions we have:
+\begin{equation*}
+\begin{aligned}
+A &= \frac{5}{0.5-e^{j\pi/3}} = 5.77j \\
+B &= \frac{4e^{j\pi/3}+3}{e^{j\pi/3}-0.5} = 4-5.77j
+\end{aligned}
+\end{equation*}
+
+Therefore,
+
+\begin{equation*}
+\begin{aligned}
+y[z] &= A \frac{z}{z-0.5} + B \frac{z}{z-e^{j\pi/3}} \\
+y[n] &= A (0.5)^n + B (e^{j\pi/3})^n\\
+&= 5.77j (0.5)^n + (4-5.77j)e^{jn\pi/3}
+\end{aligned}
+\end{equation*} 

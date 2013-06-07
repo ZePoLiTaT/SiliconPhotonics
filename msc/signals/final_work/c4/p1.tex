@@ -18,7 +18,7 @@ $
 
 Aplying the definition of (\ref{eq:c41}) we have:
 
-\begin{equation*}
+\begin{equation}
 \begin{aligned}
 X(\omega) &= \displaystyle\sum_{0}^{3} \frac{1}{4} e^{-j \omega n} \\
 &= \frac{1}{4} [1 + e^{-jw} + e^{-2jw} + e^{-3jw}] \\
@@ -27,7 +27,8 @@ X(\omega) &= \displaystyle\sum_{0}^{3} \frac{1}{4} e^{-j \omega n} \\
 		 e^{- j \frac{\omega}{2}} + e^{-j \frac{3 \omega}{2}} ] \\
 &= \frac{1}{2}  e^{-j \frac{3 \omega}{2}} [\cos(\frac{3 \omega}{2})\cos(\frac{\omega}{2})]
 \end{aligned}
-\end{equation*} 
+\label{eq:c4p1a}
+\end{equation} 
 
 The plot of the magintude $X(\omega)$ is:
 \zcodemat{sources/c4p1a.m}{Plot of Magnitude}
@@ -52,7 +53,7 @@ $x[n] =
 
 Aplying the definition of (\ref{eq:c41}) we have:
 
-\begin{equation*}
+\begin{equation}
 \begin{aligned}
 X(\omega) &= \displaystyle\sum_{0}^{2} x[n] e^{-j \omega n} \\
 &= [1 - 2e^{-jw} + e^{-2jw} ] \\
@@ -60,7 +61,8 @@ X(\omega) &= \displaystyle\sum_{0}^{2} x[n] e^{-j \omega n} \\
 &= e^{-jw}) 2[ \cos(\omega) - 1 ] \\
 &= 2e^{-jw}[ \cos(\omega) - 1 ] 
 \end{aligned}
-\end{equation*} 
+\label{eq:c4p1b}
+\end{equation} 
 
 The plot of the magintude $X(\omega)$ is:
 \zcodemat{sources/c4p1b.m}{Plot of Magnitude}

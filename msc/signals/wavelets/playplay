@@ -1,0 +1,27 @@
+z2ft = @(t) t.*(t<(length(s)/2)) - t.*(t>=(length(s)/2));
+z2t = [1:length(s)];
+
+z2ft = @(t) sawtooth(t)
+z2t = linspace(1,100,length(s));
+z2f = z2ft(z2t);
+plot(z2f);
+
+[z2c,z2l] = wavedec(z2f, 5, 'db5');
+z2ca5 = appcoef(z2c, z2l,'db5',5);
+z2cd1 = detcoef(z2c, z2l, 1);
+z2cd2 = detcoef(z2c, z2l, 2);
+z2cd3 = detcoef(z2c, z2l, 3);
+z2cd4 = detcoef(z2c, z2l, 4);
+z2cd5 = detcoef(z2c, z2l, 5);
+
+zexpc = [z2ca5 z2cd5 z2cd4 z2cd3 z2cd2 z2cd1]; zexpres = waverec(zexpc, l, 'db5');
+subplot(211), plot(zexpres); subplot(212), plot(a0)
+
+zexpc = [z2ca5 cd5 cd4 cd3 cd2 cd1]; zexpres = waverec(zexpc, l, 'db5');
+subplot(211), plot(zexpres); subplot(212), plot(a0)
+
+zexpc = [ca5 z2cd5 z2cd4 z2cd3 z2cd2 z2cd1]; zexpres = waverec(zexpc, l, 'db5');
+subplot(211), plot(zexpres); subplot(212), plot(a0)
+
+zexpc = [ca5 z2cd3 z2cd3 z2cd3 z2cd3 z2cd3]; zexpres = waverec(zexpc, l, 'db5');
+subplot(211), plot(zexpres); subplot(212), plot(a0)
