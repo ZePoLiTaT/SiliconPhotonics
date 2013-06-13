@@ -1,0 +1,3 @@
+#! /usr/local/bin/octave -qf
+# correr la funcion quizz09(1,0) para que guarde sin graficar
+quizz09(1,0);

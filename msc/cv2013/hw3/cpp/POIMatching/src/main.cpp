@@ -44,7 +44,7 @@ int process(string i1name, string i2name, float stdev, float harrisK, int harris
 		cout << "Could not open or find the image" << std::endl;
 		return -1;
 	}
-	//createDisplayImg("Original Image", image1, image2, image);
+	createDisplayImg("Original Image", image1, image2, image);
 
 
 	// -------------------------------------------------------------- //
@@ -153,7 +153,7 @@ int main(int argc, char** argv)
 	string fnameI1, fnameI2;
 
 	float stdev = 0.6f;
-	float harrisK = 0.09f;
+	float harrisK = 0.099f;
 	int harrisW = 5;
 	float harrisThrs = 0.4f;
 	float ssdThrs = 0.4f;

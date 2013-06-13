@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{hartley2000multiple}
+Richard Hartley and Andrew Zisserman.
+\newblock {\em Multiple view geometry in computer vision}, volume~2.
+\newblock Cambridge Univ Press, 2000.
+
+\bibitem{lls}
+Wikipedia.
+\newblock Linear least squares.
+\newblock
+  \url{http://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)}.
+\newblock [Online; accessed Jun-2013].
+
+\end{thebibliography}
