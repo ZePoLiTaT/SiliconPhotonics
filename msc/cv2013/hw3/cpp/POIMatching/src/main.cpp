@@ -179,7 +179,7 @@ int main(int argc, char** argv)
 	float ssdThrs = 0.4f;
 	float nccThrs = 0.97f;
 	int corrW = 11;
-	int corrKnownMovement = 200;
+	int corrKnownMovement = 100;
 
 	if (argc != 7)
 	{
@@ -191,7 +191,7 @@ int main(int argc, char** argv)
 		harrisK = 0.09f;
 		harrisThrs = 0.4f;
 		ssdThrs = 0.4f;
-		nccThrs = 0.96f;
+		nccThrs = 0.99f;
 	}
 	else
 	{
@@ -318,7 +318,6 @@ void correspondencesTest()
 
 void harrisTest()
 {
-
 	 float m[5][5] = {{1,4,3,2,1}, {9,8,5,-1,0}, {4,10,6,1,0},{1,4,2,-1,-2},{0,1,3,-4,-5}};
 	 float m2[5][5] = {{7,10,1,3,5}, {1,2,3,4,5}, {5,4,3,2,1},{0,10,20,-5,1},{0,0,2,8,1}};
 	 Mat M = Mat(5, 5, CV_32F, m);
