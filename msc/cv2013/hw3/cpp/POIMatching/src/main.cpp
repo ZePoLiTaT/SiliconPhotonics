@@ -15,6 +15,8 @@
  *
  * ===================================================================================*/
 
+#include <fstream>
+
 #include "libs/Filters.h"
 #include "libs/HarrisCorner.h"
 #include "libs/POICorrespondence.h"
@@ -24,11 +26,14 @@ using namespace std;
 using namespace features;
 using namespace poi;
 
+
 /*void harrisTest();
 void sobelTest();
 void harrisTest2();*/
 
-int process(string i1name, string i2name, float stdev, float harrisK, int harrisW, float nmsThrs, float ssdThrs, float nccThrs,	int corrW,	int corrKnownMovement)
+int process(string i1name, string i2name, float stdev, float harrisK, int harrisW,
+		float nmsThrs, float ssdThrs, float nccThrs, int corrW, int corrKnownMovement,
+		multimap<Point, Point, PointCompare> &nccMatches)
 {
 	printf("\\hline\n");
 
@@ -108,7 +113,7 @@ int process(string i1name, string i2name, float stdev, float harrisK, int harris
 	// -------------------------------------------------------------- //
 	// -----------------------> SSD Method
 	// -------------------------------------------------------------- //
-	map<Point, Point, PointCompare> ssdMatches;
+	multimap<Point, Point, PointCompare> ssdMatches;
 	IStrategyCompare *poiCompMethod = new SSD;
 	POICorrespondence::findCorrespondences(gausImg1, cornersNMS1, gausImg2, cornersNMS2,
 			ssdMatches, ssdThrs, corrW, corrKnownMovement, poiCompMethod);
@@ -125,7 +130,7 @@ int process(string i1name, string i2name, float stdev, float harrisK, int harris
 	// -------------------------------------------------------------- //
 	// -----------------------> NCC Method
 	// -------------------------------------------------------------- //
-	map<Point, Point, PointCompare> nccMatches;
+	//map<Point, Point, PointCompare> nccMatches;
 	poiCompMethod = new NCC();
 	POICorrespondence::findCorrespondences(gausImg1, cornersNMS1, gausImg2, cornersNMS2,
 			nccMatches, nccThrs, corrW, corrKnownMovement, poiCompMethod);
@@ -147,10 +152,25 @@ int process(string i1name, string i2name, float stdev, float harrisK, int harris
 	return 0;
 }
 
+void correspondencesToFile(const char* fname, multimap<Point, Point, PointCompare> &matches)
+{
+	ofstream myfile;
+	myfile.open (fname, ios::out | ios::trunc);
+
+	myfile<<matches.size()<<endl;
+
+	multimap<Point,Point>::iterator it;
+	for(it = matches.begin(); it != matches.end(); ++it)
+	{
+		myfile<<it->first.x<<" "<<it->first.y<<" "<<it->second.x<<" "<<it->second.y<<endl;
+	}
+}
+
 int main(int argc, char** argv)
 {
 	int result = 0;
 	string fnameI1, fnameI2;
+	multimap<Point, Point, PointCompare> nccMatches;
 
 	float stdev = 0.6f;
 	float harrisK = 0.099f;
@@ -159,7 +179,7 @@ int main(int argc, char** argv)
 	float ssdThrs = 0.4f;
 	float nccThrs = 0.97f;
 	int corrW = 11;
-	int corrKnownMovement = 100;
+	int corrKnownMovement = 200;
 
 	if (argc != 7)
 	{
@@ -171,7 +191,7 @@ int main(int argc, char** argv)
 		harrisK = 0.09f;
 		harrisThrs = 0.4f;
 		ssdThrs = 0.4f;
-		nccThrs = 0.97f;
+		nccThrs = 0.96f;
 	}
 	else
 	{
@@ -228,7 +248,8 @@ int main(int argc, char** argv)
 	printf("Correspondences WSize & %d \\\\\n", corrW);
 	printf("Correspondences knownDisplace & %d \\\\\n", corrKnownMovement);
 
-	result = process(fnameI1, fnameI2, stdev, harrisK, harrisW, harrisThrs, ssdThrs, nccThrs, corrW, corrKnownMovement);
+	result = process(fnameI1, fnameI2, stdev, harrisK, harrisW, harrisThrs, ssdThrs, nccThrs, corrW, corrKnownMovement, nccMatches);
+	correspondencesToFile("correspondences.txt", nccMatches);
 	//harrisTest2();
 
 	waitKey(0);
@@ -313,7 +334,7 @@ void harrisTest()
 void sobelTest()
 {
 
-	 float m[5][5] = {{1,4,3,253,250}, {9,8,5,-1,0}, {4,10,6,1,0},{1,4,2,-1,-2},{0,1,3,-4,-5}};
+	 /*float m[5][5] = {{1,4,3,253,250}, {9,8,5,-1,0}, {4,10,6,1,0},{1,4,2,-1,-2},{0,1,3,-4,-5}};
 
 	 Mat M = Mat(5, 5, CV_32F, m);
 	 Mat Sx, Sy, s;
@@ -322,12 +343,12 @@ void sobelTest()
 	 Filters::sobel(M, Sx, Sy, s);
 	 cout<<"Sobel X:"<<endl<<Sx<<endl;
 	 cout<<"Sobel Y:"<<endl<<Sy<<endl;
-	 cout<<"Sobel:"<<endl<<s<<endl;
+	 cout<<"Sobel:"<<endl<<s<<endl;*/
 }
 
 void harrisTest2()
 {
-	Mat M, Mg2, Mg;
+	/*Mat M, Mg2, Mg;
 	Mat Sx, Sy, s, h, hnms;
 
 	string fnameI1 = "img/casa.jpeg";
@@ -355,5 +376,5 @@ void harrisTest2()
 	cout << "Sobel Y:" << endl << Sy(Rect(18,0,3,3))<<endl;
 	cout << "Harris:" << endl << h(Rect(18,0,3,3))<<endl;
 	//cout << "Sobel Y:" << endl << Sy << endl;
-	//cout << "Sobel:" << endl << s << endl;
+	//cout << "Sobel:" << endl << s << endl;*/
 }

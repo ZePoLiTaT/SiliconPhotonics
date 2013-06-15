@@ -21,20 +21,18 @@ namespace poi
 {
 
 void POICorrespondence::findCorrespondences(const Mat &img1, vector<Point>& corners1, const Mat &img2,
-		vector<Point>& corners2, map<Point, Point, PointCompare> &correspondences, float threshold,
+		vector<Point>& corners2, multimap<Point, Point, PointCompare> &correspondences, float threshold,
 		int WSize, int WShiftSize, IStrategyCompare *poiCompareMethod)
 {
-	mtype val, topval;
+	mtype val;
 	Point minpoint;
 	Rect window;
 
-	bool firstComparison;
 	int WShiftHalfSize = floor(WShiftSize / 2);
 
 	vector<Point>::iterator it1, it2;
 	for (it1 = corners1.begin(); it1 != corners1.end(); ++it1)
 	{
-		firstComparison = true;
 		for (it2 = corners2.begin(); it2 != corners2.end(); ++it2)
 		{
 			// if the point is not in the search window, do not take it into account
@@ -44,29 +42,15 @@ void POICorrespondence::findCorrespondences(const Mat &img1, vector<Point>& corn
 
 			val = poiCompareMethod->getMeasure(img1, *it1, img2, *it2, WSize);
 
-			if(firstComparison)
-			{
-				minpoint = *it2;
-				topval = val;
-				firstComparison = false;
-			}
-			else if (poiCompareMethod->compare(val, topval))
-			{
-				minpoint = *it2;
-				topval = val;
-			}
+
+			if (poiCompareMethod->compare(val, threshold))
+				correspondences.insert(pair<Point,Point>(*it1, *it2));
 		}
-
-		//cout << topval << endl;
-		if (!firstComparison && poiCompareMethod->compare(topval, threshold))
-			correspondences.insert(pair<Point,Point>(*it1, minpoint));
-			//correspondences[*it1] = minpoint;
-
 	}
 }
 
 void POICorrespondence::plotCorrespondences(const Mat& img1, vector<Point>& corners1, const Mat& img2,
-		map<Point, Point, PointCompare> &correspondences, Mat& dst)
+		multimap<Point, Point, PointCompare> &correspondences, Mat& dst)
 {
 	dst.create(max(img1.rows, img2.rows), img1.cols + img2.cols, img1.type());
 

@@ -46,10 +46,10 @@ class POICorrespondence
 public:
 
 	static void findCorrespondences(const Mat &img1, vector<Point>& corners1, const Mat &img2,
-			vector<Point>& corners2, map<Point, Point, PointCompare> &correspondences,
+			vector<Point>& corners2, multimap<Point, Point, PointCompare> &correspondences,
 			float threshold, int WSize, int WShiftSize, IStrategyCompare *poiCompareMethod);
 	static void plotCorrespondences(const Mat& img1, vector<Point>& corners1, const Mat& img2,
-			map<Point, Point, PointCompare> &correspondences, Mat& dst);
+			multimap<Point, Point, PointCompare> &correspondences, Mat& dst);
 };
 
 } /* namespace poisim */
