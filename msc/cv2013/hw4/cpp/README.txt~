@@ -1,0 +1,16 @@
+########### COMPILE
+make
+
+########### RUN
+# Usage: Ransac PathImg1 PathImg2 PathCorrespondencesFile threshold
+#  Default if no params: 
+#	Ransac img/benevolentAnnika.jpg img/benevolentAnnikaRot.jpg correspondences1.txt 0.35f
+
+#Test 1:
+./Ransac img/benevolentAnnika.jpg img/benevolentAnnikaRot.jpg correspondences1.txt 0.35f
+
+#Test 2:
+./Ransac img/puregeometryRomanowsky.png img/puregeometryRomanowskyPersp.png correspondences2.txt 4.0f
+
+#Test 3:
+./Ransac img/benevolentAnnika.jpg img/benevolentAnnikaRot.jpg correspondences1.txt 0.35f

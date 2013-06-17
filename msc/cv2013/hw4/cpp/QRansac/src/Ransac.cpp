@@ -16,7 +16,6 @@
 
 
 #define REQn	5							//Number of points required to calculate the H
-#define INTHRSH	1000.0f 	 					//sqrt(5.99)*var
 #define Meps	0.22f						//desired epsilon
 #define P		0.99f						//Desired probability of not finding an outiler
 											//in the next iteration
@@ -52,12 +51,28 @@ inline void createDisplayImg(string name, const Mat& image1, const Mat& image2, 
 	createDisplayImg(name, dst);
 }
 
-void loadCorrespondences(Mat &x, Mat &xp)
+bool loadImages(string fnameI1, string fnameI2, Mat &image1, Mat &image2)
+{
+	image1 = imread(fnameI1, CV_LOAD_IMAGE_COLOR);		// Read the file
+	image2 = imread(fnameI2, CV_LOAD_IMAGE_COLOR);		// Read the file
+
+	if (!image1.data || !image2.data)                 	// Check for invalid input
+	{
+		cout << "Could not open or find the image" << std::endl;
+		return false;
+	}
+
+	return true;
+}
+
+void loadCorrespondences(string fname, Mat &x, Mat &xp)
 {
 	int N;
 	float p1x, p1y, p2x, p2y;
 
-	scanf("%d\n", &N);
+	FILE *file = fopen(fname.c_str(),"r");
+
+	fscanf(file, "%d\n", &N);
 
 	x.create(N,3,CV_32F);
 	xp.create(N,3,CV_32F);
@@ -67,7 +82,7 @@ void loadCorrespondences(Mat &x, Mat &xp)
 		float* xP = x.ptr<float>(i);
 		float* xpP = xp.ptr<float>(i);
 
-		scanf("%f %f %f %f\n", &p1x, &p1y, &p2x, &p2y);
+		fscanf(file, "%f %f %f %f\n", &p1x, &p1y, &p2x, &p2y);
 		xP[0] = p1x;
 		xP[1] = p1y;
 		xP[2] = 1;
@@ -76,6 +91,8 @@ void loadCorrespondences(Mat &x, Mat &xp)
 		xpP[1] = p2y;
 		xpP[2] = 1;
 	};
+
+	fclose (file);
 }
 
 void getcentroid(const Mat &x, Mat &T)
@@ -199,20 +216,13 @@ void randomPerm(int N, int n, int* idx)
 	bool found[N];
 	for(int i=0; i<N; i++)	found[i]=false;				//mark all as free
 
-	cout<<"Randperm: ";
 	int i=0;
 	while(i<n)
 	{
-		//idx[i] = 1+i++;
-		//cout<<idx[i-1]<<" ";
 		idx[i] = rand()%N;
 		if(!found[idx[i]])
-		{
-			cout<<idx[i]<<" ";
 			found[idx[i++]] = true;		//make sure there are not repeated elements
-		}
 	}
-	cout<<endl;
 }
 
 void randomSample(Mat &xsa, Mat &xpsa, const Mat &x, const Mat &xp)
@@ -284,7 +294,7 @@ inline float geometricDistance(float xi,float  yi,float wi,float xip,float yip,f
  *
  * Where d is the geometric distance.
  */
-float calculateSupport(bool *inlset, float *inlcount, const Mat &H, const Mat &x, const Mat &xp)
+float calculateSupport(bool *inlset, float *inlcount, const Mat &H, const Mat &x, const Mat &xp, float thrs)
 {
 	float d1, d2;								//Geometric distances
 	float symmTransfErr;						//Symmetric transfer error
@@ -317,7 +327,7 @@ float calculateSupport(bool *inlset, float *inlcount, const Mat &H, const Mat &x
 		if(symmTransfErr<min)
 			min = symmTransfErr;
 
-		if(symmTransfErr < INTHRSH)				//If the symmetric transfer error is less than 5.99var
+		if(symmTransfErr < thrs)				//If the symmetric transfer error is less than 5.99var
 		{										//then it's an inlier
 			(*inlcount)++;
 			inlset[i] = true;
@@ -350,13 +360,13 @@ void extractPoints(Mat &xnew, bool *idx, int count, const Mat &x)
 	}
 }
 
-void RANSAC(Mat &H, bool *maxinlset, const Mat &x,const Mat &xp)
+void RANSAC(Mat &H, bool *maxinlset, const Mat &x,const Mat &xp, float thrs)
 {
 	int ntot = x.rows;						//Amount of data
-	int N = 200;							//Adaptative max-iteration limit
+	int Ntmp, N = 10000;						//Adaptative max-iteration limit
 	//float M = (1-Meps)*ntot;				//Model condition based on eeps
 	float eps = 0.5;						//Probability of finding an outlier
-	float inl, maxinl = FLT_MIN; 			//Counter of inliers and maximum found inliers
+	float inl, maxinl = 0; 			//Counter of inliers and maximum found inliers
 	float symE, minSymE = FLT_MAX;			//Accumulated symetric error and the minimun found
 	bool inlset[ntot];						//List of indexes with the inliers and best set of inliers were found
 	int cont = 0;							//Iteration counter
@@ -364,11 +374,12 @@ void RANSAC(Mat &H, bool *maxinlset, const Mat &x,const Mat &xp)
 	Mat xsa, xpsa;							//Sampled pairs (x,xp)
 	Mat xin, xpin;							//Points that are inliers (used to reestimate the model only)
 
+	cout<<"Threshold: "<<thrs<<endl;
 	while (cont<N)
 	{
 		randomSample(xsa, xpsa, x, xp);							//1. Get a radom subsample of the data
 		getModel(H, xsa, xpsa);									//2. Find a model based on such subsample
-		symE = calculateSupport(inlset, &inl, H, x, xp);		//3. Find the number of inliers based on the found model
+		symE = calculateSupport(inlset, &inl, H, x, xp, thrs);	//3. Find the number of inliers based on the found model
 
 		if(inl > maxinl || (inl==maxinl && symE<minSymE))		//4. If a new set with more inliers of a best symTransfer error
 		{														//	 is found then, save this new best solution
@@ -377,8 +388,9 @@ void RANSAC(Mat &H, bool *maxinlset, const Mat &x,const Mat &xp)
 			copy(inlset, inlset+ntot, maxinlset);
 
 			eps = 1 - inl/ntot;									//5. Update the probability of finding outliers
-			N = log(1-P)/log(1-pow(1-eps, REQn));				//6. Re-calculate N adaptatively with the new eps value
-			cout<<" ... Updating N: "<<N<<endl;
+			Ntmp = log(1-P)/log(1-pow(1-eps, REQn));			//6. Re-calculate N adaptatively with the new eps value
+			N = (Ntmp>=0 && Ntmp<N)?Ntmp:N;
+			cout<<" ... Updating N: "<<N<<" with: "<<inl<<" inliers"<<endl;
 		}
 
 		cont++;
@@ -389,30 +401,25 @@ void RANSAC(Mat &H, bool *maxinlset, const Mat &x,const Mat &xp)
 	extractPoints(xpin,maxinlset,maxinl, xp);
 	getModel(H, xin, xpin);										//7. Re-estimate the model only with the inliers
 
+	cout<<"Iterations: "<<cont<<endl;
+	cout<<"OUTLIERS FOUND: "<<ntot-maxinl<<endl;
 	cout<<"INLIERS FOUND: "<<maxinl<<endl;
-	cout<<endl<<"************ BEGIN in: "<<maxinl<<endl;
-	cout<<H;
-	cout<<endl<<"************ END"<<endl;
 
-	cout<<"TOTAL Iterations: "<<cont<<endl;
 
 }
 
-void plot(const Mat &img1, const Mat &x, const Mat &img2, const Mat &xp, const bool *inliers, Mat& dst)
+void draw(const Mat &img1, const Mat &x, const Mat &img2, const Mat &xp, const bool *inliers, Mat& dst)
 {
 	dst.create(max(img1.rows, img2.rows), img1.cols + img2.cols, img1.type());
 
-	//ROI of bigger image pointing to first half
-	Mat dstImg1 = dst(Rect(0, 0, img1.cols, img1.rows));
-	//ROI of bigger image pointing to second half
-	Mat dstImg2 = dst(Rect(img1.cols, 0, img2.cols, img2.rows));
+	Mat dstImg1 = dst(Rect(0, 0, img1.cols, img1.rows));			//ROI of bigger image pointing to first half
+	Mat dstImg2 = dst(Rect(img1.cols, 0, img2.cols, img2.rows));	//ROI of bigger image pointing to second half
 
 	img1.copyTo(dstImg1);
 	img2.copyTo(dstImg2);
 
-	//Color for inliers
-	Scalar colorOUT(0, 0, 255);
-	Scalar colorIN(0, 255, 0);
+	Scalar colorOUT(0, 0, 255);										//Color for outliers
+	Scalar colorIN(0, 255, 0);										//Color for inliers
 	Scalar *color;
 
 	for(int i=0; i<x.rows; i++)
@@ -426,60 +433,100 @@ void plot(const Mat &img1, const Mat &x, const Mat &img2, const Mat &xp, const b
 	}
 }
 
-int main()
+void draw(Mat &img2, const Mat &Hx, const Mat &xp, const bool *inliers)
+{
+	Scalar colorCenter(128, 128, 128);
+	Scalar colorXp(0, 255, 255);
+	Scalar colorHxIN(0, 255, 0);
+	Scalar colorHxOUT(0, 0, 255);
+	Scalar *color;
+
+	Point centerP2, centerP1;
+
+	for(int i=0; i<Hx.rows; i++)
+	{
+		const float* HxP = Hx.ptr<float>(i);
+		const float* xpP = xp.ptr<float>(i);
+
+		centerP1 = Point(xpP[0]/xpP[2], xpP[1]/xpP[2]);
+		centerP2 = Point(HxP[0]/HxP[2], HxP[1]/HxP[2]);
+		color = inliers[i] ? &colorHxIN : &colorHxOUT;
+
+		circle(img2, centerP1 ,5, colorXp, 2, CV_AA);
+		if(!inliers[i])
+			circle(img2, centerP2, 3, *color, 2, CV_AA);
+
+		//line(img2, centerP2, centerP2, colorCenter, 2, CV_AA);
+		//putText(img2, "+", Point(HxP[0]/HxP[2]-7, HxP[1]/HxP[2]+5), 0, 0.5, colorHx, 2, CV_AA);
+	}
+
+	for(int i=0; i<Hx.rows; i++)
+	{
+		const float* HxP = Hx.ptr<float>(i);
+
+		centerP2 = Point(HxP[0]/HxP[2], HxP[1]/HxP[2]);
+		color = inliers[i] ? &colorHxIN : &colorHxOUT;
+		if(inliers[i])
+			circle(img2, centerP2, 2, *color, 2, CV_AA);
+	}
+}
+
+int main(int argc, char** argv)
 {
 	srand(time(NULL));								//initialize random seed
 
-	Mat image, image1, image2;
-	/*string fnameI1 = "img/benevolentAnnika.jpg";
-	string fnameI2 = "img/benevolentAnnikaRot.jpg";*/
-	/*string fnameI1 = "img/puregeometryRomanowsky.png";
-	string fnameI2 = "img/puregeometryRomanowskyPersp.png";*/
-	string fnameI1 = "img/foto1.jpg";
-		string fnameI2 = "img/foto2.jpg";
+	Mat image1, image2;
+	string fnameI1, fnameI2, file;
+	float thrs;
 
-	image1 = imread(fnameI1, CV_LOAD_IMAGE_COLOR);	// Read the file
-	image2 = imread(fnameI2, CV_LOAD_IMAGE_COLOR);	// Read the file
+	if (argc != 5)
+		{
+			fnameI1 = "img/benevolentAnnika.jpg";
+			fnameI2 = "img/benevolentAnnikaRot.jpg";
+			file = "correspondences1.txt";
+			thrs = 0.35f;
 
-	if (!image1.data || !image2.data)                 // Check for invalid input
-	{
-		cout << "Could not open or find the image" << std::endl;
-		return -1;
-	}
+			printf("Usage: Ransac PathImg1 PathImg2 PathCorrespondencesFile threshold\n");
+			printf(" Setting default to: Ransac img/benevolentAnnika.jpg img/benevolentAnnikaRot.jpg correspondences1.txt 0.35f\n");
+		}
+		else
+		{
+			fnameI1 = argv[1];
+			fnameI2 = argv[2];
+			file = argv[3];
+			thrs = atof(argv[4]);
+
+			printf(" Loaded: Ransac %s %s %s %f\n", fnameI1.c_str(), fnameI2.c_str(), file.c_str(), thrs);
+		}
+
+	loadImages(fnameI1, fnameI2, image1, image2);
 
 	Mat x, xp;
-	loadCorrespondences(x, xp);
+	loadCorrespondences(file, x, xp);
 
-	bool inliers[x.rows];
 	Mat H(3,3,CV_32F);
-	RANSAC(H, inliers, x, xp);
+	bool inliers[x.rows];
+	RANSAC(H, inliers, x, xp, thrs);
+	//Mat xdlt = x.clone(), xpdlt = xp.clone(); getModel(H, xdlt, xpdlt);
 
 	Mat bigimg;
-	plot(image1, x, image2, xp, inliers, bigimg);
-	createDisplayImg("Plot", bigimg);
+	draw(image1, x, image2, xp, inliers, bigimg);
+	createDisplayImg("Outliers", bigimg);
 
-	/*Mat T, Tp;
-	normalize(x, T);
-	normalize(xp, Tp);
+	Mat Hx = H * x.t();
+	Hx = Hx.t();
+	draw(image2, Hx, xp, inliers);
+	createDisplayImg("Proyection Hx,Xp", image2);
 
-	Mat Hn, H;
-	dlt(Hn, x, xp);
+	Mat HiXp = H.inv() * xp.t();
+	HiXp = HiXp.t();
+	draw(image1, HiXp, x, inliers);
+	createDisplayImg("Proyection inv(H)Xp,X", image1);
 
-	denormalize(H, Hn, Tp, T);
+	/*imwrite( "../../doc/figs/DLT.png", bigimg );
+	imwrite( "../../doc/figs/DLT1.png", image2 );
+	imwrite( "../../doc/figs/DLT2.png", image1 );*/
 
-	cout<<endl<<"************ BEGIN"<<endl;
-	cout<<H;
-	cout<<endl<<"************ END"<<endl;
-	 */
 	waitKey(0);
 	return 0;
 }
-
-/*	Mat T = (Mat_<float>(3,3) <<  2, 1, 8,
-						  	  	  5, 9, 5,
-						  	  	  0, -2, 9);
-	SVD svd(T);
-	cout<<"u: "<<svd.u<<endl;
-	cout<<"w: "<<svd.w<<endl;
-	cout<<"vt: "<<svd.vt<<endl;
-*/
