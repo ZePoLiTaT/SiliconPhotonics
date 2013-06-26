@@ -1,0 +1,7 @@
+@BOOKLET{BilinearWiki,
+author = {Wikipedia},
+title = {Bilinear interpolation},
+month = Marzo,
+howpublished = "\url{http://en.wikipedia.org/wiki/Bilinear_interpolation}",
+note = "[Online; accessed Mar-2013]"
+}

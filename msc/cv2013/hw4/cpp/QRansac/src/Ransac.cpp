@@ -14,7 +14,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-
+#define EPSILON 1e-6						//Colinearity check epsilon
 #define REQn	5							//Number of points required to calculate the H
 #define Meps	0.22f						//desired epsilon
 #define P		0.99f						//Desired probability of not finding an outiler
@@ -23,6 +23,10 @@
 using namespace std;
 using namespace cv;
 
+////////////////////////// UNIT TESTS ////////////////////////////
+void colinearityTest();
+
+////////////////////////// UTILITIES /////////////////////////////
 inline void printMat(Mat &m)
 {
 	cout<<"-----------------"<<endl;
@@ -50,6 +54,7 @@ inline void createDisplayImg(string name, const Mat& image1, const Mat& image2, 
 
 	createDisplayImg(name, dst);
 }
+/////////////////////////////////////////////////////////////////////////
 
 bool loadImages(string fnameI1, string fnameI2, Mat &image1, Mat &image2)
 {
@@ -58,19 +63,25 @@ bool loadImages(string fnameI1, string fnameI2, Mat &image1, Mat &image2)
 
 	if (!image1.data || !image2.data)                 	// Check for invalid input
 	{
-		cout << "Could not open or find the image" << std::endl;
+		cout << "Could not open or find the image" << endl;
 		return false;
 	}
 
 	return true;
 }
 
-void loadCorrespondences(string fname, Mat &x, Mat &xp)
+bool loadCorrespondences(string fname, Mat &x, Mat &xp)
 {
 	int N;
 	float p1x, p1y, p2x, p2y;
 
 	FILE *file = fopen(fname.c_str(),"r");
+	if (file == NULL)
+	{
+		cout << "Could not open correspondences file" << endl;
+		return false;
+	}
+
 
 	fscanf(file, "%d\n", &N);
 
@@ -93,6 +104,7 @@ void loadCorrespondences(string fname, Mat &x, Mat &xp)
 	};
 
 	fclose (file);
+	return true;
 }
 
 void getcentroid(const Mat &x, Mat &T)
@@ -211,6 +223,35 @@ void dlt(Mat &H, const Mat &x,const  Mat &xp)
 	H = lastVt.reshape(lastVt.channels(), 3);
 }
 
+bool colineality(Mat &pts)
+{
+	int valIndx = pts.rows;
+	float val;
+	Mat p1, p2, p3, l, tmp;
+
+	for(int i=0; i<valIndx; i++)
+	{
+		for(int j=i+1; j<valIndx; j++)
+		{
+			for(int k=j+1; k<valIndx; k++)
+			{
+				p1 = pts(Rect(0, i, 3, 1));	//Get the points to validate
+				p2 = pts(Rect(0, j, 3, 1));
+				p3 = pts(Rect(0, k ,3, 1));
+
+				l = p1.t().cross(p2.t());				//Get the line formed by p1 and p2
+				tmp = p3 * l;		//If p3 is on the line, this result will be close to 0
+				val = tmp.at<float>(0, 0);
+
+				if (abs(val) < EPSILON)
+					return true;
+			}
+		}
+	}
+
+	return false;
+}
+
 void randomPerm(int N, int n, int* idx)
 {
 	bool found[N];
@@ -232,25 +273,32 @@ void randomSample(Mat &xsa, Mat &xpsa, const Mat &x, const Mat &xp)
 
 	int pos;
 	int sampleIdx[REQn];
-	randomPerm(x.rows, REQn, sampleIdx);
+	bool arecolinear;
 
-	for(int i=0; i<REQn; i++)
+	do
 	{
-		pos = sampleIdx[i];
+		randomPerm(x.rows, REQn, sampleIdx);			//Get 5 random points without repeating
 
-		float *xsaP = xsa.ptr<float>(i);
-		float *xpsaP = xpsa.ptr<float>(i);
-		const float *xP = x.ptr<float>(pos);
-		const float *xpP = xp.ptr<float>(pos);
+		for(int i=0; i<REQn; i++)						//Extract the data
+		{
+			pos = sampleIdx[i];
 
-		xsaP[0] = xP[0];
-		xsaP[1] = xP[1];
-		xsaP[2] = xP[2];
+			float *xsaP = xsa.ptr<float>(i);
+			float *xpsaP = xpsa.ptr<float>(i);
+			const float *xP = x.ptr<float>(pos);
+			const float *xpP = xp.ptr<float>(pos);
 
-		xpsaP[0] = xpP[0];
-		xpsaP[1] = xpP[1];
-		xpsaP[2] = xpP[2];
-	}
+			xsaP[0] = xP[0];
+			xsaP[1] = xP[1];
+			xsaP[2] = xP[2];
+
+			xpsaP[0] = xpP[0];
+			xpsaP[1] = xpP[1];
+			xpsaP[2] = xpP[2];
+		}
+
+		arecolinear = colineality(xsa);
+	}while(arecolinear);
 }
 
 void getModel(Mat &H, Mat &x, Mat &xp)
@@ -499,10 +547,12 @@ int main(int argc, char** argv)
 			printf(" Loaded: Ransac %s %s %s %f\n", fnameI1.c_str(), fnameI2.c_str(), file.c_str(), thrs);
 		}
 
-	loadImages(fnameI1, fnameI2, image1, image2);
+	if( !loadImages(fnameI1, fnameI2, image1, image2) )
+		return -1;
 
 	Mat x, xp;
-	loadCorrespondences(file, x, xp);
+	if( !loadCorrespondences(file, x, xp))
+		return -1;
 
 	Mat H(3,3,CV_32F);
 	bool inliers[x.rows];
@@ -523,10 +573,22 @@ int main(int argc, char** argv)
 	draw(image1, HiXp, x, inliers);
 	createDisplayImg("Proyection inv(H)Xp,X", image1);
 
+	waitKey(0);
+
 	/*imwrite( "../../doc/figs/DLT.png", bigimg );
 	imwrite( "../../doc/figs/DLT1.png", image2 );
 	imwrite( "../../doc/figs/DLT2.png", image1 );*/
 
-	waitKey(0);
 	return 0;
 }
+
+////////////////////////// UNIT TESTS ////////////////////////////
+void colinearityTest()
+{
+	Mat test = (Mat_<float >(4,3) << 0.0f, 1.0f, 1.0f,
+									 1.0f, -5.0f,1.0f,
+									 0.0f, 2.0f, 1.0f,
+									 0.0f, -3.0f, 1.0f);
+	assert(colineality(test));
+}
+//////////////////////////////////////////////////////////////////
